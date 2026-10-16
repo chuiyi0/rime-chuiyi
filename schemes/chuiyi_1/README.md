@@ -18,4 +18,4 @@
 
 项目地址：[https://github.com/chuiyi0/rime-chuiyi](https://github.com/chuiyi0/rime-chuiyi)
 
-[安装说明](INSTALL.md) · [来源声明](NOTICE.md)
+[使用教程与编码表](TUTORIAL.md) · [安装说明](INSTALL.md) · [来源声明](NOTICE.md)
