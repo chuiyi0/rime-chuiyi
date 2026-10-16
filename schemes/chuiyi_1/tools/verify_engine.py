@@ -7,6 +7,7 @@ import os
 import re
 import shutil
 from pathlib import Path
+from encoding import code as expected_code
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -67,7 +68,22 @@ def main():
             fields=line.split('\t')
             if len(fields)==3 and fields[0] in {'计算机','输入法','中华人民共和国','图书馆','数据库'}:
                 cases.append((fields[0],fields[1]))
+        cases += [('前','qian2'),('绿','lv4'),('妈妈','ma1 ma5')]
         checks=[]
+        def candidate_rank(code,word):
+            fn('clear_composition',None,C.c_size_t)(sid)
+            for key in code:
+                fn('process_key',C.c_int,C.c_size_t,C.c_int,C.c_int)(sid,ord(key),0)
+            it=Iterator(); rank=None
+            if fn('candidate_list_begin',C.c_int,C.c_size_t,C.POINTER(Iterator))(sid,C.byref(it)):
+                n=0
+                while fn('candidate_list_next',C.c_int,C.POINTER(Iterator))(C.byref(it)):
+                    n+=1
+                    if (it.candidate.text or b'').decode('utf-8')==word:
+                        rank=n; break
+                    assert n<10000
+                fn('candidate_list_end',None,C.POINTER(Iterator))(C.byref(it))
+            return rank
         for word,phones in dict.fromkeys(cases):
             fn('clear_composition',None,C.c_size_t)(sid)
             code=''.join(mapping[p] for p in phones.split())
@@ -83,13 +99,28 @@ def main():
                     assert n<10000
                 fn('candidate_list_end',None,C.POINTER(Iterator))(C.byref(it))
             checks.append({'word':word,'phones':phones,'code':code,'passed':found,'rank':rank})
+        for word,phone in [('吗','ma5'),('呢','ne5')]:
+            for tone in ['1','4']:
+                spelling = mapping[phone[:-1]+tone]
+                rank = candidate_rank(spelling,word)
+                checks.append({'word':word,'code':spelling,'neutral_alias':tone,'passed':rank is not None,'rank':rank})
+        checks.append({'word':'前','code':'go','expected':'absent','passed':candidate_rank('go','前') is None})
+        mapping_checks = {p: value==expected_code(p) for p,value in mapping.items()}
+        assert len(mapping_checks)==2040 and all(mapping_checks.values())
+        expected={'jian1':'jj','jian2':'jj','jian3':'jm','jian4':'jm','qian2':'qj',
+                  'xian2':'xj','yan2':'yj','zhi1':'vi','zhi4':'vp','chi1':'ii','shi1':'ui',
+                  'lv1':'fi','lv4':'fp','guan1':'gd','guang1':'gn','gui1':'gv'}
+        assert all(mapping[p]==value for p,value in expected.items())
+        assert "- 'derive/5$/1/'" in (generated/'chuiyi_1.schema.yaml').read_text(encoding='utf-8')
         fn('destroy_session',C.c_int,C.c_size_t)(sid)
         report={'method':'Local Rime engine; isolated compilation and user data; no installed scheme changes',
-                'checks':checks,'passed':sum(c['passed'] for c in checks),'total':len(checks),
+                'checks':checks,'passed':sum(c['passed'] for c in checks),'total':len(checks),'mapping_checks':len(mapping_checks),
                 'inputs':{n:hashlib.sha256((generated/n).read_bytes()).hexdigest() for n in
                           ['chuiyi_1.schema.yaml','chuiyi_1.dict.yaml','chuiyi_dicts/chars.dict.yaml','chuiyi_dicts/base.dict.yaml']}}
         (generated/'engine-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-        print(json.dumps(report,ensure_ascii=False))
+        print(json.dumps({k:report[k] for k in ['passed','total','mapping_checks']},ensure_ascii=False))
+        if report['passed']!=report['total']:
+            print(json.dumps([c for c in checks if not c['passed']],ensure_ascii=False))
         assert report['passed']==report['total'], 'Some input checks failed'
     finally:
         fn('finalize',None)()

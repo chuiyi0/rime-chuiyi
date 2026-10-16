@@ -1,10 +1,9 @@
 # 吹衣方案一：主词典
 ---
 name: chuiyi_1
-version: "0.4.0-dev"
+version: "0.5.0-dev"
 sort: by_weight
 import_tables:
   - chuiyi_dicts/chars
   - chuiyi_dicts/base
-# 后续可在此添加使用吹衣带调拼音格式的扩展词典。
 ...

@@ -6,6 +6,8 @@
 - 词组注音参考：[phrase-pinyin-data](https://github.com/mozillazg/phrase-pinyin-data)。
 - 词库整理与程序实现由GPT协助完成。
 
+2026-10-17：按作者新表更新编码；轻声兼容一声、四声编码。单字读音以雾凇已有拼音为范围，词频沿用来源。
+
 本项目采用GPL-3.0，详见仓库根目录的 [LICENSE](../../LICENSE)。欢迎使用、修改和传播，请保留作者署名、来源和适用许可。
 
 上游许可证原文见 [LICENSES](../../LICENSES/README.md)，完整项目声明见 [NOTICE](../../NOTICE.md)。第三方材料仍遵循各自许可。

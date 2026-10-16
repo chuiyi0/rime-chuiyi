@@ -1,4 +1,4 @@
-"""Build from local Rime Ice and pinyin data; preserve readings without regional filters."""
+"""Build from local Ice pinyin and frequencies, with author-confirmed encoding."""
 import argparse
 import hashlib
 import json
@@ -6,6 +6,7 @@ import re
 import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
+from encoding import update_schema
 
 ROOT = Path(__file__).resolve().parent.parent
 MARKS = {'\u0304':'1','\u0301':'2','\u030c':'3','\u0300':'4'}
@@ -32,7 +33,7 @@ def main():
     ap.add_argument('--sources', type=Path, default=ROOT/'sources/upstream')
     ap.add_argument('--output', type=Path, default=ROOT/'generated')
     args = ap.parse_args()
-    schema = (ROOT/'chuiyi_1.schema.yaml').read_text(encoding='utf-8')
+    schema = update_schema((ROOT/'chuiyi_1.schema.yaml').read_text(encoding='utf-8'))
     mapping = dict(re.findall(r"(?m)^\s*-\s*'xform/\^([a-z]+[1-5])\$/([a-z]{2})/'\s*$", schema))
     assert len(mapping) == 2040
     paths = {n:args.sources/n for n in ['8105.dict.yaml','base.dict.yaml','pinyin.txt','large_pinyin.txt','kTGHZ2013.txt','kMandarin_8105.txt']}
@@ -67,17 +68,16 @@ def main():
             counts[reason] += 1
         entries[key] = max(wt, entries.get(key, 0))
 
-    # Preserve previous entries; use the exact Ice row's weight when available.
+    # Retain phrase history; restrict standalone readings to Ice plain pinyin.
     body = baseline.read_text(encoding='utf-8-sig').split('\n...\n',1)[1]
     for line in body.splitlines():
         w,p,wt = line.split('\t')
         plain = ' '.join(x[:-1] for x in p.split())
+        if len(w)==1 and (w,plain) not in weights:
+            counts['filtered_baseline_single_readings'] += 1
+            continue
         add(w, tuple(p.split()), weights.get((w,plain),int(wt)), 'baseline_rows')
-    # All sourced single readings are eligible; no regional/old/neutral exclusions.
-    char_weights = {}
-    for (w,p),wt in weights.items():
-        if len(w) == 1:
-            char_weights[w] = max(wt,char_weights.get(w,0))
+    # Supplement tones only for spellings present in the Ice character table.
     single_readings = defaultdict(set)
     for line in paths['pinyin.txt'].read_text(encoding='utf-8-sig').splitlines():
         m = re.match(r'^U\+([0-9A-Fa-f]+):\s*([^#]+)',line)
@@ -91,7 +91,8 @@ def main():
         if w in chars:
             for raw in m[2].strip().split(','):
                 phone = numeric(raw)
-                add(w,(phone,),weights.get((w,phone[:-1]),char_weights[w]),'single_source_additions')
+                if (w,phone[:-1]) in weights:
+                    add(w,(phone,),weights[w,phone[:-1]],'single_source_additions')
     preferred = []
     for name in ['kTGHZ2013.txt','kMandarin_8105.txt']:
         data = defaultdict(set)
@@ -154,7 +155,9 @@ def main():
     assert entries['不是','bu2 shi4'] == entries['不是','bu4 shi4'] == weights['不是','bu shi']
     assert ('不','bu2') in entries and ('一','yi2') in entries
     assert all((w,p) in entries for w,p,wt in
-               (line.split('\t') for line in body.splitlines()))
+               (line.split('\t') for line in body.splitlines()) if len(w)>1)
+    assert ('前','qian2') in entries and ('前','jian3') not in entries
+    assert all((w,p[:-1]) in weights for w,p in entries if len(w)==1)
     assert all(entries[k] >= 0 for k in entries)
     args.output.mkdir(parents=True,exist_ok=True)
     tables_dir = args.output/'chuiyi_dicts'
@@ -163,7 +166,7 @@ def main():
     reconstructed = {}
     for table in ['chars','base']:
         selected = {key:wt for key,wt in entries.items() if (len(key[0]) == 1) == (table == 'chars')}
-        header = f'# 雾凇词频基础；来源见 NOTICE.md\n---\nname: chuiyi_dicts/{table}\nversion: "0.4.0-dev"\nsort: by_weight\n...\n'
+        header = f'# 雾凇词频基础；来源见 NOTICE.md\n---\nname: chuiyi_dicts/{table}\nversion: "0.5.0-dev"\nsort: by_weight\n...\n'
         path = tables_dir/f'{table}.dict.yaml'
         path.write_text(header+''.join(f'{w}\t{p}\t{wt}\n' for (w,p),wt in sorted(selected.items())),encoding='utf-8')
         for row in path.read_text(encoding='utf-8').split('\n...\n',1)[1].splitlines():
@@ -172,16 +175,16 @@ def main():
             reconstructed[w,p] = int(wt)
         table_counts[table] = len(selected)
     assert reconstructed == entries, 'Split tables differ from generated dictionary'
-    main_dict = '# 吹衣方案一：主词典\n---\nname: chuiyi_1\nversion: "0.4.0-dev"\nsort: by_weight\nimport_tables:\n  - chuiyi_dicts/chars\n  - chuiyi_dicts/base\n# 后续可在此添加使用吹衣带调拼音格式的扩展词典。\n...\n'
+    main_dict = '# 吹衣方案一：主词典\n---\nname: chuiyi_1\nversion: "0.5.0-dev"\nsort: by_weight\nimport_tables:\n  - chuiyi_dicts/chars\n  - chuiyi_dicts/base\n...\n'
     (args.output/'chuiyi_1.dict.yaml').write_text(main_dict,encoding='utf-8')
-    new_schema = schema.replace('version: "0.3.6"','version: "0.4.0-dev"')
+    new_schema = schema
     (args.output/'chuiyi_1.schema.yaml').write_text(new_schema,encoding='utf-8')
     (args.output/'unresolved.tsv').write_text('词语\t原拼音\t词频\n'+'\n'.join(unresolved)+'\n',encoding='utf-8-sig')
-    report = {'version':'0.4.0-dev','input_sha256':hashes,'counts':dict(counts),
+    report = {'version':'0.5.0-dev','input_sha256':hashes,'counts':dict(counts),
               'entries':len(entries),'tables':table_counts,'split_roundtrip_verified':True,'unresolved_ice_phrase_rows':len(unresolved),
               'unresolved_reasons':dict(unresolved_reasons),
               'unmapped_syllables':sorted(missing),
-              'policy':'Whole phrase source first; otherwise unique character tones under Ice plain pinyin, with kTGHZ2013 then unflagged kMandarin common readings to resolve ambiguity; retain all standalone sourced readings; add yi/bu citation counterparts.',
+              'policy':'Single readings must match Ice plain pinyin; phrase readings use whole source or common-tone inference; preserve phrase sandhi and citation counterparts. Neutral tone accepts tone-1 and tone-4 codes.',
               'not_installed':True}
     (args.output/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:report[k] for k in ['entries','counts','unresolved_ice_phrase_rows','unmapped_syllables']},ensure_ascii=False,indent=2))
