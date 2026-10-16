@@ -20,7 +20,7 @@
 
 项目地址：[https://github.com/chuiyi0/rime-chuiyi](https://github.com/chuiyi0/rime-chuiyi)
 
-[使用教程与完整编码表](schemes/chuiyi_1/TUTORIAL.md) · [安装说明](schemes/chuiyi_1/INSTALL.md)
+[使用教程与完整编码表](schemes/chuiyi_1/TUTORIAL.md) · [安装说明](schemes/chuiyi_1/INSTALL.md) · [双字词无声调重码统计](schemes/chuiyi_1/TONE_COLLISION_STATS.md)
 
 ## 输入方案
 
