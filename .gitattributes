@@ -1,0 +1,2 @@
+# Preserve frozen source bytes: builds verify their SHA256 hashes.
+**/sources/** -text

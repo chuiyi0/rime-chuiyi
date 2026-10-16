@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+**/generated/
+**/local-validation/
+**/build-report.json
+**/build/
+*.userdb/
+*.userdb.*
+*.log
+dist/
