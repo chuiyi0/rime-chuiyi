@@ -44,3 +44,4 @@ jobs:
               --title "吹衣带调拼音 1.0-dev（开发版）" \
               --prerelease \
               --notes "这是完整的 Rime 安装 ZIP，内含方案 YAML 和已生成的词库，无须用户运行 Python。请先备份 Rime 配置，安装步骤见仓库 README 与 schemes/chuiyi_pinyin/INSTALL.md。Windows/Android 的实际键盘输入兼容性仍需更多测试。"
+          fi
