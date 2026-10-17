@@ -68,18 +68,9 @@ def main():
             counts[reason] += 1
         entries[key] = max(wt, entries.get(key, 0))
 
-    # Retain phrase history; restrict standalone readings to Ice plain pinyin.
-    body = baseline.read_text(encoding='utf-8-sig').split('\n...\n',1)[1]
-    for line in body.splitlines():
-        w,p,wt = line.split('\t')
-        plain = ' '.join(x[:-1] for x in p.split())
-        if len(w)==1 and (w,plain) not in weights:
-            counts['filtered_baseline_single_readings'] += 1
-            continue
-        add(w, tuple(p.split()), weights.get((w,plain),int(wt)), 'baseline_rows')
-    # Prefer standard character readings when either pronunciation source covers a character.
-    # pinyin-data includes broad variants (including unmarked/rare readings); adding every
-    # variant as a standalone character can create false candidates such as 家 under jx.
+    # Load preferred single-character pronunciations before accepting baseline or
+    # pinyin-data character rows. Mainland Mandarin is primary; Taiwan readings are
+    # fallback only for characters absent from kMandarin_8105.
     preferred = []
     for name in ['kTGHZ2013.txt','kMandarin_8105.txt']:
         data = defaultdict(set)
@@ -93,14 +84,28 @@ def main():
                         data[char,phone[:-1]].add(phone)
         preferred.append(data)
     preferred_by_char = defaultdict(set)
-    # Prefer mainland Mandarin (kMandarin_8105); use the Taiwan source only
-    # for characters not covered there. This avoids treating an unmarked
-    # secondary spelling such as 家's "jia" as an extra neutral-tone reading.
     for (char, _plain), phones in preferred[1].items():
         preferred_by_char[char].update(phones)
     for (char, _plain), phones in preferred[0].items():
         if char not in preferred_by_char:
             preferred_by_char[char].update(phones)
+
+    # Retain phrase history; restrict standalone readings to Ice plain pinyin and
+    # to the preferred pronunciation set when an authoritative source covers a char.
+    body = baseline.read_text(encoding='utf-8-sig').split('\n...\n',1)[1]
+    for line in body.splitlines():
+        w,p,wt = line.split('\t')
+        plain = ' '.join(x[:-1] for x in p.split())
+        if len(w) == 1:
+            if (w,plain) not in weights:
+                counts['filtered_baseline_single_readings'] += 1
+                continue
+            authoritative = preferred_by_char.get(w, set())
+            phones = tuple(p.split())
+            if authoritative and (len(phones) != 1 or phones[0] not in authoritative):
+                counts['filtered_baseline_single_readings'] += 1
+                continue
+        add(w, tuple(p.split()), weights.get((w,plain),int(wt)), 'baseline_rows')
 
     # Supplement readings from pinyin-data only when they agree with authoritative
     # character sources, or when neither source has a reading for that character.
