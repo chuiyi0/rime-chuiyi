@@ -77,34 +77,47 @@ def main():
             counts['filtered_baseline_single_readings'] += 1
             continue
         add(w, tuple(p.split()), weights.get((w,plain),int(wt)), 'baseline_rows')
-    # Supplement tones only for spellings present in the Ice character table.
-    single_readings = defaultdict(set)
-    for line in paths['pinyin.txt'].read_text(encoding='utf-8-sig').splitlines():
-        m = re.match(r'^U\+([0-9A-Fa-f]+):\s*([^#]+)',line)
-        if not m:
-            continue
-        w = chr(int(m[1],16))
-        for raw in m[2].strip().split(','):
-            phone = numeric(raw)
-            if phone in mapping:
-                single_readings[w,phone[:-1]].add(phone)
-        if w in chars:
-            for raw in m[2].strip().split(','):
-                phone = numeric(raw)
-                if (w,phone[:-1]) in weights:
-                    add(w,(phone,),weights[w,phone[:-1]],'single_source_additions')
+    # Prefer standard character readings when either pronunciation source covers a character.
+    # pinyin-data includes broad variants (including unmarked/rare readings); adding every
+    # variant as a standalone character can create false candidates such as 家 under jx.
     preferred = []
     for name in ['kTGHZ2013.txt','kMandarin_8105.txt']:
         data = defaultdict(set)
         for line in paths[name].read_text(encoding='utf-8-sig').splitlines():
-            m = re.match(r'^U\+([0-9A-Fa-f]+):\s*([^#]+)',line)
+            m = re.match(r'^U\\+([0-9A-Fa-f]+):\\s*([^#]+)',line)
             if m and not any(mark in m[2] for mark in ['?', '->', '<-']):
                 char = chr(int(m[1],16))
-                for raw in re.split(r'[,，\s]+',m[2].strip()):
+                for raw in re.split(r'[,，\\s]+',m[2].strip()):
                     phone = numeric(raw)
                     if phone in mapping:
                         data[char,phone[:-1]].add(phone)
         preferred.append(data)
+    preferred_by_char = defaultdict(set)
+    for data in preferred:
+        for (char, _plain), phones in data.items():
+            preferred_by_char[char].update(phones)
+
+    # Supplement readings from pinyin-data only when they agree with authoritative
+    # character sources, or when neither source has a reading for that character.
+    single_readings = defaultdict(set)
+    for line in paths['pinyin.txt'].read_text(encoding='utf-8-sig').splitlines():
+        m = re.match(r'^U\\+([0-9A-Fa-f]+):\\s*([^#]+)',line)
+        if not m:
+            continue
+        w = chr(int(m[1],16))
+        candidates = set()
+        for raw in m[2].strip().split(','):
+            phone = numeric(raw)
+            if phone in mapping:
+                candidates.add(phone)
+        authoritative = preferred_by_char.get(w, set())
+        for phone in sorted(candidates):
+            if authoritative and phone not in authoritative:
+                continue
+            key = (w, phone[:-1])
+            single_readings[key].add(phone)
+            if w in chars and key in weights:
+                add(w,(phone,),weights[key],'single_source_additions')
     unresolved = []
     unresolved_reasons = Counter()
     for (w,plain),wt in weights.items():
@@ -184,7 +197,7 @@ def main():
               'entries':len(entries),'tables':table_counts,'split_roundtrip_verified':True,'unresolved_ice_phrase_rows':len(unresolved),
               'unresolved_reasons':dict(unresolved_reasons),
               'unmapped_syllables':sorted(missing),
-              'policy':'Single readings must match Ice plain pinyin; phrase readings use whole source or common-tone inference; preserve phrase sandhi and citation counterparts. Neutral tone accepts tone-1 and tone-4 codes.',
+              'policy':'Single-character readings prefer kTGHZ2013/kMandarin_8105 when available, with pinyin-data as fallback; phrase readings use whole source or common-tone inference; preserve phrase sandhi and citation counterparts. Neutral tone accepts tone-1 and tone-4 codes.',
               'not_installed':True}
     (args.output/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:report[k] for k in ['entries','counts','unresolved_ice_phrase_rows','unmapped_syllables']},ensure_ascii=False,indent=2))
