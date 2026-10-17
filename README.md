@@ -29,6 +29,7 @@
 | 方案 | 文件及说明 |
 | --- | --- |
 | 吹衣带调双拼（方案一） | [介绍与安装](schemes/chuiyi_1/README.md) |
+| 吹衣方案一（并击实验） | [并击规则、示例与兼容性](schemes/chuiyi_1/CHORD_EXPERIMENT.md)；[实验 schema](schemes/chuiyi_1/chuiyi_1_chord.schema.yaml) |
 
 每个方案放在独立目录，以后可继续添加其他方案。安装时只复制所选方案所需的文件。
 
