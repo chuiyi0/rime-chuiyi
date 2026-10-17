@@ -84,10 +84,10 @@ def main():
     for name in ['kTGHZ2013.txt','kMandarin_8105.txt']:
         data = defaultdict(set)
         for line in paths[name].read_text(encoding='utf-8-sig').splitlines():
-            m = re.match(r'^U\\+([0-9A-Fa-f]+):\\s*([^#]+)',line)
+            m = re.match(r'^U\+([0-9A-Fa-f]+):\s*([^#]+)',line)
             if m and not any(mark in m[2] for mark in ['?', '->', '<-']):
                 char = chr(int(m[1],16))
-                for raw in re.split(r'[,，\\s]+',m[2].strip()):
+                for raw in re.split(r'[,，\s]+',m[2].strip()):
                     phone = numeric(raw)
                     if phone in mapping:
                         data[char,phone[:-1]].add(phone)
@@ -101,7 +101,7 @@ def main():
     # character sources, or when neither source has a reading for that character.
     single_readings = defaultdict(set)
     for line in paths['pinyin.txt'].read_text(encoding='utf-8-sig').splitlines():
-        m = re.match(r'^U\\+([0-9A-Fa-f]+):\\s*([^#]+)',line)
+        m = re.match(r'^U\+([0-9A-Fa-f]+):\s*([^#]+)',line)
         if not m:
             continue
         w = chr(int(m[1],16))
