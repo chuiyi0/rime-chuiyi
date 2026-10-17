@@ -26,7 +26,7 @@
 
 ## 新版开发方案
 
-[吹衣带调拼音 1.0-dev](schemes/chuiyi_pinyin/README.md)：新的编码矩阵、123/4 等分组及重复汉字轻声兼容码。独立安装，保留旧方案。实机验证状态见新版测试说明。
+[吹衣带调拼音 1.0-dev](schemes/chuiyi_pinyin/README.md) · [新用户介绍与教程](schemes/chuiyi_pinyin/TUTORIAL.md)：新的编码矩阵、123/4 等分组及重复汉字轻声兼容码。独立安装，保留旧方案。实机验证状态见新版测试说明。
 
 ## 输入方案
 
