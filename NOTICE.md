@@ -10,4 +10,6 @@
 
 上游许可证见 `LICENSES/`。原始词库文件头保留其详细来源。拼音汇总资料还涉及Unihan、汉典、CC-CEDICT等来源；上游仓库的MIT声明不取代这些来源的适用声明。当前仍需补齐相关数据声明，尚不能把本页当作全部来源许可均已核清的结论。
 
-2026-10-17更新：方案一采用作者确认的新声调分组，轻声兼容一声、四声编码；单字读音限于雾凇已有无调拼音范围。
+当前 `chuiyi_pinyin` 方案继承 `archive/chuiyi_1/chuiyi_dicts/` 的单字、基础词库及原词频，按新矩阵映射编码，并增加重复字轻声的词组兼容读法。输入文件 SHA-256 见 `schemes/chuiyi_pinyin/validation.json`。未接入雾凇 ext/tencent 扩展词库。
+
+旧版 `chuiyi_1` 的编码、轻声兼容规则及生成来源保留在 `archive/chuiyi_1/`。

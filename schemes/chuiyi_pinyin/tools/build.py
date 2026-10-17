@@ -1,10 +1,10 @@
 """Reproducible build from checked-in scheme-one dictionaries; never touches it."""
-import csv,hashlib,json,re,shutil,zipfile
+import csv,hashlib,json,re,zipfile
 from collections import defaultdict
 from pathlib import Path
 from encoding import MATRIX,COLUMNS,code,repeated_alias
 ROOT=Path(__file__).resolve().parents[1]
-OLD=ROOT.parent/'chuiyi_1'
+OLD=ROOT.parents[1]/'archive/chuiyi_1'
 VERSION='1.0-dev'
 
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
@@ -67,15 +67,19 @@ def main():
     assert repeated_alias('我们',('wo3','men5'))==('wo3','men5')
     repeat_results={w:[{'phones':p,'code':''.join(mapping[x] for x in p.split())} for p in words.get(w,[])] for w in ['爸爸','妈妈','妹妹','我们']}
     for w,p in [('爸爸','ba4 ba4'),('妈妈','ma1 ma1'),('妹妹','mei4 mei4')]:assert (w,p) in all_entries,(w,p)
-    report={'version':VERSION,'syllables':len(MATRIX),'phone_mappings':len(mapping),'dictionary_rows':total,'repeat_aliases_added':aliases,'source_sha256':hashes,'omitted_rows':omitted,'cross_syllable_collisions':collisions,'repeat_examples':repeat_results,'mapping_assertions':len(checks),'engine_test_report':'engine-verification.json (when present; verify input hashes)','source_unchanged':all(sha(p)==hashes[str(p.relative_to(ROOT.parents[1]))] for p in inputs)}
+    report={'version':VERSION,'syllables':len(MATRIX),'phone_mappings':len(mapping),'dictionary_rows':total,'repeat_aliases_added':aliases,'source_sha256':hashes,'omitted_rows':omitted,'cross_syllable_collisions':collisions,'repeat_examples':repeat_results,'mapping_assertions':len(checks),'engine_test_report':'docs/testing/engine-verification.json (verify input hashes)','source_unchanged':all(sha(p)==hashes[str(p.relative_to(ROOT.parents[1]))] for p in inputs)}
     (ROOT/'validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     dist=ROOT.parents[1]/'dist';dist.mkdir(exist_ok=True)
     with zipfile.ZipFile(dist/'chuiyi_pinyin-1.0-dev.zip','w',zipfile.ZIP_DEFLATED) as z:
-        for p in sorted(ROOT.rglob('*')):
-            if p.is_file() and '__pycache__' not in str(p) and 'local-validation' not in str(p):z.write(p,p.relative_to(ROOT))
+        for name in ['chuiyi_pinyin.schema.yaml','chuiyi_pinyin.dict.yaml','INSTALL.md']:
+            z.write(ROOT/name,name)
+        for name in ['chars.dict.yaml','base.dict.yaml']:
+            p=target/name
+            z.write(p,p.relative_to(ROOT))
         for name in ['LICENSE','NOTICE.md']:
-            z.write(ROOT.parents[1]/name,'licenses/'+name)
-        for p in (ROOT.parents[1]/'LICENSES').glob('*'):z.write(p,'LICENSES/'+p.name)
+            z.write(ROOT.parents[1]/name,name)
+        for p in sorted((ROOT.parents[1]/'LICENSES').glob('*')):
+            if p.is_file():z.write(p,'LICENSES/'+p.name)
     print(json.dumps({k:report[k] for k in ['syllables','phone_mappings','dictionary_rows','repeat_aliases_added','mapping_assertions','source_unchanged']},ensure_ascii=False))
     print('Omitted dictionary rows:',len(omitted))
 if __name__=='__main__':main()

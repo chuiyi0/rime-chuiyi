@@ -5,9 +5,9 @@
   "dictionary_rows": 554366,
   "repeat_aliases_added": 142,
   "source_sha256": {
-    "schemes/chuiyi_1/chuiyi_1.schema.yaml": "a5b6e1e7f7be5ff900b41fcdf066a2dd8e1464c4c95b2989a561053aa9080778",
-    "schemes/chuiyi_1/chuiyi_dicts/base.dict.yaml": "4848cf4e68590eae378dbc1fef6f84e57cf04d3fc8368bce11f81b09356cfdaf",
-    "schemes/chuiyi_1/chuiyi_dicts/chars.dict.yaml": "470032273f05fdd06dc9441689a39e32a87eb4777c7f9dda0958bd53df8c31d5"
+    "archive/chuiyi_1/chuiyi_1.schema.yaml": "a5b6e1e7f7be5ff900b41fcdf066a2dd8e1464c4c95b2989a561053aa9080778",
+    "archive/chuiyi_1/chuiyi_dicts/base.dict.yaml": "4848cf4e68590eae378dbc1fef6f84e57cf04d3fc8368bce11f81b09356cfdaf",
+    "archive/chuiyi_1/chuiyi_dicts/chars.dict.yaml": "470032273f05fdd06dc9441689a39e32a87eb4777c7f9dda0958bd53df8c31d5"
   },
   "omitted_rows": [],
   "cross_syllable_collisions": {
@@ -571,6 +571,6 @@
     ]
   },
   "mapping_assertions": 27,
-  "engine_test_report": "engine-verification.json (when present; verify input hashes)",
+  "engine_test_report": "docs/testing/engine-verification.json (verify input hashes)",
   "source_unchanged": true
 }

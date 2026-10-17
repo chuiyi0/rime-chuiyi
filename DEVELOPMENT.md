@@ -1,34 +1,26 @@
-# 源码开发与打包（给开发者）
+# 开发与打包
 
-> **普通使用者不需要看本页。** 直接返回[首页](README.md)下载已生成词库的 ZIP 安装包。
-
-## 当前主推方案：吹衣带调拼音 1.0-dev
-
-仓库根目录执行（Python 3，无额外构建依赖）：
+在仓库根目录使用 Python 3 执行：
 
 ```sh
 python schemes/chuiyi_pinyin/tools/build.py
 ```
 
-成功后得到 `dist/chuiyi_pinyin-1.0-dev.zip`。本方案源码依赖已提交的旧版基础词库，但不会覆盖旧版方案。输出 ZIP 内含 `chuiyi_pinyin.schema.yaml`、`chuiyi_pinyin.dict.yaml` 与 `chuiyi_pinyin_dicts/`，可复制到 Rime 用户目录安装。
+输出为 `dist/chuiyi_pinyin-1.0-dev.zip`，包含方案、词库、安装说明和许可声明。
 
-如需更新对外下载包，仓库的 [GitHub Actions 打包发布工作流](.github/workflows/package-release.yml) 可通过 Actions → “生成并发布吹衣带调拼音安装包” → Run workflow 手动触发。发布到预发行标签 `v1.0.0-dev`；其 ZIP 是普通用户应下载的文件。
+## 文件与依赖
 
-## 旧版：吹衣方案一
+- `schemes/chuiyi_pinyin/tools/encoding.py`：当前编码矩阵和重复字轻声规则。
+- `archive/chuiyi_1/chuiyi_dicts/`：已提交的基础词库；当前方案仍以它为输入。
+- `archive/chuiyi_1/chuiyi_1.schema.yaml`：生成当前方案时使用的基础配置。
+- `mapping.tsv`、`MATRIX.md`、`validation.json` 及当前方案 YAML 由构建脚本生成；修改规则后重新构建。
 
-旧版 `chuiyi_1` 是另一套编码，请勿混装或覆盖新方案：
+旧版原始数据和工具保留在 `archive/chuiyi_1/`，用于追溯和重新生成基础词库。构建当前方案不需要运行旧版生成器。
 
-```sh
-python schemes/chuiyi_1/tools/build.py
-```
+引擎验证命令及历史结果见 [验证记录](docs/testing/README.md)。
 
-旧版原始输入与基线在 `schemes/chuiyi_1/sources/`，生成工具在 `schemes/chuiyi_1/tools/`。新方案独立文件位于 `schemes/chuiyi_pinyin/`；二者使用不同方案 ID。
+## 自动发布
 
-## 文件整理原则
+[打包工作流](.github/workflows/package-release.yml)在构建输入变更并合入 `main` 后生成 ZIP，更新 `v1.0.0-dev` 预发行版。也可以在 Actions 中手动运行“生成并发布吹衣带调拼音安装包”。
 
-- **不要手动修改自动生成的 `mapping.tsv` 和矩阵等内容后忘记同步源代码**；生成规则在 `tools/encoding.py`。
-- `docs/research/` 存研究文档，**不影响构建和输入法运行**。
-- 旧版原文件保留，避免破坏依赖和正在使用它的用户。
-- 提交到 GitHub 的源码不是完整的安装包；不要让普通用户必须自己运行 Python。
-
-统计资料：[2500 字声调与冲突分析](docs/research/tone-2500.md)。
+安装包按明确的文件清单打包；开发脚本、统计资料、测试报告及本地缓存留在源码仓库。

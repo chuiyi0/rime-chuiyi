@@ -61,7 +61,7 @@ def main():
         fn('destroy_session',C.c_int,C.c_size_t)(sid)
         files=[ROOT/'chuiyi_pinyin.schema.yaml',ROOT/'chuiyi_pinyin.dict.yaml',*sorted((ROOT/'chuiyi_pinyin_dicts').glob('*.dict.yaml'))]
         report={'method':'Linux librime 1.10.0; isolated data; actual schema compilation and candidate enumeration','passed':sum(x['passed'] for x in checks),'total':len(checks),'checks':checks,'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},'windows_live_test':False,'android_device_test':False}
-        (ROOT/'engine-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        (ROOT.parents[1]/'docs/testing/engine-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(json.dumps(report,ensure_ascii=False,indent=2))
         assert report['passed']==report['total']
     finally:fn('finalize',None)()

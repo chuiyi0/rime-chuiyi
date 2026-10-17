@@ -78,34 +78,9 @@
 
 这个兼容规则已加入现有词库中的相应词条；新造词、未收录词暂不保证自动生效。
 
-## 4. 怎么安装？
+## 4. 安装
 
-它是一套**输入方案**，需要先安装 Rime 客户端：电脑用小狼毫，Android 用支持 Rime 方案的中州韵／同文客户端。
-
-**先向作者取得 ZIP 安装包。** GitHub 仓库是源码；若直接下载源码，需要先按[生成说明](README.md#可复现生成)生成词库，不能只复制仓库里的两份 YAML。
-
-### Windows 小狼毫
-
-1. 解压安装包。右击小狼毫托盘图标，打开“用户文件夹”，先备份配置。
-2. 将 `chuiyi_pinyin.schema.yaml`、`chuiyi_pinyin.dict.yaml` 和整个 `chuiyi_pinyin_dicts` 文件夹复制进去。
-3. 在已有 `default.custom.yaml` 的 `patch → schema_list` 下追加一项，保留原有方案：
-
-```yaml
-    - schema: chuiyi_pinyin
-```
-
-如果原来没有 `default.custom.yaml`，可以新建，内容为：
-
-```yaml
-patch:
-  schema_list:
-    - schema: chuiyi_pinyin
-```
-
-4. 托盘右键选择“重新部署”。完成后按 **Ctrl + `**（Tab 上方的反引号键），选择“吹衣带调拼音 1.0-dev”。
-5. 输入 `mama`、`mwmw`、`jlxy`，检查是否出现上面的候选。
-
-Android 的文件放置和方案导入入口因客户端版本不同，请参照[详细安装说明](INSTALL.md)。Android 实机尚待验证。
+下载和配置步骤见[安装说明](INSTALL.md)。
 
 ## 5. 建议怎么开始练？
 
@@ -115,6 +90,6 @@ Android 的文件放置和方案导入入口因客户端版本不同，请参照
 
 ---
 
-作者：**吹衣OVO** · [项目仓库](https://github.com/chuiyi0/rime-chuiyi) · [完整编码表](MATRIX.md) · [测试记录](TESTING.md)
+作者：**吹衣OVO** · [项目仓库](https://github.com/chuiyi0/rime-chuiyi) · [完整编码表](MATRIX.md) · [验证记录](../../docs/testing/README.md)
 
 Linux 与作者 Windows 本机引擎候选测试均为 26/26 通过；实际使用体验欢迎反馈。候选顺序会受词频和个人学习记录影响。

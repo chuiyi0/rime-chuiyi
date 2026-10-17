@@ -57,7 +57,7 @@ def main():
         fn('destroy_session',C.c_int,C.c_size_t)(sid)
         files=[ROOT/'chuiyi_pinyin.schema.yaml',ROOT/'chuiyi_pinyin.dict.yaml',*sorted((ROOT/'chuiyi_pinyin_dicts').glob('*.dict.yaml'))]
         report={'method':'Windows installed librime; isolated data; actual schema compilation and candidate enumeration','passed':sum(x['passed'] for x in checks),'total':len(checks),'checks':checks,'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},'windows_live_test':False,'windows_installed_engine_test':True,'android_device_test':False}
-        (ROOT/'windows-engine-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+        (ROOT.parents[1]/'docs/testing/windows-engine-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(json.dumps(report,ensure_ascii=False,indent=2))
         assert report['passed']==report['total']
     finally:fn('finalize',None)()
