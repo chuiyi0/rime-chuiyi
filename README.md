@@ -1,40 +1,83 @@
-# 吹衣 Rime 输入方案
+# 吹衣带调拼音
 
-## 吹衣带调双拼
+**每个拼音音节两个字母，部分音节用声调区分编码。**
 
-吹衣带调双拼是由 **吹衣OVO** 原创设计、基于 Rime 的中文输入方案。
+吹衣带调拼音是由 **吹衣OVO** 原创设计、基于 Rime 的中文输入方案。它希望在缩短拼音编码的同时，区分“继续／积蓄”这类无调拼音相同、声调不同的词。
 
-每个音节使用两个字母编码，并将高频韵母拆分。轻声同时兼容对应的一声和四声编码，词语保留本调与变调输入。
+当前版本：**1.0-dev（开发版）** · 方案 ID：`chuiyi_pinyin`
 
-例如：
+**[介绍与入门教程](schemes/chuiyi_pinyin/TUTORIAL.md) · [完整编码表](schemes/chuiyi_pinyin/MATRIX.md) · [安装说明](schemes/chuiyi_pinyin/INSTALL.md)**
 
-- `jpxt → ji4xu4 → 继续`
-- `jixt → ji1xu4 → 积蓄`
-- `wr → wo → 我`
+## 输入示例
 
-注：第二个字母代表韵母，其中 i、o、p 分别代表 i 的 1/5、2/3、4/5 声（5 是轻声）。
+| 想输入 | 编码 | 说明 |
+| --- | --- | --- |
+| 我 | `wo` | 一个音节，两键 |
+| 你 | `ni` | 一个音节，两键 |
+| 我们 | `womf` | 词语编码连续输入 |
+| 继续 | `jlxy` | jì xù |
+| 积蓄 | `jixy` | jī xù；与“继续”区分 |
+| 妈妈 | `mama` | 重复字轻声沿用前字编码 |
+| 妹妹 | `mwmw` | 重复字轻声沿用前字编码 |
 
-词条与词频以雾凇拼音词库为基础，注音整理和程序实现由 GPT 协助完成。可用于小狼毫等 Rime 客户端，安卓同文输入法尚待实机验证。
+输入后查看候选，空格选择第一项，数字键选择对应候选。候选顺序会受词频和个人学习记录影响。
 
-项目开源，欢迎使用、修改和反馈问题，转载或分发时请保留作者署名、来源及适用许可证。
+## 编码怎么记？
 
-项目地址：[https://github.com/chuiyi0/rime-chuiyi](https://github.com/chuiyi0/rime-chuiyi)
+- **第一键通常表示声母**：大多保留拼音首字母；`zh → v`、`ch → i`、`sh → u`，零声母通常用 `o`。
+- **第二键表示韵母及声调组**：例如 i 韵母的一、二、三声和轻声用 `i`，第四声用 `l`，所以 `jī → ji`、`jì → jl`。
+- 有些韵母共用键位，有些不区分声调。具体以[完整编码表](schemes/chuiyi_pinyin/MATRIX.md)为准，**输入时不需要附加声调数字**。
 
-[使用教程与完整编码表](schemes/chuiyi_1/TUTORIAL.md) · [安装说明](schemes/chuiyi_1/INSTALL.md) · [双字词无声调重码统计](schemes/chuiyi_1/TONE_COLLISION_STATS.md)
+普通轻声使用默认组。词库中已处理的重复字轻声词，可以重复前一个字的编码，也保留默认轻声编码，例如“妈妈”支持 `mama` 和 `mamx`。未收录的新造词暂不保证自动具有这种兼容码。
 
-[D 方案声调分组与 2500 词近似统计](schemes/chuiyi_1/TONE_GROUP_D.md)：记录设计规则、可复现的词库统计及待实测项，不改变现行输入编码。
+## 开始使用
 
-## 新版开发方案
+这是一套 **Rime 输入方案**，需要先安装 Rime 客户端：Windows 用小狼毫，Android 使用支持 Rime 方案的中州韵／同文客户端。
 
-[吹衣带调拼音 1.0-dev](schemes/chuiyi_pinyin/README.md) · [新用户介绍与教程](schemes/chuiyi_pinyin/TUTORIAL.md)：新的编码矩阵、123/4 等分组及重复汉字轻声兼容码。独立安装，保留旧方案。实机验证状态见新版测试说明。
+**已有 ZIP 安装包：**
 
-## 输入方案
+1. 解压后，将两份 `chuiyi_pinyin` YAML 文件和整个 `chuiyi_pinyin_dicts` 文件夹复制到 Rime 用户目录。
+2. 在方案列表中加入 `chuiyi_pinyin`，保留原有方案，再重新部署。
+3. 在方案选单选择 **“吹衣带调拼音 1.0-dev”**，试打 `mama`、`mwmw`、`jlxy`。
 
-| 方案 | 文件及说明 |
+配置示例与手机导入步骤见[详细安装说明](schemes/chuiyi_pinyin/INSTALL.md)。安装前先备份配置。
+
+**如果下载的是 GitHub 源码：**
+
+仓库不重复保存新版生成词库，不能只复制两份 YAML。请先在完整仓库根目录用 Python 3 运行：
+
+```text
+python schemes/chuiyi_pinyin/tools/build.py
+```
+
+生成好的安装包位于 `dist/chuiyi_pinyin-1.0-dev.zip`。也可以向作者索取已经生成的 ZIP 安装包。
+
+## 当前进展
+
+- 新编码矩阵、声调分组和重复字轻声兼容规则已实现。
+- 词条与词频继承本仓库的雾凇基础词库整理结果；尚未扩充为雾凇全量 ext/tencent。
+- Linux 与作者 Windows 本机 Rime 引擎候选测试均为 **26/26 通过**；Windows 已安装并重新部署。
+- 当前仍是开发版，桌面实际键入体验欢迎反馈；**Android 实机尚待验证**。
+
+[查看测试记录](schemes/chuiyi_pinyin/TESTING.md) · [技术说明与生成方法](schemes/chuiyi_pinyin/README.md)
+
+反馈问题时，请提供：**想输入的字词、实际按下的编码、出现的候选，以及使用的客户端。**
+
+## 旧版与实验方案
+
+旧版编码与新版不同，请按所选方案查看对应教程。
+
+| 方案 | 入口 |
 | --- | --- |
-| 吹衣带调双拼（方案一） | [介绍与安装](schemes/chuiyi_1/README.md) |
-| 吹衣方案一（并击实验） | [并击规则、示例与兼容性](schemes/chuiyi_1/CHORD_EXPERIMENT.md)；[实验 schema](schemes/chuiyi_1/chuiyi_1_chord.schema.yaml) |
+| 吹衣方案一／旧版带调双拼（`chuiyi_1`） | [方案介绍](schemes/chuiyi_1/README.md) · [旧版教程](schemes/chuiyi_1/TUTORIAL.md) · [安装说明](schemes/chuiyi_1/INSTALL.md) |
+| 吹衣方案一（并击实验） | [实验说明](schemes/chuiyi_1/CHORD_EXPERIMENT.md) |
 
-每个方案放在独立目录，以后可继续添加其他方案。安装时只复制所选方案所需的文件。
+旧版相关资料：[双字词无声调重码统计](schemes/chuiyi_1/TONE_COLLISION_STATS.md) · [D 方案声调分组与统计](schemes/chuiyi_1/TONE_GROUP_D.md)
 
-[来源声明](NOTICE.md) · [GPL-3.0许可证](LICENSE)
+## 作者与许可
+
+编码设计：**吹衣OVO**。GPT 协助注音整理、程序实现与检查。
+
+项目开源，欢迎使用、修改和反馈。转载或分发时请保留作者署名、来源及适用许可证。
+
+[来源声明](NOTICE.md) · [GPL-3.0 许可证](LICENSE)
