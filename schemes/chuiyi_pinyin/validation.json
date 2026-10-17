@@ -1,0 +1,576 @@
+{
+  "version": "1.0-dev",
+  "syllables": 415,
+  "phone_mappings": 2075,
+  "dictionary_rows": 554366,
+  "repeat_aliases_added": 142,
+  "source_sha256": {
+    "schemes/chuiyi_1/chuiyi_1.schema.yaml": "a5b6e1e7f7be5ff900b41fcdf066a2dd8e1464c4c95b2989a561053aa9080778",
+    "schemes/chuiyi_1/chuiyi_dicts/base.dict.yaml": "4848cf4e68590eae378dbc1fef6f84e57cf04d3fc8368bce11f81b09356cfdaf",
+    "schemes/chuiyi_1/chuiyi_dicts/chars.dict.yaml": "470032273f05fdd06dc9441689a39e32a87eb4777c7f9dda0958bd53df8c31d5"
+  },
+  "omitted_rows": [],
+  "cross_syllable_collisions": {
+    "bj": [
+      "ban1",
+      "ban2",
+      "ban3",
+      "ban5",
+      "bian1",
+      "bian2",
+      "bian3",
+      "bian5"
+    ],
+    "bm": [
+      "ban4",
+      "bian4"
+    ],
+    "bh": [
+      "bang1",
+      "bang2",
+      "bang3",
+      "bang4",
+      "bang5",
+      "biang1",
+      "biang2",
+      "biang3",
+      "biang4",
+      "biang5"
+    ],
+    "be": [
+      "bei1",
+      "bei2",
+      "bei3",
+      "bei5",
+      "bie1",
+      "bie2",
+      "bie3",
+      "bie5"
+    ],
+    "bw": [
+      "bei4",
+      "bie4"
+    ],
+    "ce": [
+      "ce1",
+      "ce2",
+      "ce3",
+      "ce5",
+      "cei1",
+      "cei2",
+      "cei3",
+      "cei5"
+    ],
+    "cw": [
+      "ce4",
+      "cei4"
+    ],
+    "da": [
+      "da1",
+      "dia1"
+    ],
+    "dx": [
+      "da2",
+      "da3",
+      "da4",
+      "da5",
+      "dia2",
+      "dia3",
+      "dia4",
+      "dia5"
+    ],
+    "dj": [
+      "dan1",
+      "dan2",
+      "dan3",
+      "dan5",
+      "dian1",
+      "dian2",
+      "dian3",
+      "dian5"
+    ],
+    "dm": [
+      "dan4",
+      "dian4"
+    ],
+    "de": [
+      "de1",
+      "de2",
+      "de3",
+      "de5",
+      "dei1",
+      "dei2",
+      "dei3",
+      "dei5",
+      "die1",
+      "die2",
+      "die3",
+      "die5"
+    ],
+    "dw": [
+      "de4",
+      "dei4",
+      "die4"
+    ],
+    "dz": [
+      "diu1",
+      "diu2",
+      "diu3",
+      "diu4",
+      "diu5",
+      "dou1",
+      "dou2",
+      "dou3",
+      "dou4",
+      "dou5"
+    ],
+    "oe": [
+      "e1",
+      "e2",
+      "e3",
+      "e5",
+      "ei1",
+      "ei2",
+      "ei3",
+      "ei5"
+    ],
+    "ow": [
+      "e4",
+      "ei4"
+    ],
+    "ri": [
+      "er1",
+      "er2",
+      "er3",
+      "er5",
+      "ri1",
+      "ri2",
+      "ri3",
+      "ri5"
+    ],
+    "rl": [
+      "er4",
+      "ri4"
+    ],
+    "ge": [
+      "ge1",
+      "ge2",
+      "ge3",
+      "ge5",
+      "gei1",
+      "gei2",
+      "gei3",
+      "gei5"
+    ],
+    "gw": [
+      "ge4",
+      "gei4"
+    ],
+    "he": [
+      "he1",
+      "he2",
+      "he3",
+      "he5",
+      "hei1",
+      "hei2",
+      "hei3",
+      "hei5"
+    ],
+    "hw": [
+      "he4",
+      "hei4"
+    ],
+    "ke": [
+      "ke1",
+      "ke2",
+      "ke3",
+      "ke5",
+      "kei1",
+      "kei2",
+      "kei3",
+      "kei5"
+    ],
+    "kw": [
+      "ke4",
+      "kei4"
+    ],
+    "la": [
+      "la1",
+      "lia1"
+    ],
+    "lx": [
+      "la2",
+      "la3",
+      "la4",
+      "la5",
+      "lia2",
+      "lia3",
+      "lia4",
+      "lia5"
+    ],
+    "lj": [
+      "lan1",
+      "lan2",
+      "lan3",
+      "lan5",
+      "lian1",
+      "lian2",
+      "lian3",
+      "lian5"
+    ],
+    "lm": [
+      "lan4",
+      "lian4"
+    ],
+    "lh": [
+      "lang1",
+      "lang2",
+      "lang3",
+      "lang4",
+      "lang5",
+      "liang1",
+      "liang2",
+      "liang3",
+      "liang4",
+      "liang5"
+    ],
+    "le": [
+      "le1",
+      "le2",
+      "le3",
+      "le5",
+      "lei1",
+      "lei2",
+      "lei3",
+      "lei5",
+      "lie1",
+      "lie2",
+      "lie3",
+      "lie5"
+    ],
+    "lw": [
+      "le4",
+      "lei4",
+      "lie4"
+    ],
+    "lz": [
+      "liu1",
+      "liu2",
+      "liu3",
+      "liu4",
+      "liu5",
+      "lou1",
+      "lou2",
+      "lou3",
+      "lou4",
+      "lou5"
+    ],
+    "lo": [
+      "lo1",
+      "lo2",
+      "lo3",
+      "lo5",
+      "luo1",
+      "luo2",
+      "luo3",
+      "luo5",
+      "lve1",
+      "lve2",
+      "lve3",
+      "lve5"
+    ],
+    "lp": [
+      "lo4",
+      "luo4",
+      "lve4"
+    ],
+    "mj": [
+      "man1",
+      "man2",
+      "man3",
+      "man5",
+      "mian1",
+      "mian2",
+      "mian3",
+      "mian5"
+    ],
+    "mm": [
+      "man4",
+      "mian4"
+    ],
+    "me": [
+      "me1",
+      "me2",
+      "me3",
+      "me5",
+      "mei1",
+      "mei2",
+      "mei3",
+      "mei5",
+      "mie1",
+      "mie2",
+      "mie3",
+      "mie5"
+    ],
+    "mw": [
+      "me4",
+      "mei4",
+      "mie4"
+    ],
+    "mz": [
+      "miu1",
+      "miu2",
+      "miu3",
+      "miu4",
+      "miu5",
+      "mou1",
+      "mou2",
+      "mou3",
+      "mou4",
+      "mou5"
+    ],
+    "nj": [
+      "nan1",
+      "nan2",
+      "nan3",
+      "nan5",
+      "nian1",
+      "nian2",
+      "nian3",
+      "nian5"
+    ],
+    "nm": [
+      "nan4",
+      "nian4"
+    ],
+    "nh": [
+      "nang1",
+      "nang2",
+      "nang3",
+      "nang4",
+      "nang5",
+      "niang1",
+      "niang2",
+      "niang3",
+      "niang4",
+      "niang5"
+    ],
+    "ne": [
+      "ne1",
+      "ne2",
+      "ne3",
+      "ne5",
+      "nei1",
+      "nei2",
+      "nei3",
+      "nei5",
+      "nie1",
+      "nie2",
+      "nie3",
+      "nie5"
+    ],
+    "nw": [
+      "ne4",
+      "nei4",
+      "nie4"
+    ],
+    "nz": [
+      "niu1",
+      "niu2",
+      "niu3",
+      "niu4",
+      "niu5",
+      "nou1",
+      "nou2",
+      "nou3",
+      "nou4",
+      "nou5"
+    ],
+    "nu": [
+      "nu1",
+      "nu2",
+      "nu3",
+      "nu5",
+      "nv1",
+      "nv2",
+      "nv3",
+      "nv5"
+    ],
+    "ny": [
+      "nu4",
+      "nv4"
+    ],
+    "no": [
+      "nuo1",
+      "nuo2",
+      "nuo3",
+      "nuo5",
+      "nve1",
+      "nve2",
+      "nve3",
+      "nve5"
+    ],
+    "np": [
+      "nuo4",
+      "nve4"
+    ],
+    "pj": [
+      "pan1",
+      "pan2",
+      "pan3",
+      "pan5",
+      "pian1",
+      "pian2",
+      "pian3",
+      "pian5"
+    ],
+    "pm": [
+      "pan4",
+      "pian4"
+    ],
+    "pe": [
+      "pei1",
+      "pei2",
+      "pei3",
+      "pei5",
+      "pie1",
+      "pie2",
+      "pie3",
+      "pie5"
+    ],
+    "pw": [
+      "pei4",
+      "pie4"
+    ],
+    "ue": [
+      "she1",
+      "she2",
+      "she3",
+      "she5",
+      "shei1",
+      "shei2",
+      "shei3",
+      "shei5"
+    ],
+    "uw": [
+      "she4",
+      "shei4"
+    ],
+    "tj": [
+      "tan1",
+      "tan2",
+      "tan3",
+      "tan5",
+      "tian1",
+      "tian2",
+      "tian3",
+      "tian5"
+    ],
+    "tm": [
+      "tan4",
+      "tian4"
+    ],
+    "te": [
+      "te1",
+      "te2",
+      "te3",
+      "te5",
+      "tei1",
+      "tei2",
+      "tei3",
+      "tei5",
+      "tie1",
+      "tie2",
+      "tie3",
+      "tie5"
+    ],
+    "tw": [
+      "te4",
+      "tei4",
+      "tie4"
+    ],
+    "yo": [
+      "yo1",
+      "yo2",
+      "yo3",
+      "yo5",
+      "yue1",
+      "yue2",
+      "yue3",
+      "yue5"
+    ],
+    "yp": [
+      "yo4",
+      "yue4"
+    ],
+    "ze": [
+      "ze1",
+      "ze2",
+      "ze3",
+      "ze5",
+      "zei1",
+      "zei2",
+      "zei3",
+      "zei5"
+    ],
+    "zw": [
+      "ze4",
+      "zei4"
+    ],
+    "ve": [
+      "zhe1",
+      "zhe2",
+      "zhe3",
+      "zhe5",
+      "zhei1",
+      "zhei2",
+      "zhei3",
+      "zhei5"
+    ],
+    "vw": [
+      "zhe4",
+      "zhei4"
+    ]
+  },
+  "repeat_examples": {
+    "爸爸": [
+      {
+        "phones": "ba4 ba5",
+        "code": "bxbx"
+      },
+      {
+        "phones": "ba4 ba4",
+        "code": "bxbx"
+      }
+    ],
+    "妈妈": [
+      {
+        "phones": "ma1 ma5",
+        "code": "mamx"
+      },
+      {
+        "phones": "ma1 ma1",
+        "code": "mama"
+      }
+    ],
+    "妹妹": [
+      {
+        "phones": "mei4 mei5",
+        "code": "mwme"
+      },
+      {
+        "phones": "mei4 mei4",
+        "code": "mwmw"
+      }
+    ],
+    "我们": [
+      {
+        "phones": "wo3 men5",
+        "code": "womf"
+      }
+    ]
+  },
+  "mapping_assertions": 27,
+  "engine_test_report": "engine-verification.json (when present; verify input hashes)",
+  "source_unchanged": true
+}

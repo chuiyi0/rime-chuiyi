@@ -8,3 +8,5 @@ __pycache__/
 *.userdb.*
 *.log
 dist/
+# Generated new-scheme dictionaries; build from versioned scheme-one inputs.
+schemes/chuiyi_pinyin/chuiyi_pinyin_dicts/
