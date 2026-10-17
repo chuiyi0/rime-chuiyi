@@ -2,6 +2,8 @@
 
 > 数据状态：**测试词库统计，不代表完整正式词库**。生成日期：2026-10-17。
 
+另见 [D 方案声调分组与 2500 词近似统计](TONE_GROUP_D.md)。两者样本与指标不同；本文并非 D 分组的消歧结果。
+
 ## 数据来源与范围
 
 - 词库：[`chuiyi_1_test.dict.yaml`](sources/baseline/chuiyi_1_test.dict.yaml)，源文件 SHA：`4c751c60cb817843d303fb08468ebe97e3069120`。

@@ -22,6 +22,8 @@
 
 [使用教程与完整编码表](schemes/chuiyi_1/TUTORIAL.md) · [安装说明](schemes/chuiyi_1/INSTALL.md) · [双字词无声调重码统计](schemes/chuiyi_1/TONE_COLLISION_STATS.md)
 
+[D 方案声调分组与 2500 词近似统计](schemes/chuiyi_1/TONE_GROUP_D.md)：记录设计规则、可复现的词库统计及待实测项，不改变现行输入编码。
+
 ## 输入方案
 
 | 方案 | 文件及说明 |
