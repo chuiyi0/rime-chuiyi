@@ -54,13 +54,13 @@
 Python 3，无额外依赖，在仓库根目录运行：
 
 ```text
-python schemes/chuiyi_1/tools/tone_group_stats.py
+python archive/chuiyi_1/tools/tone_group_stats.py
 ```
 
 更新机器可读结果：
 
 ```text
-python schemes/chuiyi_1/tools/tone_group_stats.py --output schemes/chuiyi_1/TONE_GROUP_D_RESULTS.json
+python archive/chuiyi_1/tools/tone_group_stats.py --output archive/chuiyi_1/TONE_GROUP_D_RESULTS.json
 ```
 
 脚本输出输入指纹、选样指纹、覆盖缺失明细及词对统计。输入变更后应重新运行，并同步核对本文；若覆盖不足，输出仅代表覆盖完整词的子样本，不可冒充完整 2500 词结果。

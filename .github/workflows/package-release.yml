@@ -5,6 +5,12 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/package-release.yml'
+      - 'schemes/chuiyi_pinyin/**'
+      - 'archive/chuiyi_1/chuiyi_1.schema.yaml'
+      - 'archive/chuiyi_1/chuiyi_dicts/**'
+      - 'LICENSE'
+      - 'NOTICE.md'
+      - 'LICENSES/**'
   workflow_dispatch:
 
 permissions:
@@ -27,9 +33,16 @@ jobs:
           p='dist/chuiyi_pinyin-1.0-dev.zip'
           with zipfile.ZipFile(p) as z:
               names=set(z.namelist())
-              required={'chuiyi_pinyin.schema.yaml','chuiyi_pinyin.dict.yaml'}
-              assert required <= names, sorted(required-names)
-              assert any(x.startswith('chuiyi_pinyin_dicts/') for x in names)
+              required={
+                  'chuiyi_pinyin.schema.yaml', 'chuiyi_pinyin.dict.yaml',
+                  'chuiyi_pinyin_dicts/chars.dict.yaml',
+                  'chuiyi_pinyin_dicts/base.dict.yaml',
+                  'INSTALL.md', 'LICENSE', 'NOTICE.md',
+                  'LICENSES/README.md', 'LICENSES/rime-ice-GPL-3.0.txt',
+                  'LICENSES/pinyin-data-MIT.txt',
+                  'LICENSES/phrase-pinyin-data-MIT.txt',
+              }
+              assert names == required, sorted(names ^ required)
               print(f'Package validated: {len(names)} files')
           PY
       - name: 发布可直接安装的 ZIP
@@ -43,5 +56,5 @@ jobs:
               --target "$GITHUB_SHA" \
               --title "吹衣带调拼音 1.0-dev（开发版）" \
               --prerelease \
-              --notes "这是完整的 Rime 安装 ZIP，内含方案 YAML 和已生成的词库，无须用户运行 Python。请先备份 Rime 配置，安装步骤见仓库 README 与 schemes/chuiyi_pinyin/INSTALL.md。Windows/Android 的实际键盘输入兼容性仍需更多测试。"
+              --notes "吹衣带调拼音 1.0-dev，内含方案、词库及安装说明。安装步骤见包内 INSTALL.md。"
           fi
