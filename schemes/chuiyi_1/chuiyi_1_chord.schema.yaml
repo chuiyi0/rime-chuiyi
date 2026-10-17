@@ -2099,8 +2099,10 @@ translator:
 
 chord_composer:
   # 字母单独输入仍按原编码工作；同时按键时合成为一个两字母编码。
-  # 字母按 a-z 排序：按下 x+y 输出 xy；Space+x+y 输出 yx；Space+x 输出 xx。
+  # 字母按 a-z 排序：两字母按字母序并击输出该码；Space+两字母输出反序；Space+单字母输出重复码。
   alphabet: " abcdefghijklmnopqrstuvwxyz"
+  finish_chord_on_first_key_release: false
+  # 故意不设 output_format，避免每个编码后自动追加分隔符。
   algebra:
     - 'xform/^ ([a-z])$/$1$1/'
     - 'xform/^ ([a-z])([a-z])$/$2$1/'
