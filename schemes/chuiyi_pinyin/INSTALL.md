@@ -1,6 +1,8 @@
 # 安装：吹衣带调拼音 1.0-dev
 
-ZIP 安装包内已有生成好的词库。若从 GitHub 克隆源码，先在仓库根目录运行 `python schemes/chuiyi_pinyin/tools/build.py` 生成词库和 ZIP；仓库避免重复保存大词库。
+**普通用户请先从 [GitHub Releases 下载完整 ZIP](https://github.com/chuiyi0/rime-chuiyi/releases/download/v1.0.0-dev/chuiyi_pinyin-1.0-dev.zip)**，其中包含已经生成的词库，无须安装 Python。请勿把 GitHub 绿色 `Code → Download ZIP` 下载的仓库源码 ZIP 当作安装包。
+
+如果你是开发者，从 GitHub 克隆源码后先在仓库根目录运行 `python schemes/chuiyi_pinyin/tools/build.py` 生成完整 ZIP；仓库避免重复保存大词库。
 
 先备份 Rime 用户目录。不要删除旧方案、用户词典或 build 目录。
 
