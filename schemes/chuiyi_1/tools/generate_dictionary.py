@@ -93,8 +93,13 @@ def main():
                         data[char,phone[:-1]].add(phone)
         preferred.append(data)
     preferred_by_char = defaultdict(set)
-    for data in preferred:
-        for (char, _plain), phones in data.items():
+    # Prefer mainland Mandarin (kMandarin_8105); use the Taiwan source only
+    # for characters not covered there. This avoids treating an unmarked
+    # secondary spelling such as 家's "jia" as an extra neutral-tone reading.
+    for (char, _plain), phones in preferred[1].items():
+        preferred_by_char[char].update(phones)
+    for (char, _plain), phones in preferred[0].items():
+        if char not in preferred_by_char:
             preferred_by_char[char].update(phones)
 
     # Supplement readings from pinyin-data only when they agree with authoritative
@@ -197,7 +202,7 @@ def main():
               'entries':len(entries),'tables':table_counts,'split_roundtrip_verified':True,'unresolved_ice_phrase_rows':len(unresolved),
               'unresolved_reasons':dict(unresolved_reasons),
               'unmapped_syllables':sorted(missing),
-              'policy':'Single-character readings prefer kTGHZ2013/kMandarin_8105 when available, with pinyin-data as fallback; phrase readings use whole source or common-tone inference; preserve phrase sandhi and citation counterparts. Neutral tone accepts tone-1 and tone-4 codes.',
+              'policy':'Single-character readings prefer kMandarin_8105, fall back to kTGHZ2013 for uncovered characters, then use pinyin-data only when neither covers the character; phrase readings use whole source or common-tone inference; preserve phrase sandhi and citation counterparts. Neutral tone accepts tone-1 and tone-4 codes.',
               'not_installed':True}
     (args.output/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:report[k] for k in ['entries','counts','unresolved_ice_phrase_rows','unmapped_syllables']},ensure_ascii=False,indent=2))
