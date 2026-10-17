@@ -19,3 +19,10 @@
 项目地址：[https://github.com/chuiyi0/rime-chuiyi](https://github.com/chuiyi0/rime-chuiyi)
 
 [使用教程与编码表](TUTORIAL.md) · [安装说明](INSTALL.md) · [来源声明](NOTICE.md)
+
+
+## 可选并击实验
+
+标准版不启用并击。桌面并击实验版使用独立的 `chuiyi_1_chord.schema.yaml`，规则和兼容性说明见 [CHORD_EXPERIMENT.md](CHORD_EXPERIMENT.md)。
+
+词库生成已改为优先采用 `kMandarin_8105.txt` / `kTGHZ2013.txt` 中可核验的单字读音，避免把宽泛拼音数据中的非标准扩展读音加入单字候选；更新词库后需重新部署。
