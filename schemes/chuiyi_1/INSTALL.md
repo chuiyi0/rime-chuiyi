@@ -4,6 +4,7 @@
 
 ```text
 chuiyi_1.schema.yaml
+chuiyi_1_chord.schema.yaml  # 可选：桌面并击实验版
 chuiyi_1.dict.yaml
 chuiyi_dicts/
   chars.dict.yaml
@@ -18,8 +19,9 @@ chuiyi_dicts/
 patch:
   "schema_list/+":
     - schema: chuiyi_1
+    - schema: chuiyi_1_chord  # 可选：复制了实验 schema 后再添加
 ```
 
-Windows小狼毫和安卓同文输入法使用同一套文件。安卓需按客户端设置导入用户目录，尚未实机验证。
+标准版可用于 Windows 小狼毫和安卓同文输入法；安卓尚未实机验证。并击实验版请额外复制 `chuiyi_1_chord.schema.yaml`，优先在 Windows 小狼毫测试。手机端如无法并击，请继续使用标准版。
 
 更新时替换以上文件并重新部署，保留个人用户词典。
