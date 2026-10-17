@@ -40,6 +40,8 @@
 - `u=sh`
 - `fi=lv`（lü）：这里的第二码 i 与其他 i 韵母一样按 i/o/p 分声调，即 `fi=lv1/5`、`fo=lv2/3`、`fp=lv4/5`。
 - `lr=lve`（lüe）：各声调共用。
+- `wan` 按 an 编码：`wj=wan1/2/5`，`wm=wan3/4/5`。
+- `wang` 按 ang 编码：`wh=wang1/2/5`，`wl=wang3/4/5`。
 
 ## 输入示例
 

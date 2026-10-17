@@ -68,7 +68,9 @@ def main():
             fields=line.split('\t')
             if len(fields)==3 and fields[0] in {'计算机','输入法','中华人民共和国','图书馆','数据库'}:
                 cases.append((fields[0],fields[1]))
-        cases += [('前','qian2'),('绿','lv4'),('妈妈','ma1 ma5')]
+        cases += [('前','qian2'),('绿','lv4'),('妈妈','ma1 ma5'),
+                  ('弯','wan1'),('完','wan2'),('晚','wan3'),('万','wan4'),
+                  ('汪','wang1'),('王','wang2'),('往','wang3'),('旺','wang4')]
         checks=[]
         def candidate_rank(code,word):
             fn('clear_composition',None,C.c_size_t)(sid)
@@ -105,11 +107,16 @@ def main():
                 rank = candidate_rank(spelling,word)
                 checks.append({'word':word,'code':spelling,'neutral_alias':tone,'passed':rank is not None,'rank':rank})
         checks.append({'word':'前','code':'go','expected':'absent','passed':candidate_rank('go','前') is None})
+        for old,word in [('wd','弯'),('wd','完'),('wd','晚'),('wd','万'),
+                         ('wn','汪'),('wn','王'),('wn','往'),('wn','旺')]:
+            checks.append({'word':word,'code':old,'expected':'absent','passed':candidate_rank(old,word) is None})
         mapping_checks = {p: value==expected_code(p) for p,value in mapping.items()}
         assert len(mapping_checks)==2040 and all(mapping_checks.values())
         expected={'jian1':'jj','jian2':'jj','jian3':'jm','jian4':'jm','qian2':'qj',
                   'xian2':'xj','yan2':'yj','zhi1':'vi','zhi4':'vp','chi1':'ii','shi1':'ui',
-                  'lv1':'fi','lv4':'fp','guan1':'gd','guang1':'gn','gui1':'gv'}
+                  'lv1':'fi','lv4':'fp','guan1':'gd','guang1':'gn','gui1':'gv',
+                  'wan1':'wj','wan2':'wj','wan3':'wm','wan4':'wm','wan5':'wm',
+                  'wang1':'wh','wang2':'wh','wang3':'wl','wang4':'wl','wang5':'wl'}
         assert all(mapping[p]==value for p,value in expected.items())
         assert "- 'derive/5$/1/'" in (generated/'chuiyi_1.schema.yaml').read_text(encoding='utf-8')
         fn('destroy_session',C.c_int,C.c_size_t)(sid)

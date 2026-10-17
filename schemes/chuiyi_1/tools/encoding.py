@@ -15,7 +15,7 @@ Y_FINALS = {'i':'i','u':'u','e':'e','an':'an','ao':'ao','ing':'ing',
             'in':'in','ang':'ang','a':'a','o':'o','ue':'uo','ong':'ong',
             'ou':'ou','un':'un','uan':'uan'}
 W_FINALS = {'u':'u','ei':'ei','eng':'eng','en':'en','a':'a','o':'o',
-            'ai':'ai','an':'uan','ang':'uang'}
+            'ai':'ai','an':'an','ang':'ang'}
 
 def code(phone):
     syllable, tone = phone[:-1], int(phone[-1])
