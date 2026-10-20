@@ -52,6 +52,7 @@
 | 看 2500 常用字声调分布与编码冲突数据 | **[2500 字分析报告](docs/research/tone-2500.md)** |
 | 查看作者最初的统计数据 | [原始声调比例表](docs/research/original-tone-table.md) |
 | 遇到问题或想参与开发 | [测试记录](schemes/chuiyi_pinyin/TESTING.md) · [生成源码的方法](DEVELOPMENT.md) |
+| 安卓同文输入法深色键盘与三选一长按 | **[Trime 手机主题（0.1 测试版）](trime/themes/chuiyi_sogou_xiaomi_dark/README.md)** |
 
 **这次统计的重点**：2500 字样本下，在静态单字归并模型中，选择性声调编码相较不分声调减少约 **31.9%** 的同码字对；这不是实际打字速度或候选命中率的百分比。数据来源与假设都写在[研究报告](docs/research/tone-2500.md)中。
 
@@ -62,6 +63,7 @@ README.md                        ← 从这里开始：下载 / 安装 / 教程
 docs/research/                    ← 声调统计、分析资料
 schemes/chuiyi_pinyin/           ← 当前 1.0-dev 方案（源码、规则、测试）
 schemes/chuiyi_1/                ← 旧版「吹衣方案一」及并击实验（保留）
+trime/themes/                   ← 同文输入法安卓键盘皮肤（与编码方案分开）
 .github/workflows/               ← 生成可直接安装的版本 ZIP
 DEVELOPMENT.md                    ← 开发者如何从源码打包
 ```
