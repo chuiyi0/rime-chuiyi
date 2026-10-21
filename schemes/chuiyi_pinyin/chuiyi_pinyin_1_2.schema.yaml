@@ -2135,3 +2135,8 @@ key_binder:
 
 recognizer:
   import_preset: default
+
+editor:
+  bindings:
+    Return: commit_raw_input
+    KP_Enter: commit_raw_input

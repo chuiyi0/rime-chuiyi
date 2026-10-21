@@ -54,6 +54,25 @@ def main():
         # Neutral default group must not globally introduce tone-4 aliases.
         for w,keys in [('子','zp'),('天','tj'),('雷','ly')]:
             r=rank(keys,w);checks.append({'word':w,'code':keys,'expected':'absent','rank':r,'passed':r is None})
+        class Commit(C.Structure):
+            _fields_=[('data_size',C.c_int),('text',C.c_char_p)]
+        def committed(keys,key):
+            fn('clear_composition',None,C.c_size_t)(sid)
+            for k in keys:fn('process_key',C.c_int,C.c_size_t,C.c_int,C.c_int)(sid,ord(k),0)
+            handled=fn('process_key',C.c_int,C.c_size_t,C.c_int,C.c_int)(sid,key,0)
+            c=Commit();c.data_size=C.sizeof(c)-C.sizeof(C.c_int)
+            got=fn('get_commit',C.c_int,C.c_size_t,C.POINTER(Commit))(sid,C.byref(c))
+            text=c.text.decode() if got else None
+            if got:fn('free_commit',None,C.POINTER(Commit))(C.byref(c))
+            return handled,text
+        for keyname,key in [('Return',0xff0d),('KP_Enter',0xff8d)]:
+            for keys in ['hello','test','english','li','vxzi']:
+                handled,text=committed(keys,key)
+                checks.append({'name':'raw_english_commit','key':keyname,'input':keys,'output':text,'passed':text==keys and bool(handled)})
+            handled,text=committed('',key)
+            checks.append({'name':'empty_enter_passthrough','key':keyname,'passed':not handled and text is None})
+        handled,text=committed('lo',32)
+        checks.append({'name':'space_selects_chinese','output':text,'passed':bool(handled and text and any(ord(c)>127 for c in text))})
         from collections import defaultdict
         expected=defaultdict(set)
         for line in (ROOT/'chuiyi_pinyin_1_2_dicts/chars.dict.yaml').read_text(encoding='utf-8-sig').splitlines():

@@ -19,6 +19,7 @@ def main():
     schema=schema.replace('chuiyi_1','chuiyi_pinyin_1_2').replace('吹衣方案一','吹衣带调拼音 1.2')
     schema=re.sub(r'  version: .*','  version: "1.2"',schema,count=1)
     schema=re.sub(r'^#.*\n','',schema,flags=re.M)
+    schema += '\neditor:\n  bindings:\n    Return: commit_raw_input\n    KP_Enter: commit_raw_input\n'
     (ROOT/'chuiyi_pinyin_1_2.schema.yaml').write_text(schema,encoding='utf-8')
     (ROOT/'chuiyi_pinyin_1_2.dict.yaml').write_text('# See NOTICE.md for dictionary provenance.\n---\nname: chuiyi_pinyin_1_2\nversion: "1.2"\nsort: by_weight\nimport_tables:\n  - chuiyi_pinyin_1_2_dicts/chars\n  - chuiyi_pinyin_1_2_dicts/base\n...\n',encoding='utf-8')
     target=ROOT/'chuiyi_pinyin_1_2_dicts';target.mkdir(exist_ok=True)

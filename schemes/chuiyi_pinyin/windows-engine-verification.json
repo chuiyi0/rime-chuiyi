@@ -1,8 +1,8 @@
 {
   "version": "1.2",
   "method": "Windows installed librime; isolated data; actual schema compilation and candidate enumeration",
-  "passed": 45,
-  "total": 45,
+  "passed": 58,
+  "total": 58,
   "checks": [
     {
       "word": "我",
@@ -313,6 +313,91 @@
       "passed": true
     },
     {
+      "name": "raw_english_commit",
+      "key": "Return",
+      "input": "hello",
+      "output": "hello",
+      "passed": true
+    },
+    {
+      "name": "raw_english_commit",
+      "key": "Return",
+      "input": "test",
+      "output": "test",
+      "passed": true
+    },
+    {
+      "name": "raw_english_commit",
+      "key": "Return",
+      "input": "english",
+      "output": "english",
+      "passed": true
+    },
+    {
+      "name": "raw_english_commit",
+      "key": "Return",
+      "input": "li",
+      "output": "li",
+      "passed": true
+    },
+    {
+      "name": "raw_english_commit",
+      "key": "Return",
+      "input": "vxzi",
+      "output": "vxzi",
+      "passed": true
+    },
+    {
+      "name": "empty_enter_passthrough",
+      "key": "Return",
+      "passed": true
+    },
+    {
+      "name": "raw_english_commit",
+      "key": "KP_Enter",
+      "input": "hello",
+      "output": "hello",
+      "passed": true
+    },
+    {
+      "name": "raw_english_commit",
+      "key": "KP_Enter",
+      "input": "test",
+      "output": "test",
+      "passed": true
+    },
+    {
+      "name": "raw_english_commit",
+      "key": "KP_Enter",
+      "input": "english",
+      "output": "english",
+      "passed": true
+    },
+    {
+      "name": "raw_english_commit",
+      "key": "KP_Enter",
+      "input": "li",
+      "output": "li",
+      "passed": true
+    },
+    {
+      "name": "raw_english_commit",
+      "key": "KP_Enter",
+      "input": "vxzi",
+      "output": "vxzi",
+      "passed": true
+    },
+    {
+      "name": "empty_enter_passthrough",
+      "key": "KP_Enter",
+      "passed": true
+    },
+    {
+      "name": "space_selects_chinese",
+      "output": "里",
+      "passed": true
+    },
+    {
       "name": "all_single_character_codes",
       "groups": 467,
       "character_code_pairs": 8999,
@@ -321,7 +406,7 @@
     }
   ],
   "input_sha256": {
-    "chuiyi_pinyin_1_2.schema.yaml": "cb0b75c618f8ffcbc8b412cfa055f77e01cdef0e4d5f11724bccb305a8a613ab",
+    "chuiyi_pinyin_1_2.schema.yaml": "9934bb6cc9e0adaf73712919454567ddf80369754ab6d463039bf636f67bc598",
     "chuiyi_pinyin_1_2.dict.yaml": "ff560ee3044baae62bb27bea3daed6120d5dd441279ffe48247f7107d6bcc312",
     "chuiyi_pinyin_1_2_dicts\\base.dict.yaml": "3fe8237b1f6e6f7eaf9aa3e0b1123aefb70c5bea1b702c685458008f5e159dfd",
     "chuiyi_pinyin_1_2_dicts\\chars.dict.yaml": "a7c5ceda1b6dd18b61221291fda3db8eaab980a6049310c3120e73ad3b3517e9"
