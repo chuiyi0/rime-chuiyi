@@ -6,9 +6,15 @@
 
 **[下载 1.2 完整安装包](https://github.com/chuiyi0/rime-chuiyi/releases/download/v1.2/chuiyi_pinyin-1.2.zip)** · [发布页](https://github.com/chuiyi0/rime-chuiyi/releases/tag/v1.2)
 
-ZIP 包含生成好的词库，无须 Python。绿色 Code → Download ZIP 是开发源码。
+ZIP 包含生成好的词库。绿色 Code → Download ZIP 是开发源码。
 
-将 `chuiyi_pinyin_1_2.schema.yaml`、`chuiyi_pinyin_1_2.dict.yaml`、整个 `chuiyi_pinyin_1_2_dicts/` 放入 Rime 用户目录，在已有 `default.custom.yaml` 的 `patch.schema_list` 添加 `- schema: chuiyi_pinyin_1_2`，重新部署并选择 **吹衣带调拼音 1.2**。
+将以下文件放入 Rime 用户目录
+- `chuiyi_pinyin_1_2.schema.yaml`
+- `chuiyi_pinyin_1_2.dict.yaml`
+- 整个 `chuiyi_pinyin_1_2_dicts/`
+
+在 `default.custom.yaml` 中的 `patch.schema_list`添加
+- `- schema: chuiyi_pinyin_1_2`，重新部署并选择 **吹衣带调拼音 1.2**。
 
 [详细安装](schemes/chuiyi_pinyin/INSTALL.md) · [入门](schemes/chuiyi_pinyin/TUTORIAL.md)
 
