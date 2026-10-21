@@ -53,4 +53,4 @@ ZIP 包含生成好的词库，无须 Python。绿色 Code → Download ZIP 是�
 
 ## 验证状态
 
-Windows：45项检查通过，覆盖467组单字编码和8,999条字音对应。红米K70：同文3.3.12已本机编译，2,075条映射与电脑一致；手机实际候选请试打确认。详见[Windows测试](schemes/chuiyi_pinyin/windows-engine-verification.json)和[手机部署记录](schemes/chuiyi_pinyin/android-verification.json)。
+Windows：45项检查通过，覆盖467组单字编码和8,999条字音对应。同文3.3.12已本机编译，2,075条映射与电脑一致；手机实际候选请试打确认。详见[Windows测试](schemes/chuiyi_pinyin/windows-engine-verification.json)和[手机部署记录](schemes/chuiyi_pinyin/android-verification.json)。
