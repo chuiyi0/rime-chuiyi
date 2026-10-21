@@ -1,7 +1,5 @@
 {
-  "platform": "Android",
+  "version": "1.1.0",
   "status": "pending_user_test",
-  "automated_typing": "stopped_by_user_request",
-  "deployment": "files_transferred_and_compilation_outputs_observed",
   "actual_input_verified": false
 }

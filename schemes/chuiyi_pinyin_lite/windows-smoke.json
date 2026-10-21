@@ -1,28 +1,98 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "method": "native Windows librime, isolated data, twenty candidate samples",
   "passed": 20,
   "total": 20,
   "checks": [
     {
-      "word": "的",
-      "phones": "de5",
-      "code": "de",
+      "word": "啊",
+      "phones": "a1",
+      "code": "aa",
       "rank": 1,
       "passed": true
     },
     {
-      "word": "我",
-      "phones": "wo3",
-      "code": "wo",
+      "word": "饿",
+      "phones": "e4",
+      "code": "ee",
       "rank": 1,
       "passed": true
     },
     {
-      "word": "你",
-      "phones": "ni3",
-      "code": "ni",
+      "word": "哦",
+      "phones": "o2",
+      "code": "oo",
       "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "爱",
+      "phones": "ai4",
+      "code": "ai",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "诶",
+      "phones": "ei2",
+      "code": "ei",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "奥",
+      "phones": "ao4",
+      "code": "ao",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "欧",
+      "phones": "ou1",
+      "code": "ou",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "安",
+      "phones": "an1",
+      "code": "an",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "恩",
+      "phones": "en1",
+      "code": "en",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "而",
+      "phones": "er2",
+      "code": "er",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "昂",
+      "phones": "ang2",
+      "code": "ah",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "鞥",
+      "phones": "eng1",
+      "code": "eg",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "二",
+      "phones": "er4",
+      "code": "er",
+      "rank": 3,
       "passed": true
     },
     {
@@ -40,13 +110,6 @@
       "passed": true
     },
     {
-      "word": "五",
-      "phones": "wu3",
-      "code": "ww",
-      "rank": 2,
-      "passed": true
-    },
-    {
       "word": "物",
       "phones": "wu4",
       "code": "wu",
@@ -54,30 +117,9 @@
       "passed": true
     },
     {
-      "word": "北",
-      "phones": "bei3",
-      "code": "be",
-      "rank": 2,
-      "passed": true
-    },
-    {
       "word": "被",
       "phones": "bei4",
       "code": "by",
-      "rank": 1,
-      "passed": true
-    },
-    {
-      "word": "而",
-      "phones": "er2",
-      "code": "ri",
-      "rank": 1,
-      "passed": true
-    },
-    {
-      "word": "二",
-      "phones": "er4",
-      "code": "rp",
       "rank": 1,
       "passed": true
     },
@@ -89,38 +131,10 @@
       "passed": true
     },
     {
-      "word": "绿",
-      "phones": "lv4",
-      "code": "lv",
-      "rank": 1,
-      "passed": true
-    },
-    {
-      "word": "决",
-      "phones": "jue2",
-      "code": "jo",
-      "rank": 3,
-      "passed": true
-    },
-    {
-      "word": "句",
-      "phones": "ju4",
-      "code": "ju",
-      "rank": 4,
-      "passed": true
-    },
-    {
       "word": "句",
       "phones": "ju4",
       "code": "jv",
       "rank": 7,
-      "passed": true
-    },
-    {
-      "word": "下",
-      "phones": "xia4",
-      "code": "xx",
-      "rank": 1,
       "passed": true
     },
     {
@@ -129,26 +143,12 @@
       "code": "womf",
       "rank": 1,
       "passed": true
-    },
-    {
-      "word": "中国",
-      "phones": "zhong1 guo2",
-      "code": "vsgo",
-      "rank": 1,
-      "passed": true
-    },
-    {
-      "word": "需要",
-      "phones": "xu1 yao4",
-      "code": "xwyc",
-      "rank": 1,
-      "passed": true
     }
   ],
   "input_sha256": {
-    "chuiyi_pinyin_lite_1_0.schema.yaml": "4d8365671918eab5cc432634a2fa464aeb0d057b6153e7ab74baad613c932483",
-    "chuiyi_pinyin_lite_1_0.dict.yaml": "4c34e74524d1d18c2d3e5daa035778387af87a566e42beacccf8724fedb5fc8e",
-    "chuiyi_pinyin_lite_1_0_dicts\\base.dict.yaml": "0baf7baca11b6e7788f1b50ce03e940210475b1fec01408b927cd59110a37f54",
-    "chuiyi_pinyin_lite_1_0_dicts\\chars.dict.yaml": "220625fdc62d1e7c56ab8b97591922360d64df9deb8ecf1d23b03311b3def197"
+    "chuiyi_pinyin_lite_1_0.schema.yaml": "282a18ef6a75defde74f2dff27677947e2e693d5ebe5dbee93820bfe93f4d68b",
+    "chuiyi_pinyin_lite_1_0.dict.yaml": "33a27fb4abff177dc9a8ca8684c30675aacdf57e477a436a736378a3a05281d7",
+    "chuiyi_pinyin_lite_1_0_dicts\\base.dict.yaml": "85cd7ecc7f50487b3d6fc5dc1a88e9c46f8a3e67a46a336fb40764fd6c5e1cdd",
+    "chuiyi_pinyin_lite_1_0_dicts\\chars.dict.yaml": "a3b8ea15c05570462b5d95bdc276ce92abb8110b38ae57a88b911b040c6b9f87"
   }
 }

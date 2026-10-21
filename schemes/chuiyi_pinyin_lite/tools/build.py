@@ -15,7 +15,7 @@ SOURCE = ROOT.parent / "chuiyi_1" / "chuiyi_dicts"
 SCHEMA_SOURCE = ROOT.parent / "chuiyi_1" / "chuiyi_1.schema.yaml"
 SCHEMA_ID = "chuiyi_pinyin_lite_1_0"
 DICT_DIR_NAME = SCHEMA_ID + "_dicts"
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 
 
 def sha256(path):
@@ -62,7 +62,7 @@ def main():
     schema = schema.replace("user_dict: chuiyi_1", f"user_dict: {SCHEMA_ID}")
     schema = re.sub(r"(?m)^#.*\n", "", schema)
     schema += (
-        "\n# 轻量版 1.0.0：键位映射严格来自 MATRIX.md。\n"
+        "\n# 轻量版 1.1.0：保留 MATRIX.md 原始记录，零声母按 ZERO_INITIALS.md 覆盖。\n"
         "# speller algebra 将词库带调拼音转换为可输入的双键编码，并保留原矩阵多码。\n"
     )
     schema_path = ROOT / f"{SCHEMA_ID}.schema.yaml"
@@ -136,11 +136,11 @@ def main():
     # Small, representative checks only; preserve all author-defined collisions.
     sample_expected = {
         "yi1": "yi", "yi4": "yp", "wu1": "ww", "wu4": "wu",
-        "e1": "oe", "e4": "oy", "bei1": "be", "bei4": "by",
+        "e1": "ee", "e4": "ee", "bei1": "be", "bei4": "by",
         "ju1": "jw", "ju4": "ju", "qu1": "qw", "qu4": "qu",
         "xu1": "xw", "xu4": "xu", "yu1": "yw", "yu4": "yu",
-        "er2": "ri", "er4": "rp", "nve4": "no", "lve4": "lo",
-        "an4": "oj", "xia4": "xx", "wo3": "wo",
+        "er2": "er", "er4": "er", "nve4": "no", "lve4": "lo",
+        "an4": "an", "xia4": "xx", "wo3": "wo",
     }
     for phone, expected in sample_expected.items():
         actual = mapping.get(phone)
@@ -150,9 +150,9 @@ def main():
     # Check sampled many-to-many mappings without changing matrix assignments.
     inverse = {code: phones for code, phones in code_to_phones.items()}
     inverse_samples = {
-        "yp": "yi4", "wu": "wu4", "oy": "e4", "by": "bei4",
-        "jw": "ju1", "ju": "ju4", "jv": "ju4", "rp": "er4",
-        "no": "nve4", "lo": "lve4", "oj": "an4", "xx": "xia4",
+        "yp": "yi4", "wu": "wu4", "ee": "e4", "by": "bei4",
+        "jw": "ju1", "ju": "ju4", "jv": "ju4", "er": "er4",
+        "no": "nve4", "lo": "lve4", "an": "an4", "xx": "xia4",
     }
     for code, phone in inverse_samples.items():
         if phone not in inverse.get(code, set()):
@@ -182,7 +182,7 @@ def main():
     import zipfile
     dist = ROOT / "dist"
     dist.mkdir(exist_ok=True)
-    with zipfile.ZipFile(dist / "chuiyi-pinyin-lite-1.0.0.zip", "w", zipfile.ZIP_DEFLATED) as archive:
+    with zipfile.ZipFile(dist / "chuiyi-pinyin-lite-1.1.0.zip", "w", zipfile.ZIP_DEFLATED) as archive:
         files = [*ROOT.glob("*.yaml"), *ROOT.glob("*.md"), ROOT/"mapping.tsv", ROOT/"validation.json", *target.glob("*.dict.yaml")]
         files += [p for p in [ROOT/"windows-smoke.json", ROOT/"android-smoke.json"] if p.exists()]
         for file in files:

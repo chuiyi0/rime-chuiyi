@@ -63,6 +63,17 @@ def load_matrix():
                         "code": code, "final": final_labels[index], "initial_key": initial_key,
                         "actual_initial": actual_initial, "column_index": index, "spec": spec
                     })
+    # Version 1.1.0: Xiaohe-style zero-initial syllables override the archived matrix.
+    zero_initials = {
+        "a": "aa", "e": "ee", "o": "oo", "ai": "ai", "ei": "ei",
+        "ao": "ao", "ou": "ou", "an": "an", "en": "en", "er": "er",
+        "ang": "ah", "eng": "eg", "ong": "os",
+    }
+    for spelling, code in zero_initials.items():
+        for tone in range(1, 6):
+            phone = spelling + str(tone)
+            if phone in syllables:
+                syllables[phone] = [dict(syllables[phone][0], code=code)]
     mapping = {}
     aliases = {}
     duplicate_sources = {}

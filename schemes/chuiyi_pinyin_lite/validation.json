@@ -1,11 +1,11 @@
 {
   "name": "吹衣带调拼音轻量版",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "schema_id": "chuiyi_pinyin_lite_1_0",
   "matrix_initial_rows": 24,
   "matrix_final_columns": 30,
   "pinyin_tone_mappings": 2040,
-  "distinct_input_codes": 451,
+  "distinct_input_codes": 452,
   "same_code_multiple_readings": 400,
   "sample_mapping_checks": 23,
   "sample_inverse_checks": 12,
@@ -16,12 +16,12 @@
     "base.dict.yaml": {
       "rows_kept": 544260,
       "size_bytes": 18689120,
-      "sha256": "0baf7baca11b6e7788f1b50ce03e940210475b1fec01408b927cd59110a37f54"
+      "sha256": "85cd7ecc7f50487b3d6fc5dc1a88e9c46f8a3e67a46a336fb40764fd6c5e1cdd"
     },
     "chars.dict.yaml": {
       "rows_kept": 9965,
       "size_bytes": 150135,
-      "sha256": "220625fdc62d1e7c56ab8b97591922360d64df9deb8ecf1d23b03311b3def197"
+      "sha256": "a3b8ea15c05570462b5d95bdc276ce92abb8110b38ae57a88b911b040c6b9f87"
     }
   },
   "source_sha256_before": {

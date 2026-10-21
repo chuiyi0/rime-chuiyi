@@ -1,6 +1,6 @@
-# 吹衣带调拼音轻量版 1.0.0
+# 吹衣带调拼音轻量版 1.1.0
 
-这是独立的 Rime 双拼方案，按作者提供的 [MATRIX.md](MATRIX.md) 编码；不会覆盖仓库里的吹衣带调拼音 1.2.x。
+这是独立的 Rime 双拼方案，按作者提供的 [MATRIX.md](MATRIX.md) 编码，零声母按 [ZERO_INITIALS.md](ZERO_INITIALS.md) 覆盖；不会覆盖仓库里的吹衣带调拼音 1.2.x。
 
 ## 设计规则
 
@@ -18,8 +18,8 @@
 | `yi4` | `yp` |
 | `wu1` | `ww` |
 | `wu4` | `wu` |
-| `e1` | `oe` |
-| `e4` | `oy` |
+| `e1` | `ee` |
+| `e4` | `ee` |
 | `bei1` | `be` |
 | `bei4` | `by` |
 
@@ -34,6 +34,6 @@
 
 
 
-[下载完整轻量版安装包](https://github.com/chuiyi0/rime-chuiyi/releases/download/lite-v1.0.0/chuiyi-pinyin-lite-1.0.0.zip)
+[下载完整轻量版安装包](https://github.com/chuiyi0/rime-chuiyi/releases/download/lite-v1.1.0/chuiyi-pinyin-lite-1.1.0.zip)
 
 已完成 Windows 原生引擎20项抽查，覆盖第四声与 ju/jv 多码；转换方向为“词典带调拼音→输入编码”。矩阵文件保持原样。电脑抽查记录见 windows-smoke.json。手机文件已准备，实际试打由用户完成，目前尚未验证通过。

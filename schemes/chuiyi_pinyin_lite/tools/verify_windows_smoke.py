@@ -30,7 +30,7 @@ def main():
         sid=fn('create_session',C.c_size_t)();assert fn('select_schema',C.c_int,C.c_size_t,C.c_char_p)(sid,ID.encode())
         fn('set_option',None,C.c_size_t,C.c_char_p,C.c_int)(sid,b'ascii_mode',0)
         mapping=load_matrix()['mapping']
-        cases=[('的','de5',None),('我','wo3',None),('你','ni3',None),('一','yi1',None),('意','yi4',None),('五','wu3',None),('物','wu4',None),('北','bei3',None),('被','bei4',None),('而','er2',None),('二','er4',None),('女','nv3',None),('绿','lv4',None),('决','jue2',None),('句','ju4',None),('句','ju4','jv'),('下','xia4',None),('我们','wo3 men5',None),('中国','zhong1 guo2',None),('需要','xu1 yao4',None)]
+        cases=[('啊','a1',None),('饿','e4',None),('哦','o2',None),('爱','ai4',None),('诶','ei2',None),('奥','ao4',None),('欧','ou1',None),('安','an1',None),('恩','en1',None),('而','er2',None),('昂','ang2',None),('鞥','eng1',None),('二','er4',None),('一','yi1',None),('意','yi4',None),('物','wu4',None),('被','bei4',None),('女','nv3',None),('句','ju4','jv'),('我们','wo3 men5',None)]
         for word,phones,override in cases:
             keys=override or ''.join(mapping[p] for p in phones.split())
             fn('clear_composition',None,C.c_size_t)(sid)
@@ -43,7 +43,7 @@ def main():
                 fn('candidate_list_end',None,C.POINTER(Iterator))(C.byref(iterator))
             checks.append({'word':word,'phones':phones,'code':keys,'rank':rank,'passed':rank is not None})
         inputs=[ROOT/(ID+'.schema.yaml'),ROOT/(ID+'.dict.yaml'),*sorted((ROOT/(ID+'_dicts')).glob('*.dict.yaml'))]
-        report={'version':'1.0.0','method':'native Windows librime, isolated data, twenty candidate samples','passed':sum(x['passed'] for x in checks),'total':len(checks),'checks':checks,'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs}}
+        report={'version':'1.1.0','method':'native Windows librime, isolated data, twenty candidate samples','passed':sum(x['passed'] for x in checks),'total':len(checks),'checks':checks,'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs}}
         (ROOT/'windows-smoke.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(json.dumps(report,ensure_ascii=True),flush=True);assert report['passed']==report['total']
     finally:fn('finalize',None)()
