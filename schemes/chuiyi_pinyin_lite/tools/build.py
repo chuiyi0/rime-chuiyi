@@ -148,6 +148,7 @@ def main():
         "xu1": "xw", "xu4": "xu", "yu1": "yw", "yu4": "yu",
         "er2": "er", "er4": "er", "nve4": "no", "lve4": "lo",
         "an4": "an", "xia4": "xx", "wo3": "wo",
+        "jiu1": "jq", "liu1": "lq", "lou1": "lz", "diu1": "dq", "dou1": "dz",
     }
     for phone, expected in sample_expected.items():
         actual = mapping.get(phone)
@@ -160,6 +161,7 @@ def main():
         "yp": "yi4", "wu": "wu4", "ee": "e4", "by": "bei4",
         "jw": "ju1", "ju": "ju4", "jv": "ju4", "er": "er4",
         "no": "nve4", "lo": "lve4", "an": "an4", "xx": "xia4",
+        "jq": "jiu1", "lq": "liu1", "lz": "lou1", "dq": "diu1", "dz": "dou1",
     }
     for code, phone in inverse_samples.items():
         if phone not in inverse.get(code, set()):
