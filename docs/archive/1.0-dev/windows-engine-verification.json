@@ -1,0 +1,198 @@
+{
+  "method": "Windows installed librime; isolated data; actual schema compilation and candidate enumeration",
+  "passed": 26,
+  "total": 26,
+  "checks": [
+    {
+      "word": "我",
+      "phones": "wo3",
+      "code": "wo",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "你",
+      "phones": "ni3",
+      "code": "ni",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "我们",
+      "phones": "wo3 men5",
+      "code": "womf",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "中国",
+      "phones": "zhong1 guo2",
+      "code": "vsgo",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "继续",
+      "phones": "ji4 xu4",
+      "code": "jlxy",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "积蓄",
+      "phones": "ji1 xu4",
+      "code": "jixy",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "爸爸",
+      "phones": "ba4 ba5",
+      "code": "bxbx",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "爸爸",
+      "phones": "ba4 ba4",
+      "code": "bxbx",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "妈妈",
+      "phones": "ma1 ma5",
+      "code": "mamx",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "妈妈",
+      "phones": "ma1 ma1",
+      "code": "mama",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "妹妹",
+      "phones": "mei4 mei5",
+      "code": "mwme",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "妹妹",
+      "phones": "mei4 mei4",
+      "code": "mwmw",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "欧",
+      "phones": "ou1",
+      "code": "oz",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "偶",
+      "phones": "ou3",
+      "code": "oz",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "而",
+      "phones": "er2",
+      "code": "ri",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "二",
+      "phones": "er4",
+      "code": "rl",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "日",
+      "phones": "ri4",
+      "code": "rl",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "绿",
+      "phones": "lv4",
+      "code": "fl",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "女",
+      "phones": "nv3",
+      "code": "nu",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "虐",
+      "phones": "nve4",
+      "code": "np",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "略",
+      "phones": "lve4",
+      "code": "lp",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "落",
+      "phones": "luo4",
+      "code": "lp",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "觉",
+      "phones": "jue2",
+      "code": "jo",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "哦",
+      "phones": "o2",
+      "code": "oo",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "妈",
+      "code": "mx",
+      "expected": "absent",
+      "rank": null,
+      "passed": true
+    },
+    {
+      "word": "妹",
+      "code": "me",
+      "expected": "absent",
+      "rank": null,
+      "passed": true
+    }
+  ],
+  "input_sha256": {
+    "chuiyi_pinyin.schema.yaml": "0c73ca2e1466ea832aaf6bba011e9ae73be2720cbb143cdf45d20f851c0dfd53",
+    "chuiyi_pinyin.dict.yaml": "cc7cc5677ef602a7a523b3d639a669e894024d87cb4807ba162e3495e4cb5b6e",
+    "chuiyi_pinyin_dicts\\base.dict.yaml": "b0f491ba71ea0ee93b34cc34d2a7c56ec446a79eaeef5954ddfe195a17c592a4",
+    "chuiyi_pinyin_dicts\\chars.dict.yaml": "66283587b483cfa365c174b930dbe4fee73213f8a262a7c5230ddf532ea3f5c1"
+  },
+  "windows_live_test": false,
+  "android_device_test": false,
+  "windows_installed_engine_test": true
+}

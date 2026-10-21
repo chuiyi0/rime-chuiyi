@@ -1,7 +1,7 @@
 {
   "method": "Windows installed librime; isolated data; actual schema compilation and candidate enumeration",
-  "passed": 26,
-  "total": 26,
+  "passed": 32,
+  "total": 32,
   "checks": [
     {
       "word": "我",
@@ -34,35 +34,35 @@
     {
       "word": "继续",
       "phones": "ji4 xu4",
-      "code": "jlxy",
+      "code": "jpxu",
       "rank": 1,
       "passed": true
     },
     {
       "word": "积蓄",
       "phones": "ji1 xu4",
-      "code": "jixy",
+      "code": "jixu",
       "rank": 1,
       "passed": true
     },
     {
       "word": "爸爸",
       "phones": "ba4 ba5",
-      "code": "bxbx",
+      "code": "baba",
       "rank": 1,
       "passed": true
     },
     {
       "word": "爸爸",
       "phones": "ba4 ba4",
-      "code": "bxbx",
+      "code": "baba",
       "rank": 1,
       "passed": true
     },
     {
       "word": "妈妈",
       "phones": "ma1 ma5",
-      "code": "mamx",
+      "code": "mama",
       "rank": 1,
       "passed": true
     },
@@ -76,14 +76,14 @@
     {
       "word": "妹妹",
       "phones": "mei4 mei5",
-      "code": "mwme",
+      "code": "myme",
       "rank": 1,
       "passed": true
     },
     {
       "word": "妹妹",
       "phones": "mei4 mei4",
-      "code": "mwmw",
+      "code": "mymy",
       "rank": 1,
       "passed": true
     },
@@ -111,49 +111,49 @@
     {
       "word": "二",
       "phones": "er4",
-      "code": "rl",
+      "code": "rp",
       "rank": 1,
       "passed": true
     },
     {
       "word": "日",
       "phones": "ri4",
-      "code": "rl",
+      "code": "rp",
       "rank": 2,
       "passed": true
     },
     {
       "word": "绿",
       "phones": "lv4",
-      "code": "fl",
+      "code": "fi",
       "rank": 1,
       "passed": true
     },
     {
       "word": "女",
       "phones": "nv3",
-      "code": "nu",
+      "code": "nw",
       "rank": 1,
       "passed": true
     },
     {
       "word": "虐",
       "phones": "nve4",
-      "code": "np",
-      "rank": 2,
+      "code": "no",
+      "rank": 3,
       "passed": true
     },
     {
       "word": "略",
       "phones": "lve4",
-      "code": "lp",
-      "rank": 2,
+      "code": "lo",
+      "rank": 3,
       "passed": true
     },
     {
       "word": "落",
       "phones": "luo4",
-      "code": "lp",
+      "code": "lo",
       "rank": 1,
       "passed": true
     },
@@ -172,27 +172,71 @@
       "passed": true
     },
     {
-      "word": "妈",
-      "code": "mx",
+      "word": "了",
+      "phones": "le5",
+      "code": "le",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "鲁",
+      "phones": "lu3",
+      "code": "lw",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "路",
+      "phones": "lu4",
+      "code": "lu",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "乐",
+      "phones": "le4",
+      "code": "ly",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "桌子",
+      "phones": "zhuo1 zi4",
+      "code": "vozp",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "衣服",
+      "phones": "yi1 fu4",
+      "code": "yifu",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "子",
+      "code": "zp",
       "expected": "absent",
       "rank": null,
       "passed": true
     },
     {
-      "word": "妹",
-      "code": "me",
+      "word": "天",
+      "code": "tj",
       "expected": "absent",
       "rank": null,
       "passed": true
     }
   ],
   "input_sha256": {
-    "chuiyi_pinyin.schema.yaml": "0c73ca2e1466ea832aaf6bba011e9ae73be2720cbb143cdf45d20f851c0dfd53",
-    "chuiyi_pinyin.dict.yaml": "cc7cc5677ef602a7a523b3d639a669e894024d87cb4807ba162e3495e4cb5b6e",
-    "chuiyi_pinyin_dicts\\base.dict.yaml": "b0f491ba71ea0ee93b34cc34d2a7c56ec446a79eaeef5954ddfe195a17c592a4",
-    "chuiyi_pinyin_dicts\\chars.dict.yaml": "66283587b483cfa365c174b930dbe4fee73213f8a262a7c5230ddf532ea3f5c1"
+    "chuiyi_pinyin_1_1.schema.yaml": "bc556cad4b2e13516f06391dca44a464000b71583803b71cf6726b2bc5efb18d",
+    "chuiyi_pinyin_1_1.dict.yaml": "7923d4d0c4b8ec3c985cff1b5fdeef9af73119287bfbfe1246e82ccb92fd3f4a",
+    "chuiyi_pinyin_1_1_dicts\\base.dict.yaml": "7ad2249bbb1d9be39a8de017393213e7b6fb617f6ef65074881c343a6df2efe4",
+    "chuiyi_pinyin_1_1_dicts\\chars.dict.yaml": "3164280cdc8416c052f533c6e69797e3329fd61bd6bc3f2872bb4eb38117d8ef"
   },
   "windows_live_test": false,
+  "windows_installed_engine_test": true,
   "android_device_test": false,
-  "windows_installed_engine_test": true
+  "version": "1.1.1",
+  "hash_note": "Raw hashes correspond to Windows-built files; line endings can differ on Linux."
 }

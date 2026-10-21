@@ -1,0 +1,9 @@
+# See NOTICE.md for dictionary provenance.
+---
+name: chuiyi_pinyin_1_1
+version: "1.1.1"
+sort: by_weight
+import_tables:
+  - chuiyi_pinyin_1_1_dicts/chars
+  - chuiyi_pinyin_1_1_dicts/base
+...
