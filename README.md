@@ -4,6 +4,8 @@
 
 ## 下载与安装
 
+**[下载吹衣带调拼音轻量版 1.1.0](https://github.com/chuiyi0/rime-chuiyi/releases/download/lite-v1.1.0/chuiyi-pinyin-lite-1.1.0.zip)** · [轻量版发布说明](https://github.com/chuiyi0/rime-chuiyi/releases/tag/lite-v1.1.0)
+
 **[下载 1.2 完整安装包](https://github.com/chuiyi0/rime-chuiyi/releases/download/v1.2/chuiyi_pinyin-1.2.zip)** · [发布页](https://github.com/chuiyi0/rime-chuiyi/releases/tag/v1.2)
 
 ZIP 包含生成好的词库。绿色 Code → Download ZIP 是开发源码。

@@ -65,6 +65,13 @@ def main():
         "\n# 轻量版 1.1.0：保留 MATRIX.md 原始记录，零声母按 ZERO_INITIALS.md 覆盖。\n"
         "# speller algebra 将词库带调拼音转换为可输入的双键编码，并保留原矩阵多码。\n"
     )
+    schema = schema.replace(
+        "key_binder:\n  import_preset: default",
+        "key_binder:\n  import_preset: default\n  bindings:\n"
+        "    - { when: paging, accept: bracketleft, send: Page_Up }\n"
+        "    - { when: has_menu, accept: bracketright, send: Page_Down }",
+        1,
+    )
     schema_path = ROOT / f"{SCHEMA_ID}.schema.yaml"
     schema_path.write_text(schema, encoding="utf-8")
 
