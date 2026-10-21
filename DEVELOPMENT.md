@@ -1,19 +1,15 @@
 # 开发与打包
 
-普通用户请从[首页](README.md)下载完整 ZIP。
+普通用户从[首页](README.md)下载完整ZIP。
 
-在仓库根目录运行（Python 3，无第三方依赖）：
+Python 3，无第三方依赖。命令：python schemes/chuiyi_pinyin/tools/build.py
 
-```sh
-python schemes/chuiyi_pinyin/tools/build.py
-```
+输出 dist/chuiyi_pinyin-1.2.zip；当前方案标识 chuiyi_pinyin_1_2，用户词库与旧版分开。
 
-得到 dist/chuiyi_pinyin-1.1.1.zip。包内只含当前方案、生成词库、说明与许可证。
+编码唯一来源是 schemes/chuiyi_pinyin/tools/encoding.py 中的显式行列矩阵。build.py 从固定旧版词库生成新schema、词库、mapping.tsv、MATRIX.md和validation.json，不改旧源文件。
 
-编码规则在 schemes/chuiyi_pinyin/tools/encoding.py；build.py 生成方案代数、mapping.tsv、MATRIX.md、词库及验证报告。运行标识 chuiyi_pinyin_1_1 沿用 1.1，本次显示版本是 1.1.1。
+生成时保留1.0已有词库读音，再仅为双字词末字轻声添加声调兼容；已明确的单字雷lei4另作修正，其他多音字不批量删除。
 
-基础词库来自已提交的 schemes/chuiyi_1/chuiyi_dicts，构建不修改旧文件。先重建 1.0 已存在的读音，再为“双字词第二音节轻声”补充兼容读音，不给其他词条增加此规则。
+GitHub Actions在main的当前方案/工作流变化时生成并发布v1.2完整ZIP。Windows校验可运行tools/verify_windows.py（--library、--shared-data）；手机必须自行生成编译缓存，不把Windows缓存当安卓验收。
 
-GitHub Actions 在 main 的方案或发布工作流变化时构建、校验并发布 v1.1.1，也可手动触发。
-
-历史研究在 docs/research，不作为新版性能结论。旧方案作为可复现来源保留，不是推荐下载。
+旧版本、历史统计不作为1.2性能结论。旧方案作为可复现来源保留。

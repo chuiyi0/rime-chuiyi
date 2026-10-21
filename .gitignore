@@ -10,6 +10,7 @@ __pycache__/
 dist/
 # Generated new-scheme dictionaries; build from versioned scheme-one inputs.
 schemes/chuiyi_pinyin/chuiyi_pinyin_dicts/
-schemes/chuiyi_pinyin/chuiyi_pinyin_1_1_dicts/
+schemes/chuiyi_pinyin/chuiyi_pinyin_1_2_dicts/
 .sync-state.json
 .publish-payload.json
+schemes/chuiyi_pinyin/chuiyi_pinyin_1_1_dicts/

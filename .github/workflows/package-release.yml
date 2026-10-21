@@ -6,7 +6,7 @@ on:
     paths:
       - '.github/workflows/package-release.yml'
       - 'schemes/chuiyi_pinyin/**'
-      - 'docs/releases/1.1.1.md'
+      - 'docs/releases/1.2.md'
   workflow_dispatch:
 
 permissions:
@@ -23,26 +23,26 @@ jobs:
       - name: 生成完整 Rime 安装 ZIP
         run: |
           python schemes/chuiyi_pinyin/tools/build.py
-          test -s dist/chuiyi_pinyin-1.1.1.zip
+          test -s dist/chuiyi_pinyin-1.2.zip
           python - <<'PY'
           import zipfile
-          p='dist/chuiyi_pinyin-1.1.1.zip'
+          p='dist/chuiyi_pinyin-1.2.zip'
           with zipfile.ZipFile(p) as z:
               names=set(z.namelist())
-              required={'chuiyi_pinyin_1_1.schema.yaml','chuiyi_pinyin_1_1.dict.yaml'}
+              required={'chuiyi_pinyin_1_2.schema.yaml','chuiyi_pinyin_1_2.dict.yaml'}
               assert required <= names, sorted(required-names)
-              assert any(x.startswith('chuiyi_pinyin_1_1_dicts/') for x in names)
+              assert any(x.startswith('chuiyi_pinyin_1_2_dicts/') for x in names)
               print(f'Package validated: {len(names)} files')
           PY
       - name: 发布可直接安装的 ZIP
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if gh release view v1.1.1 >/dev/null 2>&1; then
-            gh release upload v1.1.1 dist/chuiyi_pinyin-1.1.1.zip --clobber
+          if gh release view v1.2 >/dev/null 2>&1; then
+            gh release upload v1.2 dist/chuiyi_pinyin-1.2.zip --clobber
           else
-            gh release create v1.1.1 dist/chuiyi_pinyin-1.1.1.zip \
+            gh release create v1.2 dist/chuiyi_pinyin-1.2.zip \
               --target "$GITHUB_SHA" \
-              --title "吹衣带调拼音 1.1.1" \
-              --notes-file docs/releases/1.1.1.md
+              --title "吹衣带调拼音 1.2" \
+              --notes-file docs/releases/1.2.md
           fi

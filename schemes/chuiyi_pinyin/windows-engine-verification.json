@@ -1,33 +1,34 @@
 {
+  "version": "1.2",
   "method": "Windows installed librime; isolated data; actual schema compilation and candidate enumeration",
-  "passed": 32,
-  "total": 32,
+  "passed": 45,
+  "total": 45,
   "checks": [
     {
       "word": "我",
       "phones": "wo3",
-      "code": "wo",
+      "code": "wx",
       "rank": 1,
       "passed": true
     },
     {
       "word": "你",
       "phones": "ni3",
-      "code": "ni",
+      "code": "no",
       "rank": 1,
       "passed": true
     },
     {
       "word": "我们",
       "phones": "wo3 men5",
-      "code": "womf",
+      "code": "wxmf",
       "rank": 1,
       "passed": true
     },
     {
       "word": "中国",
       "phones": "zhong1 guo2",
-      "code": "vsgo",
+      "code": "vsgx",
       "rank": 1,
       "passed": true
     },
@@ -104,7 +105,7 @@
     {
       "word": "而",
       "phones": "er2",
-      "code": "ri",
+      "code": "ro",
       "rank": 1,
       "passed": true
     },
@@ -125,7 +126,7 @@
     {
       "word": "绿",
       "phones": "lv4",
-      "code": "fi",
+      "code": "fp",
       "rank": 1,
       "passed": true
     },
@@ -139,35 +140,35 @@
     {
       "word": "虐",
       "phones": "nve4",
-      "code": "no",
+      "code": "nx",
       "rank": 3,
       "passed": true
     },
     {
       "word": "略",
       "phones": "lve4",
-      "code": "lo",
+      "code": "lx",
       "rank": 3,
       "passed": true
     },
     {
       "word": "落",
       "phones": "luo4",
-      "code": "lo",
+      "code": "lx",
       "rank": 1,
       "passed": true
     },
     {
       "word": "觉",
       "phones": "jue2",
-      "code": "jo",
+      "code": "jx",
       "rank": 1,
       "passed": true
     },
     {
       "word": "哦",
       "phones": "o2",
-      "code": "oo",
+      "code": "ox",
       "rank": 1,
       "passed": true
     },
@@ -202,7 +203,7 @@
     {
       "word": "桌子",
       "phones": "zhuo1 zi4",
-      "code": "vozp",
+      "code": "vxzp",
       "rank": 1,
       "passed": true
     },
@@ -211,6 +212,83 @@
       "phones": "yi1 fu4",
       "code": "yifu",
       "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "离",
+      "phones": "li2",
+      "code": "lo",
+      "rank": 4,
+      "passed": true
+    },
+    {
+      "word": "理",
+      "phones": "li3",
+      "code": "lo",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "力",
+      "phones": "li4",
+      "code": "lp",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "间",
+      "phones": "jian1",
+      "code": "gi",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "简",
+      "phones": "jian3",
+      "code": "go",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "建",
+      "phones": "jian4",
+      "code": "gp",
+      "rank": 5,
+      "passed": true
+    },
+    {
+      "word": "烟",
+      "phones": "yan1",
+      "code": "wi",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "言",
+      "phones": "yan2",
+      "code": "wo",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "厌",
+      "phones": "yan4",
+      "code": "wp",
+      "rank": 7,
+      "passed": true
+    },
+    {
+      "word": "桌子",
+      "phones": "zhuo1 zi2",
+      "code": "vxzo",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "雷",
+      "phones": "lei2",
+      "code": "le",
+      "rank": 2,
       "passed": true
     },
     {
@@ -226,17 +304,29 @@
       "expected": "absent",
       "rank": null,
       "passed": true
+    },
+    {
+      "word": "雷",
+      "code": "ly",
+      "expected": "absent",
+      "rank": null,
+      "passed": true
+    },
+    {
+      "name": "all_single_character_codes",
+      "groups": 467,
+      "character_code_pairs": 8999,
+      "missing": [],
+      "passed": true
     }
   ],
   "input_sha256": {
-    "chuiyi_pinyin_1_1.schema.yaml": "bc556cad4b2e13516f06391dca44a464000b71583803b71cf6726b2bc5efb18d",
-    "chuiyi_pinyin_1_1.dict.yaml": "7923d4d0c4b8ec3c985cff1b5fdeef9af73119287bfbfe1246e82ccb92fd3f4a",
-    "chuiyi_pinyin_1_1_dicts\\base.dict.yaml": "7ad2249bbb1d9be39a8de017393213e7b6fb617f6ef65074881c343a6df2efe4",
-    "chuiyi_pinyin_1_1_dicts\\chars.dict.yaml": "3164280cdc8416c052f533c6e69797e3329fd61bd6bc3f2872bb4eb38117d8ef"
+    "chuiyi_pinyin_1_2.schema.yaml": "cb0b75c618f8ffcbc8b412cfa055f77e01cdef0e4d5f11724bccb305a8a613ab",
+    "chuiyi_pinyin_1_2.dict.yaml": "ff560ee3044baae62bb27bea3daed6120d5dd441279ffe48247f7107d6bcc312",
+    "chuiyi_pinyin_1_2_dicts\\base.dict.yaml": "3fe8237b1f6e6f7eaf9aa3e0b1123aefb70c5bea1b702c685458008f5e159dfd",
+    "chuiyi_pinyin_1_2_dicts\\chars.dict.yaml": "a7c5ceda1b6dd18b61221291fda3db8eaab980a6049310c3120e73ad3b3517e9"
   },
   "windows_live_test": false,
   "windows_installed_engine_test": true,
-  "android_device_test": false,
-  "version": "1.1.1",
-  "hash_note": "Raw hashes correspond to Windows-built files; line endings can differ on Linux."
+  "android_device_test": false
 }

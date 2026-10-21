@@ -1,20 +1,20 @@
-"""Explicit 1.1.1 column matrix; lv is an independent override."""
-COLUMNS = [('i', 'ip4', 'bi pi mi lv di ti ni li ji qi xi yi zhi chi shi ri er zi ci si'),
+"""Author-confirmed 1.2 matrix. i=1/5, o=2/3, p=4; only 2-char neutral endings are relaxed."""
+COLUMNS = [('i', 'iop4', 'bi pi mi lv di ti ni li ji qi xi yi zhi chi shi ri er zi ci si jian qian xian yan'),
  ('u', 'wu4', 'bu pu mu fu du tu nu lu gu ku hu wu ju qu xu yu zhu chu shu ru zu cu su'),
  ('ü', 'wu4', 'nv'),
  ('e', 'ey4', 'me de te ne le ge ke he ye zhe che she re ze ce se e'),
  ('ei', 'ey4', 'bei pei mei fei dei tei nei lei gei kei hei wei zhei shei zei cei ei'),
  ('ie', 'ey4', 'bie pie mie die tie nie lie jie qie xie'),
- ('an', 'jm4', 'ban pan man fan dan tan nan lan gan kan han wan yan zhan chan shan ran zan can san an jian qian xian'),
- ('ian', 'q', 'bian pian mian dian tian nian lian'),
- ('o', 'o', 'bo po mo fo wo yo o lo'),
- ('ve', 'o', 'nve lve jue que xue yue'),
- ('uo', 'o', 'duo tuo nuo luo guo kuo huo zhuo chuo shuo ruo zuo cuo suo'),
+ ('an', 'j', 'ban pan man fan dan tan nan lan gan kan han wan zhan chan shan ran zan can san an'),
+ ('ian', 'm', 'bian pian mian dian tian nian lian'),
+ ('o', 'x', 'bo po mo fo wo yo o lo'),
+ ('ve', 'x', 'nve lve jue que xue yue'),
+ ('uo', 'x', 'duo tuo nuo luo guo kuo huo zhuo chuo shuo ruo zuo cuo suo'),
  ('ai', 'd', 'bai pai mai dai tai nai lai gai kai hai wai zhai chai shai zai cai sai ai'),
+ ('ia', 'd', 'dia lia jia qia xia'),
  ('a', 'a', 'ba pa ma fa da ta na la ga ka ha wa ya zha cha sha za ca sa a'),
- ('ua', 'x', 'gua kua hua zhua shua rua chua'),
- ('ia', 'x', 'dia lia jia qia xia'),
  ('in', 'b', 'bin pin min nin lin jin qin xin yin'),
+ ('ua', 'b', 'gua kua hua zhua shua rua chua'),
  ('ang', 'h', 'bang pang mang fang dang tang nang lang gang kang hang wang yang zhang chang shang rang zang cang sang ang'),
  ('ing', 'k', 'bing ping ming ding ting ning ling jing qing xing ying'),
  ('uai', 'k', 'guai kuai huai zhuai chuai shuai'),
@@ -32,6 +32,7 @@ COLUMNS = [('i', 'ip4', 'bi pi mi lv di ti ni li ji qi xi yi zhi chi shi ri er z
  ('uang', 'l', 'guang kuang huang zhuang chuang shuang')]
 
 def initial(s):
+    if s in {'jian','qian','xian','yan'}: return {'jian':'g','qian':'k','xian':'h','yan':'w'}[s]
     if s=='lv': return 'f'
     if s=='er': return 'r'
     for full, key in [('zh','v'),('ch','i'),('sh','u')]:
@@ -47,9 +48,9 @@ for final, spec, syllables in COLUMNS:
 def code(phone):
     s,t=phone[:-1],int(phone[-1])
     if t not in range(1,6): raise ValueError(phone)
-    if s=="lv": return "f"+("i" if t==4 else "e")
     first,final,spec=MATRIX[s]
     if len(spec)==1: second=spec
+    elif spec=='iop4': second='i' if t in (1,5) else ('o' if t in (2,3) else 'p')
     elif spec=='a1x': second='a' if t==1 else 'x'
     else: second=spec[1] if t==4 else spec[0]
     return first+second

@@ -12,9 +12,9 @@ def main():
     ap.add_argument('--deployer',required=True,type=Path)
     args=ap.parse_args()
     box=ROOT/'local-validation';box.mkdir(exist_ok=True)
-    for name in ['chuiyi_pinyin_1_1.schema.yaml','chuiyi_pinyin_1_1.dict.yaml']:shutil.copy2(ROOT/name,box/name)
-    shutil.copytree(ROOT/'chuiyi_pinyin_1_1_dicts',box/'chuiyi_pinyin_1_1_dicts',dirs_exist_ok=True)
-    subprocess.run([str(args.deployer.resolve()),'--compile',str((box/'chuiyi_pinyin_1_1.schema.yaml').resolve()),str(box.resolve()),str(args.shared_data.resolve())],check=True)
+    for name in ['chuiyi_pinyin_1_2.schema.yaml','chuiyi_pinyin_1_2.dict.yaml']:shutil.copy2(ROOT/name,box/name)
+    shutil.copytree(ROOT/'chuiyi_pinyin_1_2_dicts',box/'chuiyi_pinyin_1_2_dicts',dirs_exist_ok=True)
+    subprocess.run([str(args.deployer.resolve()),'--compile',str((box/'chuiyi_pinyin_1_2.schema.yaml').resolve()),str(box.resolve()),str(args.shared_data.resolve())],check=True)
     class Traits(C.Structure):
         _fields_=[('data_size',C.c_int)]+[(n,C.c_char_p) for n in ['shared_data_dir','user_data_dir','distribution_name','distribution_code_name','distribution_version','app_name']]+[('modules',C.POINTER(C.c_char_p)),('min_log_level',C.c_int),('log_dir',C.c_char_p),('prebuilt_data_dir',C.c_char_p),('staging_dir',C.c_char_p)]
     class Candidate(C.Structure):_fields_=[('text',C.c_char_p),('comment',C.c_char_p),('reserved',C.c_void_p)]
@@ -35,9 +35,9 @@ def main():
     checks=[]
     try:
         assert fn('deploy_config_file',C.c_int,C.c_char_p,C.c_char_p)(b'default.yaml',b'config_version')
-        assert (box/'build/chuiyi_pinyin_1_1.table.bin').exists()
+        assert (box/'build/chuiyi_pinyin_1_2.table.bin').exists()
         sid=fn('create_session',C.c_size_t)();assert sid
-        assert fn('select_schema',C.c_int,C.c_size_t,C.c_char_p)(sid,b'chuiyi_pinyin_1_1')
+        assert fn('select_schema',C.c_int,C.c_size_t,C.c_char_p)(sid,b'chuiyi_pinyin_1_2')
         fn('set_option',None,C.c_size_t,C.c_char_p,C.c_int)(sid,b'ascii_mode',0)
         def rank(keys,word):
             fn('clear_composition',None,C.c_size_t)(sid)
@@ -51,15 +51,15 @@ def main():
                     if n>=10000:break
                 fn('candidate_list_end',None,C.POINTER(Iterator))(C.byref(it))
             return found
-        cases=[('我','wo3'),('你','ni3'),('我们','wo3 men5'),('中国','zhong1 guo2'),('继续','ji4 xu4'),('积蓄','ji1 xu4'),('爸爸','ba4 ba5'),('爸爸','ba4 ba4'),('妈妈','ma1 ma5'),('妈妈','ma1 ma1'),('妹妹','mei4 mei5'),('妹妹','mei4 mei4'),('欧','ou1'),('偶','ou3'),('而','er2'),('二','er4'),('日','ri4'),('绿','lv4'),('女','nv3'),('虐','nve4'),('略','lve4'),('落','luo4'),('觉','jue2'),('哦','o2'),('了','le5'),('鲁','lu3'),('路','lu4'),('乐','le4'),('桌子','zhuo1 zi4'),('衣服','yi1 fu4')]
+        cases=[('我','wo3'),('你','ni3'),('我们','wo3 men5'),('中国','zhong1 guo2'),('继续','ji4 xu4'),('积蓄','ji1 xu4'),('爸爸','ba4 ba5'),('爸爸','ba4 ba4'),('妈妈','ma1 ma5'),('妈妈','ma1 ma1'),('妹妹','mei4 mei5'),('妹妹','mei4 mei4'),('欧','ou1'),('偶','ou3'),('而','er2'),('二','er4'),('日','ri4'),('绿','lv4'),('女','nv3'),('虐','nve4'),('略','lve4'),('落','luo4'),('觉','jue2'),('哦','o2'),('了','le5'),('鲁','lu3'),('路','lu4'),('乐','le4'),('桌子','zhuo1 zi4'),('衣服','yi1 fu4'),('离','li2'),('理','li3'),('力','li4'),('间','jian1'),('简','jian3'),('建','jian4'),('烟','yan1'),('言','yan2'),('厌','yan4'),('桌子','zhuo1 zi2'),('雷','lei2')]
         for w,p in cases:
             keys=''.join(code(x) for x in p.split());r=rank(keys,w)
             checks.append({'word':w,'phones':p,'code':keys,'rank':r,'passed':r is not None})
         # Neutral default group must not globally introduce tone-4 aliases.
-        for w,keys in [('子','zp'),('天','tj')]:
+        for w,keys in [('子','zp'),('天','tj'),('雷','ly')]:
             r=rank(keys,w);checks.append({'word':w,'code':keys,'expected':'absent','rank':r,'passed':r is None})
         fn('destroy_session',C.c_int,C.c_size_t)(sid)
-        files=[ROOT/'chuiyi_pinyin_1_1.schema.yaml',ROOT/'chuiyi_pinyin_1_1.dict.yaml',*sorted((ROOT/'chuiyi_pinyin_1_1_dicts').glob('*.dict.yaml'))]
+        files=[ROOT/'chuiyi_pinyin_1_2.schema.yaml',ROOT/'chuiyi_pinyin_1_2.dict.yaml',*sorted((ROOT/'chuiyi_pinyin_1_2_dicts').glob('*.dict.yaml'))]
         report={'method':'Linux librime 1.10.0; isolated data; actual schema compilation and candidate enumeration','passed':sum(x['passed'] for x in checks),'total':len(checks),'checks':checks,'input_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},'windows_live_test':False,'android_device_test':False}
         (ROOT/'engine-verification.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
         print(json.dumps(report,ensure_ascii=False,indent=2))

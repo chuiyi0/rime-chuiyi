@@ -1,11 +1,18 @@
 {
+  "reading_corrections": [
+    {
+      "word": "雷",
+      "removed": "lei4",
+      "reason": "retain common modern lei2 reading"
+    }
+  ],
   "neutral_aliases_added": 16815,
   "eligible_neutral_entries": 4350,
-  "schema_id": "chuiyi_pinyin_1_1",
-  "version": "1.1.1",
+  "schema_id": "chuiyi_pinyin_1_2",
+  "version": "1.2",
   "syllables": 415,
   "phone_mappings": 2075,
-  "dictionary_rows": 571181,
+  "dictionary_rows": 571180,
   "repeat_aliases_added": 142,
   "source_sha256": {
     "schemes\\chuiyi_1\\chuiyi_1.schema.yaml": "a5b6e1e7f7be5ff900b41fcdf066a2dd8e1464c4c95b2989a561053aa9080778",
@@ -41,6 +48,18 @@
     "cy": [
       "ce4",
       "cei4"
+    ],
+    "dd": [
+      "dai1",
+      "dai2",
+      "dai3",
+      "dai4",
+      "dai5",
+      "dia1",
+      "dia2",
+      "dia3",
+      "dia4",
+      "dia5"
     ],
     "de": [
       "de1",
@@ -89,27 +108,19 @@
     ],
     "ri": [
       "er1",
-      "er2",
-      "er3",
       "er5",
       "ri1",
-      "ri2",
-      "ri3",
       "ri5"
+    ],
+    "ro": [
+      "er2",
+      "er3",
+      "ri2",
+      "ri3"
     ],
     "rp": [
       "er4",
       "ri4"
-    ],
-    "fe": [
-      "fei1",
-      "fei2",
-      "fei3",
-      "fei5",
-      "lv1",
-      "lv2",
-      "lv3",
-      "lv5"
     ],
     "ge": [
       "ge1",
@@ -153,6 +164,18 @@
       "ke4",
       "kei4"
     ],
+    "ld": [
+      "lai1",
+      "lai2",
+      "lai3",
+      "lai4",
+      "lai5",
+      "lia1",
+      "lia2",
+      "lia3",
+      "lia4",
+      "lia5"
+    ],
     "le": [
       "le1",
       "le2",
@@ -184,7 +207,7 @@
       "lou4",
       "lou5"
     ],
-    "lo": [
+    "lx": [
       "lo1",
       "lo2",
       "lo3",
@@ -277,7 +300,7 @@
       "nu4",
       "nv4"
     ],
-    "no": [
+    "nx": [
       "nuo1",
       "nuo2",
       "nuo3",
@@ -336,7 +359,7 @@
       "tei4",
       "tie4"
     ],
-    "yo": [
+    "yx": [
       "yo1",
       "yo2",
       "yo3",
@@ -447,27 +470,27 @@
     "我们": [
       {
         "phones": "wo3 men5",
-        "code": "womf"
+        "code": "wxmf"
       },
       {
         "phones": "wo3 men1",
-        "code": "womf"
+        "code": "wxmf"
       },
       {
         "phones": "wo3 men2",
-        "code": "womf"
+        "code": "wxmf"
       },
       {
         "phones": "wo3 men3",
-        "code": "womf"
+        "code": "wxmf"
       },
       {
         "phones": "wo3 men4",
-        "code": "womf"
+        "code": "wxmf"
       }
     ]
   },
-  "mapping_assertions": 32,
+  "mapping_assertions": 45,
   "engine_test_report": "engine-verification.json (when present; verify input hashes)",
   "source_unchanged": true
 }

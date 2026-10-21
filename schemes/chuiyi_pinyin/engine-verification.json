@@ -1,9 +1,6 @@
 {
-  "version": "1.1.1",
-  "current_report": "windows-engine-verification.json",
-  "windows_installed_engine_checks": 32,
-  "passed": 32,
-  "linux_current_version_tested": false,
-  "android_device_tested": false,
-  "historical_reports": "../../docs/archive/1.0-dev/"
+  "version": "1.2",
+  "current_windows_report": "windows-engine-verification.json",
+  "current_android_report": "android-verification.json",
+  "linux_current_version_tested": false
 }

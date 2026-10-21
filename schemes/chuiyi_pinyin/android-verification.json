@@ -1,0 +1,20 @@
+{
+  "version": "1.2",
+  "device": "Redmi K70",
+  "client": "Trime 3.3.12",
+  "engine": "Rime 1.17.0",
+  "native_compilation": true,
+  "compiled_artifacts": [
+    "schema.yaml",
+    "table.bin",
+    "prism.bin",
+    "reverse.bin"
+  ],
+  "compiled_mapping_count": 2075,
+  "compiled_mapping_matches_windows": true,
+  "scheme_selection_configured": "chuiyi_pinyin_1_2",
+  "keyboard_skin_changed": false,
+  "phone_candidate_typing_test": false,
+  "note": "Native Android compilation and all mapping rules verified; physical keyboard typing still requires user trial.",
+  "source_normalized_sha256": "a1c0d7889388271d23d61272867db127994d8656c8de5af1e85dfb5cd3e04ff6"
+}
