@@ -1,0 +1,9 @@
+# Independent dictionary entry for Chuiyi Pinyin Lite.
+---
+name: chuiyi_pinyin_lite_1_0
+version: "1.0.0"
+sort: by_weight
+import_tables:
+  - chuiyi_pinyin_lite_1_0_dicts/chars
+  - chuiyi_pinyin_lite_1_0_dicts/base
+...

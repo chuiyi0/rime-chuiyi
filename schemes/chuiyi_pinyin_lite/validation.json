@@ -1,0 +1,34 @@
+{
+  "name": "吹衣带调拼音轻量版",
+  "version": "1.0.0",
+  "schema_id": "chuiyi_pinyin_lite_1_0",
+  "matrix_initial_rows": 24,
+  "matrix_final_columns": 30,
+  "pinyin_tone_mappings": 2040,
+  "distinct_input_codes": 451,
+  "same_code_multiple_readings": 400,
+  "sample_mapping_checks": 23,
+  "sample_inverse_checks": 12,
+  "dictionary_rows_kept": 554225,
+  "dictionary_rows_omitted_for_unmapped_syllables": 0,
+  "omitted_syllables_top20": [],
+  "dictionary_outputs": {
+    "base.dict.yaml": {
+      "rows_kept": 544260,
+      "size_bytes": 18689120,
+      "sha256": "0baf7baca11b6e7788f1b50ce03e940210475b1fec01408b927cd59110a37f54"
+    },
+    "chars.dict.yaml": {
+      "rows_kept": 9965,
+      "size_bytes": 150135,
+      "sha256": "220625fdc62d1e7c56ab8b97591922360d64df9deb8ecf1d23b03311b3def197"
+    }
+  },
+  "source_sha256_before": {
+    "schemes\\chuiyi_1\\chuiyi_1.schema.yaml": "227b6fad89d36fe15988a3406065b9183ca00281acd4269770df17b2490e7734",
+    "schemes\\chuiyi_1\\chuiyi_dicts\\base.dict.yaml": "60707f27cd20fd650141bc6f4adf7f70cb130a91ba5d592481534fc7353765ce",
+    "schemes\\chuiyi_1\\chuiyi_dicts\\chars.dict.yaml": "e9ab3c9fdbba19d784070f891e8e7025e230df01d006577d25f8caa324d902c7"
+  },
+  "source_unchanged": true,
+  "rime_runtime_test": "see windows-smoke.json and android-smoke.json when present"
+}

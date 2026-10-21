@@ -1,0 +1,154 @@
+{
+  "version": "1.0.0",
+  "method": "native Windows librime, isolated data, twenty candidate samples",
+  "passed": 20,
+  "total": 20,
+  "checks": [
+    {
+      "word": "的",
+      "phones": "de5",
+      "code": "de",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "我",
+      "phones": "wo3",
+      "code": "wo",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "你",
+      "phones": "ni3",
+      "code": "ni",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "一",
+      "phones": "yi1",
+      "code": "yi",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "意",
+      "phones": "yi4",
+      "code": "yp",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "五",
+      "phones": "wu3",
+      "code": "ww",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "物",
+      "phones": "wu4",
+      "code": "wu",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "北",
+      "phones": "bei3",
+      "code": "be",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "被",
+      "phones": "bei4",
+      "code": "by",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "而",
+      "phones": "er2",
+      "code": "ri",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "二",
+      "phones": "er4",
+      "code": "rp",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "女",
+      "phones": "nv3",
+      "code": "nv",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "绿",
+      "phones": "lv4",
+      "code": "lv",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "决",
+      "phones": "jue2",
+      "code": "jo",
+      "rank": 3,
+      "passed": true
+    },
+    {
+      "word": "句",
+      "phones": "ju4",
+      "code": "ju",
+      "rank": 4,
+      "passed": true
+    },
+    {
+      "word": "句",
+      "phones": "ju4",
+      "code": "jv",
+      "rank": 7,
+      "passed": true
+    },
+    {
+      "word": "下",
+      "phones": "xia4",
+      "code": "xx",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "我们",
+      "phones": "wo3 men5",
+      "code": "womf",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "中国",
+      "phones": "zhong1 guo2",
+      "code": "vsgo",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "需要",
+      "phones": "xu1 yao4",
+      "code": "xwyc",
+      "rank": 1,
+      "passed": true
+    }
+  ],
+  "input_sha256": {
+    "chuiyi_pinyin_lite_1_0.schema.yaml": "4d8365671918eab5cc432634a2fa464aeb0d057b6153e7ab74baad613c932483",
+    "chuiyi_pinyin_lite_1_0.dict.yaml": "4c34e74524d1d18c2d3e5daa035778387af87a566e42beacccf8724fedb5fc8e",
+    "chuiyi_pinyin_lite_1_0_dicts\\base.dict.yaml": "0baf7baca11b6e7788f1b50ce03e940210475b1fec01408b927cd59110a37f54",
+    "chuiyi_pinyin_lite_1_0_dicts\\chars.dict.yaml": "220625fdc62d1e7c56ab8b97591922360d64df9deb8ecf1d23b03311b3def197"
+  }
+}

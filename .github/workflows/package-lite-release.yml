@@ -1,0 +1,35 @@
+name: 发布独立轻量版
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'schemes/chuiyi_pinyin_lite/**'
+      - '.github/workflows/package-lite-release.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  package-lite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: 生成独立安装包
+        run: |
+          python schemes/chuiyi_pinyin_lite/tools/build.py
+          python schemes/chuiyi_pinyin_lite/tools/check_privacy.py schemes/chuiyi_pinyin_lite/dist/chuiyi-pinyin-lite-1.0.0.zip
+      - name: 发布轻量版下载
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          asset=schemes/chuiyi_pinyin_lite/dist/chuiyi-pinyin-lite-1.0.0.zip
+          if gh release view lite-v1.0.0 >/dev/null 2>&1; then
+            gh release upload lite-v1.0.0 "$asset" --clobber
+          else
+            gh release create lite-v1.0.0 "$asset" \
+              --target "$GITHUB_SHA" \
+              --title "吹衣带调拼音轻量版 1.0.0" \
+              --notes-file schemes/chuiyi_pinyin_lite/RELEASE.md
+          fi
