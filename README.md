@@ -3,17 +3,23 @@
 每个汉字音节用两个字母输入。设计：**吹衣OVO**。
 
 ## 下载与安装
-提供两个版本
+
+**提供两个版本**
+
 **常规版本：[下载 1.2 完整安装包](https://github.com/chuiyi0/rime-chuiyi/releases/download/v1.2/chuiyi_pinyin-1.2.zip)** · [发布页](https://github.com/chuiyi0/rime-chuiyi/releases/tag/v1.2)
+
 **轻量学习负担版：[下载吹衣带调拼音轻量版 1.1.0](https://github.com/chuiyi0/rime-chuiyi/releases/download/lite-v1.1.0/chuiyi-pinyin-lite-1.1.0.zip)** · [轻量版发布说明](https://github.com/chuiyi0/rime-chuiyi/releases/tag/lite-v1.1.0)
+
 ZIP 包含生成好的词库。绿色 Code → Download ZIP 是开发源码。
 
 将以下文件放入 Rime 用户目录
+
 - `chuiyi_pinyin_1_2.schema.yaml`
 - `chuiyi_pinyin_1_2.dict.yaml`
 - 整个 `chuiyi_pinyin_1_2_dicts/`
 
 在 `default.custom.yaml` 中的 `patch.schema_list`添加
+
 - `- schema: chuiyi_pinyin_1_2`，重新部署并选择 **吹衣带调拼音 1.2**。
 
 [详细安装](schemes/chuiyi_pinyin/INSTALL.md) · [入门](schemes/chuiyi_pinyin/TUTORIAL.md)
