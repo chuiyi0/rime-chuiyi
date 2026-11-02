@@ -143,7 +143,8 @@ def main():
     # Small, representative checks only; preserve all author-defined collisions.
     sample_expected = {
         "yi1": "yi", "yi4": "yp", "wu1": "ww", "wu4": "wu",
-        "e1": "ee", "e4": "ee", "bei1": "be", "bei4": "by",
+        "e1": "ee", "e4": "ee", "bei1": "be", "bei4": "bt",
+        "dun1": "dy", "dun4": "dy", "fei4": "ft", "bie4": "bt",
         "ju1": "jw", "ju4": "ju", "qu1": "qw", "qu4": "qu",
         "xu1": "xw", "xu4": "xu", "yu1": "yw", "yu4": "yu",
         "er2": "er", "er4": "er", "nve4": "no", "lve4": "lo",
@@ -158,7 +159,7 @@ def main():
     # Check sampled many-to-many mappings without changing matrix assignments.
     inverse = {code: phones for code, phones in code_to_phones.items()}
     inverse_samples = {
-        "yp": "yi4", "wu": "wu4", "ee": "e4", "by": "bei4",
+        "yp": "yi4", "wu": "wu4", "ee": "e4", "bt": "bei4", "dy": "dun4",
         "jw": "ju1", "ju": "ju4", "jv": "ju4", "er": "er4",
         "no": "nve4", "lo": "lve4", "an": "an4", "xx": "xia4",
         "jq": "jiu1", "lq": "liu1", "lz": "lou1", "dq": "diu1", "dz": "dou1",

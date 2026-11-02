@@ -1,14 +1,15 @@
 {
   "version": "1.1.0",
-  "method": "native Windows librime, isolated data, twenty candidate samples",
-  "passed": 20,
-  "total": 20,
+  "method": "native Windows librime, isolated data, representative candidate samples",
+  "passed": 28,
+  "total": 28,
   "checks": [
     {
       "word": "啊",
       "phones": "a1",
       "code": "aa",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -16,6 +17,7 @@
       "phones": "e4",
       "code": "ee",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -23,6 +25,7 @@
       "phones": "o2",
       "code": "oo",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -30,6 +33,7 @@
       "phones": "ai4",
       "code": "ai",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -37,6 +41,7 @@
       "phones": "ei2",
       "code": "ei",
       "rank": 2,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -44,6 +49,7 @@
       "phones": "ao4",
       "code": "ao",
       "rank": 2,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -51,6 +57,7 @@
       "phones": "ou1",
       "code": "ou",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -58,6 +65,7 @@
       "phones": "an1",
       "code": "an",
       "rank": 2,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -65,6 +73,7 @@
       "phones": "en1",
       "code": "en",
       "rank": 2,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -72,6 +81,7 @@
       "phones": "er2",
       "code": "er",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -79,6 +89,7 @@
       "phones": "ang2",
       "code": "ah",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -86,6 +97,7 @@
       "phones": "eng1",
       "code": "eg",
       "rank": 2,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -93,6 +105,7 @@
       "phones": "er4",
       "code": "er",
       "rank": 3,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -100,6 +113,7 @@
       "phones": "yi1",
       "code": "yi",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -107,6 +121,7 @@
       "phones": "yi4",
       "code": "yp",
       "rank": 2,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -114,13 +129,15 @@
       "phones": "wu4",
       "code": "wu",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
       "word": "被",
       "phones": "bei4",
-      "code": "by",
+      "code": "bt",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -128,6 +145,7 @@
       "phones": "nv3",
       "code": "nv",
       "rank": 1,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -135,6 +153,7 @@
       "phones": "ju4",
       "code": "jv",
       "rank": 7,
+      "expected_presence": true,
       "passed": true
     },
     {
@@ -142,11 +161,76 @@
       "phones": "wo3 men5",
       "code": "womf",
       "rank": 1,
+      "expected_presence": true,
+      "passed": true
+    },
+    {
+      "word": "费",
+      "phones": "fei4",
+      "code": "ft",
+      "rank": 1,
+      "expected_presence": true,
+      "passed": true
+    },
+    {
+      "word": "非",
+      "phones": "fei1",
+      "code": "fe",
+      "rank": 2,
+      "expected_presence": true,
+      "passed": true
+    },
+    {
+      "word": "顿",
+      "phones": "dun4",
+      "code": "dy",
+      "rank": 1,
+      "expected_presence": true,
+      "passed": true
+    },
+    {
+      "word": "吞",
+      "phones": "tun1",
+      "code": "ty",
+      "rank": 1,
+      "expected_presence": true,
+      "passed": true
+    },
+    {
+      "word": "孙",
+      "phones": "sun1",
+      "code": "sy",
+      "rank": 1,
+      "expected_presence": true,
+      "passed": true
+    },
+    {
+      "word": "被",
+      "phones": "bei4",
+      "code": "by",
+      "rank": null,
+      "expected_presence": false,
+      "passed": true
+    },
+    {
+      "word": "顿",
+      "phones": "dun4",
+      "code": "dt",
+      "rank": null,
+      "expected_presence": false,
+      "passed": true
+    },
+    {
+      "word": "杯",
+      "phones": "bei1",
+      "code": "be",
+      "rank": 5,
+      "expected_presence": true,
       "passed": true
     }
   ],
   "input_sha256": {
-    "chuiyi_pinyin_lite_1_0.schema.yaml": "282a18ef6a75defde74f2dff27677947e2e693d5ebe5dbee93820bfe93f4d68b",
+    "chuiyi_pinyin_lite_1_0.schema.yaml": "b3bdf9b5544ba7850948a6313baf6fec7e697e2979c1ae37d79b82b80e1084c4",
     "chuiyi_pinyin_lite_1_0.dict.yaml": "33a27fb4abff177dc9a8ca8684c30675aacdf57e477a436a736378a3a05281d7",
     "chuiyi_pinyin_lite_1_0_dicts\\base.dict.yaml": "85cd7ecc7f50487b3d6fc5dc1a88e9c46f8a3e67a46a336fb40764fd6c5e1cdd",
     "chuiyi_pinyin_lite_1_0_dicts\\chars.dict.yaml": "a3b8ea15c05570462b5d95bdc276ce92abb8110b38ae57a88b911b040c6b9f87"

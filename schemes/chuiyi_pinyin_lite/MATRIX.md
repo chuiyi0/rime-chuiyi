@@ -2,7 +2,7 @@
 
 以下矩阵由作者提供，保留原始布局。顶端空白编码按紧邻左侧列继承。
 
-| / | /  | ip4   | wu4 | ey4 |      | 　   | j    | m    | o  | 　   | 　    | d    | a   | b   | x   | 　    | h     | k    | 　     | g     | c    | f    | s     | q   | z    | t    | v    | r     | n    | l     | 　      |
+| / | /  | ip4   | wu4 | et4 |      | 　   | j    | m    | o  | 　   | 　    | d    | a   | b   | x   | 　    | h     | k    | 　     | g     | c    | f    | s     | q   | z    | y    | v    | r     | n    | l     | 　      |
 | - | -- | ----- | --- | --- | ---- | --- | ---- | ---- | -- | --- | ---- | ---- | --- | --- | --- | ---- | ----- | ---- | ----- | ----- | ---- | ---- | ----- | --- | ---- | ---- | ---- | ----- | ---- | ----- | ------ |
 | / | /  | i     | u   | e   | ei   | ie  | an   | ian  | o  | ve  | uo   | ai   | a   | in  | ia  | ua   | ang   | ing  | uai   | eng   | ao   | en   | ong   | iu  | ou   | un   | ui/v | uan   | iao  | iang  | uang   |
 | b | b  | bi    | bu  | 　   | bei  | bie | ban  | bian | bo | 　   | 　    | bai  | ba  | bin | 　   | 　    | bang  | bing | 　     | beng  | bao  | ben  | 　     | 　   | 　    | 　    | 　    | 　     | biao | 　     | 　      |
