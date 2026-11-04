@@ -7,7 +7,7 @@
   "pinyin_tone_mappings": 2040,
   "distinct_input_codes": 456,
   "same_code_multiple_readings": 404,
-  "sample_mapping_checks": 32,
+  "sample_mapping_checks": 37,
   "sample_inverse_checks": 18,
   "dictionary_rows_kept": 554225,
   "dictionary_rows_omitted_for_unmapped_syllables": 0,

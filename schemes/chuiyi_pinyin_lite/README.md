@@ -8,6 +8,7 @@
 - 顶部编码为空时，继承左侧最近一个非空的韵母编码。
 - 顶部若为两个字母（例如 `ip4`、`wu4`、`et4`），第一个字母用于非第四声，第二个字母仅用于第四声；数字 `4` 是说明标记，不用输入。
 - `t` 对应 e/ei/ie 的第四声，`y` 对应 un；例如 `bt=bei4`、`dy=dun`。零声母仍按专门规则输入。
+- `yan` 使用 an 韵母键 j，各声调统一输入 `yj`，不使用 `ym`。
 - 顶部为一个字母时，各声调使用同一个韵母键。
 - 原矩阵中的重复拼音和特殊拼写均予以保留；轻量版中 `iu=q`、`ou=z`，不再共用 `z`。
 
@@ -41,4 +42,4 @@
 
 [下载完整轻量版安装包](https://github.com/chuiyi0/rime-chuiyi/releases/download/lite-v1.1.0/chuiyi-pinyin-lite-1.1.0.zip)
 
-本次已通过 Windows 原生引擎28项抽查，覆盖 y/t 换位、旧码排除、零声母与 ju/jv 多码。电脑抽查记录见 windows-smoke.json。安卓尚未实机验证。
+本次已通过 Windows 原生引擎33项抽查，覆盖 yan 编码、y/t 换位、旧码排除、零声母与 ju/jv 多码。电脑抽查记录见 windows-smoke.json。安卓尚未实机验证。

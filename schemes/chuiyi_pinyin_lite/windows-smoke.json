@@ -1,8 +1,8 @@
 {
   "version": "1.1.0",
   "method": "native Windows librime, isolated data, representative candidate samples",
-  "passed": 28,
-  "total": 28,
+  "passed": 33,
+  "total": 33,
   "checks": [
     {
       "word": "啊",
@@ -227,10 +227,50 @@
       "rank": 5,
       "expected_presence": true,
       "passed": true
+    },
+    {
+      "word": "烟",
+      "phones": "yan1",
+      "code": "yj",
+      "rank": 4,
+      "expected_presence": true,
+      "passed": true
+    },
+    {
+      "word": "言",
+      "phones": "yan2",
+      "code": "yj",
+      "rank": 2,
+      "expected_presence": true,
+      "passed": true
+    },
+    {
+      "word": "眼",
+      "phones": "yan3",
+      "code": "yj",
+      "rank": 1,
+      "expected_presence": true,
+      "passed": true
+    },
+    {
+      "word": "验",
+      "phones": "yan4",
+      "code": "yj",
+      "rank": 6,
+      "expected_presence": true,
+      "passed": true
+    },
+    {
+      "word": "言",
+      "phones": "yan2",
+      "code": "ym",
+      "rank": null,
+      "expected_presence": false,
+      "passed": true
     }
   ],
   "input_sha256": {
-    "chuiyi_pinyin_lite_1_0.schema.yaml": "b3bdf9b5544ba7850948a6313baf6fec7e697e2979c1ae37d79b82b80e1084c4",
+    "chuiyi_pinyin_lite_1_0.schema.yaml": "cf3d52299764f52f96f14335652fd4b8e6e7815dda0d5bd5f867b1ae39a25c3e",
     "chuiyi_pinyin_lite_1_0.dict.yaml": "33a27fb4abff177dc9a8ca8684c30675aacdf57e477a436a736378a3a05281d7",
     "chuiyi_pinyin_lite_1_0_dicts\\base.dict.yaml": "85cd7ecc7f50487b3d6fc5dc1a88e9c46f8a3e67a46a336fb40764fd6c5e1cdd",
     "chuiyi_pinyin_lite_1_0_dicts\\chars.dict.yaml": "a3b8ea15c05570462b5d95bdc276ce92abb8110b38ae57a88b911b040c6b9f87"

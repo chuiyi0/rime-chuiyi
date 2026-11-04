@@ -145,6 +145,7 @@ def main():
         "yi1": "yi", "yi4": "yp", "wu1": "ww", "wu4": "wu",
         "e1": "ee", "e4": "ee", "bei1": "be", "bei4": "bt",
         "dun1": "dy", "dun4": "dy", "fei4": "ft", "bie4": "bt",
+        "yan1": "yj", "yan2": "yj", "yan3": "yj", "yan4": "yj", "yan5": "yj",
         "ju1": "jw", "ju4": "ju", "qu1": "qw", "qu4": "qu",
         "xu1": "xw", "xu4": "xu", "yu1": "yw", "yu4": "yu",
         "er2": "er", "er4": "er", "nve4": "no", "lve4": "lo",

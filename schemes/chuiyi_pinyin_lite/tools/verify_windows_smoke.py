@@ -35,6 +35,8 @@ def main():
         cases += [('费','fei4',None,True),('非','fei1',None,True),
                   ('顿','dun4',None,True),('吞','tun1',None,True),('孙','sun1',None,True),
                   ('被','bei4','by',False),('顿','dun4','dt',False),('杯','bei1',None,True)]
+        cases += [('烟','yan1','yj',True),('言','yan2','yj',True),
+                  ('眼','yan3','yj',True),('验','yan4','yj',True),('言','yan2','ym',False)]
         for word,phones,override,expected_presence in cases:
             keys=override or ''.join(mapping[p] for p in phones.split())
             fn('clear_composition',None,C.c_size_t)(sid)

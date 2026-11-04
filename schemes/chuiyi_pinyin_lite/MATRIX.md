@@ -20,7 +20,7 @@
 | j | j  | ji    | ju  | 　   | 　    | jie |      | jian | 　  | jue | 　    |      | 　   | jin | jia | 　    | 　     | jing | 　     | 　     | 　    | 　    | jiong | jiu | 　    | jun  | ju   | juan  | jiao | jiang | 　      |
 | q | q  | qi    | qu  | 　   |      | qie |      | qian | 　  | que | 　    |      | 　   | qin | qia | 　    |       | qing |       | 　     |      | 　    | qiong | qiu | 　    | qun  | qu   | quan  | qiao | qiang | 　      |
 | x | x  | xi    | xu  | 　   |      | xie |      | xian | 　  | xue | 　    |      | 　   | xin | xia | 　    |       | xing |       | 　     |      | 　    | xiong | xiu | 　    | xun  | xu   | xuan  | xiao | xiang | 　      |
-| y | y  | yi    | yu  | ye  | 　    | 　   |      | yan  | yo | yue | 　    |      | ya  | yin | 　   | 　    | yang  | ying | 　     | 　     | yao  | 　    | yong  | 　   | you  | yun  | yu   | yuan  | 　    | 　     | 　      |
+| y | y  | yi    | yu  | ye  | 　    | 　   | yan  |      | yo | yue | 　    |      | ya  | yin | 　   | 　    | yang  | ying | 　     | 　     | yao  | 　    | yong  | 　   | you  | yun  | yu   | yuan  | 　    | 　     | 　      |
 | v | zh | zhi   | zhu | zhe | zhei | 　   | zhan | 　    | 　  | 　   | zhuo | zhai | zha | 　   | 　   | zhua | zhang | 　    | zhuai | zheng | zhao | zhen | zhong | 　   | zhou | zhun | zhui | zhuan | 　    | 　     | zhuang |
 | i | ch | chi   | chu | che |      | 　   | chan | 　    | 　  |     | chuo | chai | cha | 　   | 　   | 　    | chang | 　    | chuai | cheng | chao | chen | chong | 　   | chou | chun | chui | chuan | 　    | 　     | chuang |
 | u | sh | shi   | shu | she | shei | 　   | shan | 　    | 　  |     | shuo | shai | sha | 　   | 　   | shua | shang | 　    | shuai | sheng | shao | shen |       | 　   | shou | shun | shui | shuan | 　    | 　     | shuang |
