@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="theme-color" content="#141923"><title>吹衣输入法 · 12 套皮肤实验室</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Microsoft YaHei",system-ui,sans-serif;color:#202737;color-scheme:light;--blue:#377bed}
+*{box-sizing:border-box}
+body{margin:0;background:#f0f3f8;font-size:14px}
+button,input{font:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:1040px;margin:auto;padding:16px}
+header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
+h1{font-size:21px;letter-spacing:-.6px;margin:4px 0}
+.sub{font-size:12px;color:#728094}
+.tag{font-size:11px;border-radius:30px;padding:6px 9px;color:#53709c;background:#e0eafc;white-space:nowrap}
+.layout{display:grid;grid-template-columns:minmax(290px,1fr) minmax(280px,1fr);gap:20px}
+.preview-column{min-width:0;position:sticky;top:12px;align-self:start}
+.heading{display:flex;gap:8px;align-items:center;justify-content:space-between;margin:0 0 10px}
+.heading b{font-size:16px}.heading small{color:#7c879c;font-size:11px}
+.phone{background:#171e2c;border:6px solid #252d3a;border-radius:26px;overflow:hidden;box-shadow:0 15px 35px #1b30402a}
+.topbar{height:26px;display:flex;justify-content:space-between;padding:7px 16px;color:#d8dce5;font-size:11px}
+.app-screen{height:122px;background:#f8fafc;padding:17px;color:#354358;display:flex;flex-direction:column;justify-content:center;gap:7px}
+.app-screen strong{font-size:13px}
+.app-screen span{font-size:12px;color:#818b99}
+.kb{background:var(--bg);color:var(--ink);padding:7px 7px 12px;user-select:none}
+.tools{height:27px;display:flex;align-items:center;justify-content:space-between;padding:0 6px;color:var(--muted);font-size:11px}
+.tools strong{color:var(--ink);font-size:11px}
+.preedit{min-height:25px;padding:6px 9px;background:var(--ctrl);font-size:11px;color:var(--ink);border-radius:7px;opacity:.89;margin-bottom:5px}
+.candidates{display:flex;gap:4px;align-items:center;overflow-x:auto;scrollbar-width:none;padding:5px 1px 11px}
+.candidates::-webkit-scrollbar{display:none}
+.candidate{background:var(--key);border:1px solid var(--border);padding:9px var(--pad);border-radius:9px;color:var(--ink);font-weight:600;white-space:nowrap;font-size:14px;flex-shrink:0}
+.candidate:first-child{background:var(--accent);border-color:transparent;color:var(--accentText)}
+.keyrow{display:flex;gap:4px;margin:5px 0;justify-content:center}
+.key{flex:1;min-width:0;background:var(--key);color:var(--ink);border:1px solid var(--border);border-radius:var(--radius);height:42px;display:flex;justify-content:center;align-items:center;position:relative;font-size:17px}
+.key small{position:absolute;right:3px;top:2px;color:var(--muted);font-size:8px}
+.key.control{background:var(--ctrl);font-size:11px;font-weight:700}
+.key.primary{background:var(--accent);border-color:transparent;color:var(--accentText)}
+.key.wide{flex:2.9;font-size:11px;color:var(--muted)}
+.key.split{flex:1.35;font-size:11px}
+.key.del{flex:1.35}
+.key:active{filter:brightness(.93)}
+.navrow{height:20px;display:flex;align-items:center;justify-content:center}
+.navrow:after{content:'';height:4px;border-radius:6px;width:88px;background:var(--ink);opacity:.25}
+.modebar{display:flex;gap:5px;padding:4px;border-radius:11px;background:#e2e8f2;margin:12px 0}
+.modebar button{flex:1;border:0;background:transparent;border-radius:8px;padding:9px 2px;font-size:12px;color:#637189}
+.modebar button.active{background:#fff;color:#1e3c63;font-weight:700;box-shadow:0 1px 4px #0001}
+.controls{background:#fff;border-radius:13px;padding:12px 13px;display:flex;gap:10px;align-items:center;justify-content:space-between}
+.controls label{font-size:12px;white-space:nowrap}
+.controls input{flex:1;min-width:50px;accent-color:#397ce8}
+.controls output{font-size:12px;min-width:28px;text-align:right;font-weight:700}
+.notice{color:#748195;font-size:11px;line-height:1.6;margin:10px 3px}
+.filters{display:flex;gap:7px;overflow:auto;margin:0 0 11px;scrollbar-width:none}
+.filters button{flex-shrink:0;border:1px solid #d6dce7;background:#fff;color:#5e687b;border-radius:10px;padding:8px 12px;font-size:12px}
+.filters button.active{border-color:#3279e6;background:#e6efff;color:#1953a2}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.card{border:2px solid #dbe1eb;border-radius:15px;background:#fff;padding:8px;min-width:0;text-align:left;box-shadow:0 1px 2px #1d33440d}
+.card.selected{border-color:#307cf0;box-shadow:0 0 0 2px #307cf021}
+.card .mini{border-radius:9px;background:var(--bg);padding:8px 6px 12px;height:93px;display:flex;flex-direction:column;gap:7px}
+.card .mini-cands{display:flex;gap:3px;overflow:hidden}
+.card .mini-cands span{background:var(--key);color:var(--ink);font-size:9px;border-radius:4px;padding:4px 5px;white-space:nowrap}
+.card .mini-cands span:first-child{background:var(--accent);color:var(--accentText)}
+.card .mini-keys{display:flex;gap:3px;flex:1;align-items:stretch}
+.card .mini-keys span{flex:1;border-radius:4px;background:var(--key);color:var(--ink);font-size:11px;display:flex;justify-content:center;align-items:center}
+.card .cardname{display:flex;align-items:baseline;gap:8px;padding:8px 3px 2px}
+.card .cardname strong{font-size:13px}.card .cardname small{font-size:10px;color:#8894a5}
+.card .desc{font-size:10px;color:#7a879b;padding:0 3px 3px}
+.group-label{font-size:11px;color:#8c96a4;font-weight:700;margin:14px 0 8px}
+.foot{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:14px;color:#6e7c90;font-size:11px}
+.foot button{background:#2b70e6;color:white;border:0;border-radius:10px;padding:9px 13px;font-weight:700}
+@media(max-width:720px){.layout{grid-template-columns:1fr}.preview-column{position:static}.wrap{padding:12px}.phone{max-width:440px;margin:auto}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:721px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:345px){.gallery{grid-template-columns:1fr}.key{height:37px}.keyrow{gap:2px}}
+</style>
+</head>
+<body><div class="wrap">
+<header><div><div class="sub">CHUIYI / THEME STUDIO</div><h1>吹衣 · 皮肤实验室</h1><div class="sub">同文输入法 3.3.12 · 12 套纯代码皮肤</div></div><span class="tag">离线也能看</span></header>
+<main class="layout">
+<section class="preview-column">
+<div class="heading"><b id="current-name">01 云瓷白</b><small id="current-cat">浅色 · 1/12</small></div>
+<div class="phone" id="phone"><div class="topbar"><span>23:46</span><span>● ● ● ▰</span></div>
+<div class="app-screen"><strong>看看这套输入法皮肤怎么样？</strong><span id="typed">这里可以测试按键和候选词。</span></div>
+<div class="kb" id="keyboard"></div></div>
+<div class="modebar" id="modebar"><button data-mode="zh" class="active">中文</button><button data-mode="en">英文</button><button data-mode="num">数字</button><button data-mode="sym">符号</button></div>
+<div class="controls"><label for="padding">候选词留白</label><input id="padding" type="range" min="6" max="25" value="16"><output id="padval">16</output></div>
+<div class="notice">候选栏可左右滑动，输入和切换键盘可点击。这是 HTML 视觉预览；实际同文颜色与圆角会受主题引擎影响。它不会改变你的输入编码或个人词库。</div>
+</section>
+<section><div class="filters" id="filters"></div><div class="gallery" id="gallery"></div><div class="foot"><span>保留吹衣双键拼音、上滑和长按定义</span><button id="copyfile">复制皮肤文件名</button></div></section>
+</main></div>
+<script>
+const THEMES=[{"id":"01","category":"light","slug":"cloud-white","name":"云瓷白","description":"小米原生感 · 柔和蓝","file":"cy_01_cloud-white.trime.yaml","repo_path":"themes/trime/light/cy_01_cloud-white.trime.yaml","bg":"#E9EDF2","key":"#FFFFFF","fg":"#242A33","muted":"#808B9B","control":"#D5DDE9","accent":"#3478EC","accent_text":"#FFFFFF","border":"#D5DDE6"},{"id":"02","category":"light","slug":"glacier-blue","name":"冰川蓝","description":"清透科技 · 天空色","file":"cy_02_glacier-blue.trime.yaml","repo_path":"themes/trime/light/cy_02_glacier-blue.trime.yaml","bg":"#DCEBFA","key":"#F9FDFF","fg":"#1A3B5E","muted":"#7290AC","control":"#C4DAF0","accent":"#2679D9","accent_text":"#FFFFFF","border":"#BAD4E9"},{"id":"03","category":"light","slug":"cream-apricot","name":"奶杏","description":"温暖柔软 · 低饱和","file":"cy_03_cream-apricot.trime.yaml","repo_path":"themes/trime/light/cy_03_cream-apricot.trime.yaml","bg":"#F6E9DB","key":"#FFFDF8","fg":"#574438","muted":"#A18B7B","control":"#E7D5C5","accent":"#C98556","accent_text":"#FFFFFF","border":"#E4D5C6"},{"id":"04","category":"light","slug":"mint-tea","name":"薄荷茶","description":"自然舒缓 · 奶油绿","file":"cy_04_mint-tea.trime.yaml","repo_path":"themes/trime/light/cy_04_mint-tea.trime.yaml","bg":"#E2ECE4","key":"#FEFFFD","fg":"#294C3D","muted":"#829B8A","control":"#CCDFD0","accent":"#478E70","accent_text":"#FFFFFF","border":"#C9DBCD"},{"id":"05","category":"dark","slug":"graphite","name":"石墨灰","description":"克制专业 · 暗金点缀","file":"cy_05_graphite.trime.yaml","repo_path":"themes/trime/dark/cy_05_graphite.trime.yaml","bg":"#292C33","key":"#414650","fg":"#F5F5F3","muted":"#ABB0BA","control":"#353943","accent":"#E5B35D","accent_text":"#2C2419","border":"#555B65"},{"id":"06","category":"dark","slug":"deep-sea","name":"深海蓝","description":"夜间使用 · 青蓝光","file":"cy_06_deep-sea.trime.yaml","repo_path":"themes/trime/dark/cy_06_deep-sea.trime.yaml","bg":"#152B3C","key":"#25445B","fg":"#E8F6FC","muted":"#91B7C9","control":"#1D364A","accent":"#4BC5D8","accent_text":"#0D2933","border":"#497286"},{"id":"07","category":"color","slug":"sakura","name":"樱花糖","description":"轻柔可爱 · 暖粉","file":"cy_07_sakura.trime.yaml","repo_path":"themes/trime/color/cy_07_sakura.trime.yaml","bg":"#F8E5ED","key":"#FFFFFF","fg":"#653C54","muted":"#AF8B9D","control":"#EDCEDB","accent":"#D873A2","accent_text":"#FFFFFF","border":"#EDCDDA"},{"id":"08","category":"dark","slug":"obsidian","name":"黑曜夜","description":"极简黑 · 青柠亮色","file":"cy_08_obsidian.trime.yaml","repo_path":"themes/trime/dark/cy_08_obsidian.trime.yaml","bg":"#17191B","key":"#303437","fg":"#F1F4EE","muted":"#A3AAA3","control":"#23282B","accent":"#C4F66A","accent_text":"#1C2C12","border":"#5A605D"},{"id":"09","category":"light","slug":"paper-white","name":"清纸白","description":"纯净留白 · 无阴影","file":"cy_09_paper-white.trime.yaml","repo_path":"themes/trime/light/cy_09_paper-white.trime.yaml","bg":"#F5F6F8","key":"#FFFFFF","fg":"#343941","muted":"#999EAA","control":"#E7E9EE","accent":"#333840","accent_text":"#FFFFFF","border":"#D2D6DD"},{"id":"10","category":"color","slug":"dusk-purple","name":"暮光紫","description":"轻雾层次 · 冷色系","file":"cy_10_dusk-purple.trime.yaml","repo_path":"themes/trime/color/cy_10_dusk-purple.trime.yaml","bg":"#E9E4F3","key":"#FFFFFF","fg":"#403853","muted":"#988CA9","control":"#D8D0E9","accent":"#8266C4","accent_text":"#FFFFFF","border":"#D6CDE8"},{"id":"11","category":"color","slug":"amber-paper","name":"琥珀纸","description":"复古书写 · 暖纸感","file":"cy_11_amber-paper.trime.yaml","repo_path":"themes/trime/color/cy_11_amber-paper.trime.yaml","bg":"#EEE2CB","key":"#FAF1E1","fg":"#54442E","muted":"#97866E","control":"#DED0B6","accent":"#B17A31","accent_text":"#FFFFFF","border":"#CFBFA6"},{"id":"12","category":"texture","slug":"mist-glass","name":"雾玻璃","description":"轻盈半透明感 · 软阴影","file":"cy_12_mist-glass.trime.yaml","repo_path":"themes/trime/texture/cy_12_mist-glass.trime.yaml","bg":"#D9E4ED","key":"#F4FAFF","fg":"#34485D","muted":"#8196AC","control":"#BFCFDB","accent":"#6B8FAF","accent_text":"#FFFFFF","border":"#BFCFDB"}];
+const labels={all:"全部 12",light:"浅色 5",dark:"深色 3",color:"彩色 3",texture:"通透 1"};
+let selected=0,filter="all",mode="zh",pad=16,typed="这里可以测试按键和候选词。",composition="";
+const $=s=>document.querySelector(s);
+const scheme=t=>({'--bg':t.bg,'--key':t.key,'--ink':t.fg,'--muted':t.muted,'--ctrl':t.control,'--accent':t.accent,'--accentText':t.accent_text,'--border':t.border,'--radius':'10px','--pad':pad+'px'});
+function cssVars(t){return Object.entries(scheme(t)).map(([k,v])=>k+':'+v).join(';')}
+function key(label,k=''){let tag=label.startsWith("~")?label.slice(1):label;return '<button type="button" class="key '+k+'" data-key="'+tag.replace(/"/g,'&quot;')+'">'+tag+'</button>'}
+function row(arr,c=''){return '<div class="keyrow '+c+'">'+arr.join('')+'</div>'}
+function keys(){
+ let k='';
+ if(mode==="num"){
+  for(const a of [['*','1','2','3','⌫'],['%','4','5','6','.'],['/','7','8','9','@'],['符','返回','0','空格','↵']])k+=row(a.map(x=>key(x,['⌫','符','返回','空格'].includes(x)?'control':x==='↵'?'primary':'')));
+ }else if(mode==="sym"){
+  for(const a of [['1','2','3','4','5','6','7','8','9','0'],['~','!','@','#','%','^','&','*','(',')'],['[',']','{','}',':',';','/','?','⌫','↵']])k+=row(a.map(x=>key(x,x==='↵'?'primary':x==='⌫'?'control':'')));
+  k+=row(['返回','123','，','空格','。','↵'].map(x=>key(x,x==='↵'?'primary':x==='空格'?'wide':'control')));
+ }else{
+  k+=row('qwertyuiop'.split('').map((x,i)=>'<button type="button" class="key" data-key="'+x+'">'+x+'<small>'+"1234567890"[i]+'</small></button>'));
+  k+=row('asdfghjkl'.split('').map(x=>key(x)));
+  k+=row([key('分词','control split'),...'zxcvbnm'.split('').map(x=>key(x)),key('⌫','control del')]);
+  k+=row([key('符','control'),key('123','control'),key('，','control'),key('空格','wide'),key('。','control'),key('中/英','control'),key('↵','primary')]);
+ }
+ return k;
+}
+function candidateWords(){return (mode==="en"?['computer','complete','company','compare','compose','compact']:mode==="num"?['123','2026','520','888','666','100']:mode==="sym"?['！','？','。','，','：','；']:['你好','你们','您好','你是','你好呀','你好啊'])}
+function renderPhone(){
+ const t=THEMES[selected];
+ $('#phone').style=cssVars(t);
+ $('#current-name').textContent=t.id+' · '+t.name;
+ $('#current-cat').textContent=labels[t.category].split(' ')[0]+' · '+(selected+1)+'/12';
+ $('#typed').textContent=typed;
+ $('#keyboard').innerHTML='<div class="tools"><strong>吹衣 · 带调拼音</strong><span>☷ &nbsp; ⌘ &nbsp; ⚙</span></div><div class="preedit">'+(composition||({zh:"输入编码…",en:"Type in English…",num:"数字输入",sym:"符号输入"}[mode]))+'</div><div class="candidates">'+candidateWords().map((w,i)=>'<button class="candidate" data-candidate="'+w+'">'+w+'</button>').join('')+'</div>'+keys()+'<div class="navrow"></div>';
+ document.querySelectorAll('#modebar button').forEach(x=>x.classList.toggle('active',x.dataset.mode===mode));
+}
+function renderGallery(){
+ $('#gallery').innerHTML=THEMES.map((t,i)=>{
+ if(filter!=='all'&&t.category!==filter)return '';
+ const vars=cssVars(t);
+ return '<button class="card '+(i===selected?'selected':'')+'" data-theme="'+i+'" style="'+vars+'"><div class="mini"><div class="mini-cands"><span>你好</span><span>我们</span><span>可以</span><span>现在</span></div><div class="mini-keys">'+['Q','W','E','R','T','Y','U'].map(x=>'<span>'+x+'</span>').join('')+'</div><div class="mini-keys">'+['A','S','D','F','G','H'].map(x=>'<span>'+x+'</span>').join('')+'</div></div><div class="cardname"><strong>'+t.id+' '+t.name+'</strong><small>'+labels[t.category].split(' ')[0]+'</small></div><div class="desc">'+t.description+'</div></button>'
+ }).join('')
+}
+function renderFilters(){$('#filters').innerHTML=Object.entries(labels).map(([k,v])=>'<button data-filter="'+k+'" class="'+(k===filter?'active':'')+'">'+v+'</button>').join('')}
+$('#filters').addEventListener('click',e=>{let el=e.target.closest('[data-filter]');if(el){filter=el.dataset.filter;renderFilters();renderGallery()}});
+$('#gallery').addEventListener('click',e=>{let el=e.target.closest('[data-theme]');if(el){selected=Number(el.dataset.theme);renderPhone();renderGallery()}});
+$('#modebar').addEventListener('click',e=>{let el=e.target.closest('[data-mode]');if(el){mode=el.dataset.mode;composition='';renderPhone()}});
+$('#keyboard').addEventListener('click',e=>{
+ let c=e.target.closest('[data-candidate]');if(c){typed=c.dataset.candidate;composition='';renderPhone();return}
+ let el=e.target.closest('[data-key]');if(!el)return;
+ const x=el.dataset.key;
+ if(x==="123"){mode="num";composition=''}else if(x==="符"){mode="sym";composition=''}
+ else if(x==="返回"){mode="zh";composition=''}else if(x==="中/英"){mode=mode==="en"?"zh":"en";composition=''}
+ else if(x==="⌫"){composition=composition.slice(0,-1)}else if(x==="↵"||x==="空格"){typed=composition?composition:typed;composition=''}
+ else if(x==="分词")composition+=' ';
+ else composition+=x;
+ renderPhone()
+});
+$('#padding').addEventListener('input',e=>{pad=Number(e.target.value);$('#padval').textContent=pad;renderPhone()});
+$('#copyfile').addEventListener('click',async()=>{
+ const name=THEMES[selected].file;
+ try{await navigator.clipboard.writeText(name);$('#copyfile').textContent="已复制 "+name}catch(e){$('#copyfile').textContent=name}
+});
+renderFilters();renderGallery();renderPhone();
+</script></body></html>
