@@ -21,23 +21,24 @@ h1{font-size:21px;letter-spacing:-.6px;margin:4px 0}
 .app-screen{height:122px;background:#f8fafc;padding:17px;color:#354358;display:flex;flex-direction:column;justify-content:center;gap:7px}
 .app-screen strong{font-size:13px}
 .app-screen span{font-size:12px;color:#818b99}
-.kb{background:var(--bg);color:var(--ink);padding:7px 7px 12px;user-select:none}
+.kb{background:var(--bg);color:var(--ink);padding:7px 5px 39px;user-select:none}
 .tools{height:27px;display:flex;align-items:center;justify-content:space-between;padding:0 6px;color:var(--muted);font-size:11px}
 .tools strong{color:var(--ink);font-size:11px}
 .preedit{min-height:25px;padding:6px 9px;background:var(--ctrl);font-size:11px;color:var(--ink);border-radius:7px;opacity:.89;margin-bottom:5px}
-.candidates{display:flex;gap:4px;align-items:center;overflow-x:auto;scrollbar-width:none;padding:5px 1px 11px}
+.candidates{display:flex;gap:0;align-items:center;overflow-x:auto;scrollbar-width:none;padding:2px 1px 5px;min-height:49px}
 .candidates::-webkit-scrollbar{display:none}
-.candidate{background:var(--key);border:1px solid var(--border);padding:9px var(--pad);border-radius:9px;color:var(--ink);font-weight:600;white-space:nowrap;font-size:14px;flex-shrink:0}
+.candidate{background:transparent;border:1px solid transparent;padding:0 var(--pad);height:42px;display:flex;align-items:center;border-radius:9px;color:var(--ink);font-weight:600;white-space:nowrap;font-size:19px;flex-shrink:0}
 .candidate:first-child{background:var(--accent);border-color:transparent;color:var(--accentText)}
-.keyrow{display:flex;gap:4px;margin:5px 0;justify-content:center}
-.key{flex:1;min-width:0;background:var(--key);color:var(--ink);border:1px solid var(--border);border-radius:var(--radius);height:42px;display:flex;justify-content:center;align-items:center;position:relative;font-size:17px}
-.key small{position:absolute;right:3px;top:2px;color:var(--muted);font-size:8px}
+.keyrow{display:flex;gap:6px;margin:11px 0 0;justify-content:center}
+.key{flex:1;min-width:0;background:var(--key);color:var(--ink);border:1px solid var(--border);border-radius:var(--radius);height:36px;display:flex;justify-content:center;align-items:center;position:relative;font-size:23px}
+.key small{position:absolute;right:3px;top:2px;color:var(--muted);font-size:10px}
 .key.control{background:var(--ctrl);font-size:11px;font-weight:700}
 .key.primary{background:var(--accent);border-color:transparent;color:var(--accentText)}
-.key.wide{flex:2.9;font-size:11px;color:var(--muted)}
-.key.split{flex:1.35;font-size:11px}
-.key.del{flex:1.35}
+.key.wide{flex:3;font-size:11px;color:var(--muted)}
+.key.split{flex:1.5;font-size:11px}
+.key.del{flex:1.5}
 .key:active{filter:brightness(.93)}
+.keyspacer{flex:.5;min-width:0}
 .navrow{height:20px;display:flex;align-items:center;justify-content:center}
 .navrow:after{content:'';height:4px;border-radius:6px;width:88px;background:var(--ink);opacity:.25}
 .modebar{display:flex;gap:5px;padding:4px;border-radius:11px;background:#e2e8f2;margin:12px 0}
@@ -68,7 +69,7 @@ h1{font-size:21px;letter-spacing:-.6px;margin:4px 0}
 .foot button{background:#2b70e6;color:white;border:0;border-radius:10px;padding:9px 13px;font-weight:700}
 @media(max-width:720px){.layout{grid-template-columns:1fr}.preview-column{position:static}.wrap{padding:12px}.phone{max-width:440px;margin:auto}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(min-width:721px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:345px){.gallery{grid-template-columns:1fr}.key{height:37px}.keyrow{gap:2px}}
+@media(max-width:345px){.gallery{grid-template-columns:1fr}.key{height:36px}.keyrow{gap:2px}}
 </style>
 </head>
 <body><div class="wrap">
@@ -81,7 +82,7 @@ h1{font-size:21px;letter-spacing:-.6px;margin:4px 0}
 <div class="kb" id="keyboard"></div></div>
 <div class="modebar" id="modebar"><button data-mode="zh" class="active">中文</button><button data-mode="en">英文</button><button data-mode="num">数字</button><button data-mode="sym">符号</button></div>
 <div class="controls"><label for="padding">候选词留白</label><input id="padding" type="range" min="6" max="25" value="16"><output id="padval">16</output></div>
-<div class="notice">候选栏可左右滑动，输入和切换键盘可点击。这是 HTML 视觉预览；实际同文颜色与圆角会受主题引擎影响。它不会改变你的输入编码或个人词库。</div>
+<div class="notice">候选栏可左右滑动，输入和切换键盘可点击。键高、间距和底部留白已按当前吹衣 YAML 对齐；不同设备的字号及实际渲染仍可能略有差异。它不会改变你的输入编码或个人词库。</div>
 </section>
 <section><div class="filters" id="filters"></div><div class="gallery" id="gallery"></div><div class="foot"><span>保留吹衣双键拼音、上滑和长按定义</span><button id="copyfile">复制皮肤文件名</button></div></section>
 </main></div>
@@ -103,9 +104,9 @@ function keys(){
   k+=row(['返回','123','，','空格','。','↵'].map(x=>key(x,x==='↵'?'primary':x==='空格'?'wide':'control')));
  }else{
   k+=row('qwertyuiop'.split('').map((x,i)=>'<button type="button" class="key" data-key="'+x+'">'+x+'<small>'+"1234567890"[i]+'</small></button>'));
-  k+=row('asdfghjkl'.split('').map(x=>key(x)));
+  k+=row(['<span class="keyspacer"></span>',...'asdfghjkl'.split('').map(x=>key(x)),'<span class="keyspacer"></span>']);
   k+=row([key('分词','control split'),...'zxcvbnm'.split('').map(x=>key(x)),key('⌫','control del')]);
-  k+=row([key('符','control'),key('123','control'),key('，','control'),key('空格','wide'),key('。','control'),key('中/英','control'),key('↵','primary')]);
+  k+=row([key('符','control split'),key('123','control'),key('，','control'),key('空格','wide'),key('。','control'),key('中/英','control'),key('↵','primary del')]);
  }
  return k;
 }
