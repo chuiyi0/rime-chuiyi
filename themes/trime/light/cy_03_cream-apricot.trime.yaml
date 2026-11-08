@@ -146,44 +146,44 @@ preset_color_schemes:
   default:
     name: "吹衣 · 奶杏"
     author: "吹衣OVO · 色彩实验室"
-    back_color: 0xf6e9db
-    border_color: 0xe4d5c6
-    candidate_separator_color: 0xe4d5c6
-    candidate_text_color: 0x574438
-    comment_text_color: 0xa18b7b
-    hilited_back_color: 0xe7d5c5
-    hilited_candidate_back_color: 0xc98556
+    back_color: 0xf6eee7
+    border_color: 0xe6d6c8
+    candidate_separator_color: 0xe6d6c8
+    candidate_text_color: 0x4a3931
+    comment_text_color: 0x998475
+    hilited_back_color: 0xf4dfd2
+    hilited_candidate_back_color: 0xb66949
     hilited_candidate_text_color: 0xffffff
     hilited_comment_text_color: 0xffffff
-    hilited_key_back_color: 0xe7d5c5
-    hilited_key_text_color: 0x574438
-    hilited_key_symbol_color: 0xa18b7b
-    hilited_off_key_back_color: 0xe7d5c5
-    hilited_off_key_text_color: 0x574438
-    hilited_on_key_back_color: 0xe7d5c5
-    hilited_on_key_text_color: 0x574438
+    hilited_key_back_color: 0xf4dfd2
+    hilited_key_text_color: 0x4a3931
+    hilited_key_symbol_color: 0x998475
+    hilited_off_key_back_color: 0xf4dfd2
+    hilited_off_key_text_color: 0x4a3931
+    hilited_on_key_back_color: 0xf4dfd2
+    hilited_on_key_text_color: 0x4a3931
     hilited_text_color: 0xffffff
-    key_back_color: 0xfffdf8
-    key_border_color: 0xe4d5c6
-    key_symbol_color: 0xa18b7b
-    key_text_color: 0x574438
-    keyboard_back_color: 0xf6e9db
-    label_color: 0x574438
-    off_key_back_color: 0xe7d5c5
-    off_key_text_color: 0x574438
-    on_key_back_color: 0xe7d5c5
-    on_key_text_color: 0x574438
-    preview_back_color: 0xc98556
+    key_back_color: 0xfffcf7
+    key_border_color: 0xe6d6c8
+    key_symbol_color: 0x998475
+    key_text_color: 0x4a3931
+    keyboard_back_color: 0xf1e5da
+    label_color: 0x4a3931
+    off_key_back_color: 0xf4dfd2
+    off_key_text_color: 0x4a3931
+    on_key_back_color: 0xf4dfd2
+    on_key_text_color: 0x4a3931
+    preview_back_color: 0xb66949
     preview_text_color: 0xffffff
-    popup_back_color: 0xfffdf8
-    popup_text_color: 0x574438
-    hilited_popup_back_color: 0xc98556
+    popup_back_color: 0xfffcf7
+    popup_text_color: 0x4a3931
+    hilited_popup_back_color: 0xb66949
     hilited_popup_text_color: 0xffffff
-    shadow_color: 0xe4d5c6
-    text_color: 0x574438
-    text_back_color: 0xf6e9db
-    root_background: 0xf6e9db
-    candidate_background: 0xf6e9db
+    shadow_color: 0xe6d6c8
+    text_color: 0x4a3931
+    text_back_color: 0xf6eee7
+    root_background: 0xf6eee7
+    candidate_background: 0xf6eee7
 
   aqua:
     name: 碧水／Aqua
@@ -694,32 +694,31 @@ preset_color_schemes:
     off_key_text_color: 0x7f7f7f
     text_color: 0x7f7f7f
 
-# 空输入时显示工具按钮；输入中自动显示候选（Trime 3.3.12）
+# Empty composition: menu / editor / clipboard / emoji / settings
 tool_bar:
-  button_spacing: 5
+  button_spacing: 4
   primary_button:
-    foreground:
-      style: "ic@arrow-left"
-      font_size: 23
-      normal: candidate_text_color
-    action: Hide
-    long_press_action: Settings
+    size: [48, 42]
+    background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+    foreground: {style: "ic@cog", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
+    action: Settings
+    long_press_action: menu_keyboard
   buttons:
-    - foreground:
-        style: "ic@cog"
-        normal: candidate_text_color
-      action: Settings
-    - foreground:
-        style: "ic@emoticon"
-        normal: candidate_text_color
+    - size: [48, 42]
+      background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+      foreground: {style: "ic@keyboard_close", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
+      action: Hide
+    - size: [48, 42]
+      background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+      foreground: {style: "ic@emoticon", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
       action: liquid_keyboard_emoji
-    - foreground:
-        style: "ic@clipboard"
-        normal: candidate_text_color
+    - size: [48, 42]
+      background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+      foreground: {style: "ic@clipboard", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
       action: clipboard_window
-    - foreground:
-        style: "ic@cursor_text"
-        normal: candidate_text_color
+    - size: [48, 42]
+      background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+      foreground: {style: "ic@cursor_text", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
       action: Keyboard_editor
 
 liquid_keyboard:
@@ -857,7 +856,7 @@ liquid_keyboard:
     type: SYMBOL
     name: 符号表
     keys: [ 符号: '/fh', 电脑: '/dn', 象棋: '/xq', 麻将: '/mj', 骰子: '/sz', 扑克: '/pk', 天气: '/tq', 音乐: '/yy', 八卦: '/bg', 易经: '/lssg', 天体: '/tt',  星座: '/xz',  星号: '/xh',  方块: '/fk',  几何: '/jh',  箭头: '/jt',  数学: '/sx',  上标: '/sb',  下标: '/xb',  单位: '/dw',  货币: '/hb',  拼音: '/py',  注音: '/zy',  假名: '/jm',  片假: '/pjm',  韩文: '/hw',  希腊: '/xl',  希大: '/xld', 罗马:   '/lm',  罗大:   '/lmd', 俄语:   '/ey',  俄大:   '/eyd', 表情:  '/bq',  一: '/1',  二: '/2',  三: '/3',  四: '/4',  五: '/5',  六: '/6',  七: '/7',  八: '/8',  九: '/9',  零: '/0',  十: '/10',  分数: '/fs',  标点: '/bd',  偏旁: '/pp',  竖标:  '/bdz'  ]
-
+  
 
 android_keys:
   # 仅供编辑键盘时参考，实际不产生任何效果
@@ -963,8 +962,8 @@ preset_keys:
   Keyboard_mini: {label: 迷你, send: Eisu_toggle, select: mini}
   Keyboard_letter: {label: 字母, send: Eisu_toggle, select: default}
   Keyboard_default: {label: 返回, send: Eisu_toggle, select: .default}
-  Keyboard_editor: {label: 编辑, functional: false, send: Eisu_toggle, select: editor}
-  menu_keyboard: {label: 菜单, send: FUNCTION, command: menu_keyboard}
+  Keyboard_editor: {label: Editor, functional: false, send: Eisu_toggle, select: editor}
+  menu_keyboard: {label: Menu, send: FUNCTION, command: menu_keyboard}
   Keyboard_switch: {label: 鍵盤, send: Eisu_toggle, select: .next}
   liquid_keyboard_switch: { label: 更多, send: FUNCTION, command: liquid_keyboard, option: "更多" }
   liquid_keyboard_exit: {label: 返回, send: FUNCTION, command: liquid_keyboard, option: "-1"}  #退出liquidkeyboard
@@ -1018,7 +1017,8 @@ preset_keys:
   cy_split: {label: "分词", send: apostrophe, functional: true}
   cy_symbols: {label: "符", send: Eisu_toggle, select: symbols}
   cy_numbers: {label: "123", send: Eisu_toggle, select: number}
-  cy_back: {label: "返回", functional: false, send: Eisu_toggle, select: .last}
+  cy_back: {label: "返回", functional: false, send: Eisu_toggle, select: qwerty}
+  cy_symbols_more: {label: "更多", functional: false, send: Eisu_toggle, select: symbols_legacy}
   cy_q_sym: {label: "1", commit: "1", functional: false}
   cy_q_lo: {label: "q", commit: "q", functional: false}
   cy_q_up: {label: "Q", commit: "Q", functional: false}
@@ -1331,15 +1331,15 @@ preset_keyboards:
       - {click: n, label_symbol: ";", popup: [cy_n_sym, cy_n_lo, cy_n_up], swipe_up: cy_n_sym}
       - {click: m, label_symbol: "/", popup: [cy_m_sym, cy_m_lo, cy_m_up], swipe_up: cy_m_sym}
       - {click: BackSpace, label: "⌫", width: 15, swipe_left: Escape}
-      - {click: cy_symbols, width: 15, label: "符"}
-      - {click: cy_numbers, width: 10, label: "123"}
-      - {click: ",", width: 13, label: "，"}
+      - {click: cy_symbols, width: 18, label: "符"}
+      - {click: cy_numbers, width: 16, label: "123"}
+      - {click: ",", width: 6.5, label: "，"}
       - {click: space, width: 24, label: "空格"}
-      - {click: ".", width: 13, label: "。"}
-      - {click: Mode_switch, width: 10, label: "中/英"}
-      - {click: Return, width: 15, label: "↵"}
+      - {click: ".", width: 6.5, label: "。"}
+      - {click: Mode_switch, width: 11, label: "中/英"}
+      - {click: Return, width: 18, label: "↵"}
   editor:
-    name: "吹衣编辑键盘"
+    name: "Chuiyi editor"
     ascii_mode: 0
     columns: 5
     width: 20
@@ -1422,7 +1422,7 @@ preset_keyboards:
     - {click: BackSpace, swipe_right: Delete, swipe_left: Escape, width: 15}
     - {click: Return, long_click: CommitComment, width: 15}
   number:
-    name: "吹衣数字键盘·返回键对齐"
+    name: "吹衣数字键盘"
     author: "吹衣OVO"
     ascii_mode: 1
     columns: 10
@@ -1445,15 +1445,15 @@ preset_keyboards:
       - {click: KP_8}
       - {click: KP_9}
       - {click: KP_0}
-      - {click: Keyboard_symbols, label: "符", width: 15}
-      - {click: cy_back, label: "返回", width: 10}
-      - {click: ",", label: "，", width: 13}
+      - {click: Keyboard_symbols, label: "符", width: 18}
+      - {click: cy_back, label: "返回", width: 16}
+      - {click: ",", label: "，", width: 6.5}
       - {click: space, label: "空格", width: 24}
-      - {click: ".", label: "。", width: 13}
-      - {click: Mode_switch, label: "中/英", width: 10}
-      - {click: Return, label: "↵", width: 15}
+      - {click: ".", label: "。", width: 6.5}
+      - {click: Mode_switch, label: "中/英", width: 11}
+      - {click: Return, label: "↵", width: 18}
   symbols:
-    name: "吹衣符号键盘·返回键对齐"
+    name: "吹衣符号键盘"
     author: "吹衣OVO"
     ascii_mode: 1
     columns: 10
@@ -1464,375 +1464,7 @@ preset_keyboards:
       - {click: '!', long_click: '！'}
       - {click: '@', long_click: '￥'}
       - {click: '#', long_click: '＃'}
-      - {click: '  bopomofo:
-    name: 註音鍵盤
-    author: "皛筱晓小笨鱼"
-    ascii_mode: 0
-    ascii_keyboard: letter
-    width: 10
-    height: 44
-    keys:
-    - {label: 'ㄅ', long_click: '!', click: '1'}
-    - {label: 'ㄉ', long_click: '@', click: '2'}
-    - {label: 'ˇ', long_click: '#', click: '3'}
-    - {label: 'ˋ', long_click: '$', click: '4'}
-    - {label: 'ㄓ', long_click: '%', click: '5'}
-    - {label: 'ˊ', long_click: '^', click: '6'}
-    - {label: '˙', long_click: '&', click: '7'}
-    - {label: 'ㄚ', long_click: '*', click: '8'}
-    - {label: 'ㄞ', long_click: '(', click: '9'}
-    - {label: 'ㄢ', long_click: ')', click: '0'}
-    - {label: 'ㄆ', long_click: '_', click: q}
-    - {label: 'ㄊ', long_click: '-', click: w}
-    - {label: 'ㄍ', long_click: '+', click: e}
-    - {label: 'ㄐ', long_click: '=', click: r}
-    - {label: 'ㄔ', long_click: '|', click: t}
-    - {label: 'ㄗ', long_click: '\', click: y}
-    - {label: 'ㄧ', long_click: '[', click: u}
-    - {label: 'ㄛ', long_click: ']', click: i}
-    - {label: 'ㄟ', long_click: '{', click: o}
-    - {label: 'ㄣ', long_click: '}', click: p}
-    - {label: 'ㄇ', long_click: '`', click: a}
-    - {label: 'ㄋ', long_click: Up, click: s}
-    - {label: 'ㄎ', long_click: '~', click: d}
-    - {label: 'ㄑ', long_click: '!', click: f}
-    - {label: 'ㄕ', click: g, long_click: select_all}
-    - {label: 'ㄘ', click: h, long_click: Home}
-    - {label: 'ㄨ', click: j, long_click: End}
-    - {label: 'ㄜ', click: k, long_click: Page_Up}
-    - {label: 'ㄠ', click: l, long_click: Page_Down}
-    - {label: 'ㄤ', long_click: ':', click: ';'}
-    - {label: 'ㄈ', click: z, long_click: Left}
-    - {label: 'ㄌ', click: x, long_click: Down}
-    - {label: 'ㄏ', click: c, long_click: Right}
-    - {label: 'ㄒ', click: v, long_click: cut}
-    - {label: 'ㄖ', click: b, long_click: copy}
-    - {label: 'ㄙ', click: n, long_click: paste}
-    - {label: 'ㄩ', click: m, long_click: Insert}
-    - {label: 'ㄝ', long_click: '<', click: ','}
-    - {label: 'ㄡ', long_click: '>', click: '.'}
-    - {label: 'ㄥ', long_click: '?', click: '/'}
-    - {click: Shift_L, label: 換檔, send_bindings: false}
-    - {click: Mode_switch, long_click: Menu}
-    - {click: Keyboard_symbols, long_click: Keyboard_number}
-    - {click: space, width: 30}
-    - {label: 'ㄦ', long_click: '"', click: "-"}
-    - {long_click: '。', click: '，'}
-    - {click: BackSpace, long_click: Escape, width: 10}
-    - {click: Return, composing: Return1, long_click: CommitComment, width: 10}
-  cangjie5:
-    name: 倉頡五代鍵盤
-    author: "皛筱晓小笨鱼"
-    ascii_mode: 0
-    width: 10
-    height: 55
-    keys:
-    - {label: '手', long_click: '_', click: q}
-    - {label: '田', long_click: '-', click: w}
-    - {label: '水', long_click: '+', click: e}
-    - {label: '口', long_click: '=', click: r}
-    - {label: '廿', long_click: '|', click: t}
-    - {label: '卜', long_click: '\', click: y}
-    - {label: '山', long_click: '[', click: u}
-    - {label: '戈', long_click: ']', click: i}
-    - {label: '人', long_click: '{', click: o}
-    - {label: '心', long_click: '}', click: p}
-    - {long_click: ':', click: ';'}
-    - {label: '日', long_click: '`', click: a}
-    - {label: '尸', long_click: Up, click: s}
-    - {label: '木', long_click: '~', click: d}
-    - {label: '火', long_click: '!', click: f}
-    - {label: '土', long_click: '@', click: g}
-    - {label: '竹', long_click: '#', click: h}
-    - {label: '十', long_click: '$', click: j}
-    - {label: '大', long_click: '%', click: k}
-    - {label: '中', long_click: '^', click: l}
-    - {long_click: '?', click: '/'}
-    - {label: '符', click: z, long_click: Left}
-    - {label: '難', click: x, long_click: Down}
-    - {label: '金', click: c, long_click: Right}
-    - {label: '女', long_click: '&', click: v}
-    - {label: '月', long_click: '*', click: b}
-    - {label: '弓', long_click: '(', click: n}
-    - {label: '一', long_click: ')', click: m}
-    - {long_click: '<', click: ','}
-    - {click: BackSpace, long_click: Escape, width: 10}
-    - {click: Hide}
-    - {click: Shift_L, send_bindings: false}
-    - {click: Keyboard_symbols, long_click: Keyboard_number}
-    - {click: space, width: 40}
-    - {click: Mode_switch, long_click: Menu}
-    - {long_click: '>', click: '.'}
-    - {click: Return, composing: Return1, long_click: CommitComment, width: 10}
-  cangjie6:
-    ascii_mode: 0
-    name: 倉頡六代
-    author: 吴琛11
-    height: 44
-    width: 9.7
-    keys:
-    - {width: 3}
-    - {click: 1, long_click: "!"}
-    - {click: 2, long_click: "@"}
-    - {click: 3, long_click: "#"}
-    - {click: 4, long_click: "$"}
-    - {click: 5, long_click: "%"}
-    - {click: 6, long_click: "^"}
-    - {click: 7, long_click: "&"}
-    - {click: 8, long_click: "*"}
-    - {click: 9, long_click: "("}
-    - {click: 0, long_click: ")"}
-    - {width: 3}
-    - {click: q, label: "手", long_click: _}
-    - {click: w, label: "田", long_click: "-"}
-    - {click: e, label: "水", long_click: "+"}
-    - {click: r, label: "口", long_click: "="}
-    - {click: t, label: "廿", long_click: "|"}
-    - {click: y, label: "卜", long_click: "\\"}
-    - {click: u, label: "山", long_click: "["}
-    - {click: i, label: "戈", long_click: "]"}
-    - {click: o, label: "人", long_click: "{"}
-    - {click: p, label: "心", long_click: "}"}
-    - {width: 7}
-    - {click: a, label: "日", long_click: select_all}
-    - {click: s, label: "尸", long_click: Home}
-    - {click: d, label: "木", long_click: End}
-    - {click: f, label: "火", long_click: Page_Up}
-    - {click: g, label: "土", long_click: Page_Down}
-    - {click: h, label: "的", long_click: Left}
-    - {click: j, label: "十", long_click: Down}
-    - {click: k, label: "大", long_click: Up}
-    - {click: l, label: "中", long_click: Right}
-    - {width: 6}
-    - {width: 3}
-    - {click: Shift_L, width: 13.8}
-    - {click: z, label: "片", long_click: "`"}
-    - {click: x, label: "止", long_click: cut}
-    - {click: c, label: "金", long_click: copy}
-    - {click: v, label: "女", long_click: paste}
-    - {click: b, label: "月", long_click: "~"}
-    - {click: n, label: "弓", long_click: '"'}
-    - {click: m, label: "一", long_click: Delete}
-    - {click: BackSpace, width: 13.8}
-    - {width: 2}
-    - {width: 3}
-    - {click: Menu, long_click: Color_switch, width: 14}
-    - {click: Keyboard_symbols, long_click: Keyboard_number, width: 11.5}
-    - {click: ",", long_click: .}
-    - {click: space, width: 25}
-    - {click: "'", long_click: "?"}
-    - {click: Return, composing: Return1, long_click: CommitComment, width: 25.5}
-  scj6:
-    __include: /preset_keyboards/cangjie5
-  stroke:
-    name: 五筆畫鍵盤
-    author: 皛筱晓小笨鱼
-    ascii_mode: 0
-    width: 20
-    height: 75
-    keys:
-    - {click: '?', long_click: '!'}
-    - {click: h, label: '一'}
-    - {click: s, label: '丨'}
-    - {click: p, label: '丿'}
-    - {click: BackSpace, long_click: Escape}
-    - {click: ';', long_click: ':'}
-    - {click: n, label: '丶'}
-    - {click: z, label: '乙'}
-    - {click: "'", label: '詞組'}
-    - {click: ',', long_click: '.'}
-    - {click: Hide, width: 10}
-    - {click: '/', long_click: '^', width: 10}
-    - {click: Keyboard_symbols, long_click: Keyboard_number, width: 10}
-    - {click: space, width: 40}
-    - {click: Keyboard_letter, long_click: Menu, width: 10}
-    - {click: Return, composing: Return1, long_click: CommitComment, width: 20}
-  telegraph:
-    name: 電碼
-    author: 熊貓阿Bo
-    ascii_mode: 0
-    width: 20
-    keys:
-    - {click: '@'}
-    - {click: '7'}
-    - {click: '8'}
-    - {click: '9'}
-    - {click: '、'}
-    - {click: '!', label: '！'}
-    - {click: '4'}
-    - {click: '5'}
-    - {click: '6'}
-    - {click: ';', label: '；'}
-    - {click: '?', label: '？'}
-    - {click: '1'}
-    - {click: '2'}
-    - {click: '3'}
-    - {click: ',', label: '，'}
-    - {click: '"', label: '“”{Left}'}
-    - {click: ':', label: '：'}
-    - {click: '0'}
-    - {click: '.', label: '。'}
-    - {click: BackSpace}
-    - {click: Keyboard_letter, long_click: Menu}
-    - {click: space, width: 60}
-    - {click: Return, composing: Return1}
-  terra_pinyin:
-    name: 地球拼音鍵盤
-    author: 默默ㄇㄛˋ
-    ascii_mode: 0
-    width: 10
-    height: 55
-    keys:
-    - {click: 'q', long_click: '_'}
-    - {click: 'w', long_click: '-'}
-    - {click: 'e', long_click: '+'}
-    - {click: 'r', long_click: '='}
-    - {click: 't', long_click: '|'}
-    - {click: 'y', long_click: '^'}
-    - {click: 'u', long_click: '['}
-    - {click: 'i', long_click: ']'}
-    - {click: 'o', long_click: '{'}
-    - {click: 'p', long_click: '}'}
-    - {click: 'a', long_click: '`' }
-    - {click: 's', long_click: Time, swipe_up: Date}
-    - {click: 'd', long_click: '~'}
-    - {click: 'f', long_click: '!'}
-    - {click: 'g', long_click: '@'}
-    - {click: 'h', long_click: '#'}
-    - {click: 'j', long_click: '$'}
-    - {click: 'k', long_click: '%'}
-    - {click: 'l', long_click: '>'}
-    - {click: ';', long_click: ':', composing: 'ˉ', send_bindings: false}  #一聲
-    - {click: 'z', long_click: cut}
-    - {click: 'x', long_click: copy}
-    - {click: 'c', long_click: paste}
-    - {click: 'v', long_click: '&'}
-    - {click: 'b', long_click: '*'}
-    - {click: 'n', long_click: '('}
-    - {click: 'm', long_click: ')'}
-    - {click: '/', long_click: '?', composing: 'ˊ', send_bindings: false}  #二聲
-    - {click: ',', long_click: '<', composing: 'ˇ', send_bindings: false}  #三聲
-    - {click: BackSpace, long_click: Escape}
-    - {click: Mode_switch, long_click: Menu}
-    - {click: Shift_L}
-    - {click: Keyboard_symbols, long_click: Keyboard_number}
-    - {click: space, width: 40}
-    - {click: ".", long_click: '"'}
-    - {click: '\', long_click: '.', composing: 'ˋ', send_bindings: false}  #四聲
-    - {click: Return, composing: Return1, long_click: CommitComment}
-  array30:
-    name: 行列30配美式國際
-    author: "Terry Tsang <archerindigo@gmail.com>"
-    ascii_mode: 1
-    width: 10
-    height: 44
-    lock: true
-    keys:
-    - {click: '1', long_click: '!', swipe_up: '¡', swipe_down: '¹'}
-    - {click: '2', long_click: '@', swipe_up: '²'}
-    - {click: '3', long_click: '#', swipe_up: '³'}
-    - {click: '4', long_click: '$', swipe_up: '¤', swipe_down: '£'}
-    - {click: '5', long_click: '%', swipe_up: '€'}
-    - {click: '6', long_click: '^', swipe_up: '¼'}
-    - {click: '7', long_click: '&', swipe_up: '½'}
-    - {click: '8', long_click: '*', swipe_up: '¾'}
-    - {click: '9', long_click: '(){Left}', swipe_left: '(', swipe_right: ')', swipe_up: '‘'}
-    - {click: '0', long_click: '-', swipe_down: '_', swipe_up: '’', swipe_left: '¥'}
-    - {click: 'q', label: "1^", long_click: '~', swipe_up: 'ä'}
-    - {click: 'w', label: "2^", long_click: '+', swipe_up: 'å'}
-    - {click: 'e', label: "3^", long_click: '=', swipe_up: 'é'}
-    - {click: 'r', label: "4^", long_click: '×', swipe_up: '®'}
-    - {click: 't', label: "5^", long_click: '÷', swipe_up: 'þ'}
-    - {click: 'y', label: "6^", long_click: '«»{Left}', swipe_left: '«', swipe_right: '»', swipe_up: 'ü'}
-    - {click: 'u', label: "7^", long_click: '[]{Left}', swipe_left: '[', swipe_right: ']', swipe_up: 'ú'}
-    - {click: 'i', label: "8^", long_click: '{}{Left}', swipe_left: '{', swipe_right: '}', swipe_up: 'í'}
-    - {click: 'o', label: "9^", long_click: '\', swipe_up: 'ó'}
-    - {click: 'p', label: "0^", long_click: '|', swipe_up: 'ö', swipe_down: '¬', swipe_left: '¦'}
-    - {click: 'a', label: "1-", long_click: '`', swipe_up: 'á'}
-    - {click: 's', label: "2-", swipe_up: 'ß', swipe_down: '§'}
-    - {click: 'd', label: "3-", swipe_up: 'ð'}
-    - {click: 'f', label: "4-", long_click: Left, swipe_left: Home, swipe_right: End, swipe_up: Page_Up, swipe_down: Page_Down}
-    - {click: 'g', label: "5-", long_click: Up, swipe_left: Home, swipe_right: End, swipe_up: Page_Up, swipe_down: Page_Down}
-    - {click: 'h', label: "6-", long_click: Down, swipe_left: Home, swipe_right: End, swipe_up: Page_Up, swipe_down: Page_Down}
-    - {click: 'j', label: "7-", long_click: Right, swipe_left: Home, swipe_right: End, swipe_up: Page_Up, swipe_down: Page_Down}
-    - {click: 'k', label: "8-"}
-    - {click: 'l', label: "9-", swipe_up: 'ø'}
-    - {click: ';', label: "0-", long_click: ':', swipe_up: '¶', swipe_down: '°'}
-    - {click: 'z', label: "1v", long_click: select_all, swipe_up: 'æ'}
-    - {click: 'x', label: "2v", long_click: cut}
-    - {click: 'c', label: "3v", long_click: copy, swipe_up: '©', swipe_down: '¢'}
-    - {click: 'v', label: "4v", long_click: paste}
-    - {click: 'b', label: "5v", long_click: Insert}
-    - {click: 'n', label: "6v", long_click: undo, swipe_up: 'ñ'}
-    - {click: 'm', label: "7v", long_click: redo, swipe_up: 'µ'}
-    - {click: ',', label: "8v", long_click: '<', swipe_up: 'ç'}
-    - {click: '.', label: "9v", long_click: '>'}
-    - {click: '/', label: "0v", long_click: '?', swipe_up: '¿'}
-    - {click: Shift_L}
-    - {click: Keyboard_symbols, long_click: Keyboard_number}
-    - {click: Mode_switch, long_click: Menu}
-    - {click: space, long_click: VOICE_ASSIST, width: 30}
-    - {click: "'", long_click: '"'}
-    - {click: BackSpace, swipe_right: Delete, swipe_left: Escape, width: 15}
-    - {click: Return, long_click: CommitComment, width: 15}
-  quick5:
-    ascii_mode: 0
-    name: 速成
-    height: 44
-    width: 9.7
-    keys:
-    - {width: 3}
-    - {click: 1, long_click: "!"}
-    - {click: 2, long_click: "@"}
-    - {click: 3, long_click: "#"}
-    - {click: 4, long_click: "$"}
-    - {click: 5, long_click: "%"}
-    - {click: 6, long_click: "^"}
-    - {click: 7, long_click: "&"}
-    - {click: 8, long_click: "*"}
-    - {click: 9, long_click: "("}
-    - {click: 0, long_click: ")"}
-    - {width: 3}
-    - {click: q, label: "手", long_click: _}
-    - {click: w, label: "田", long_click: "-"}
-    - {click: e, label: "水", long_click: "+"}
-    - {click: r, label: "口", long_click: "="}
-    - {click: t, label: "廿", long_click: "|"}
-    - {click: y, label: "卜", long_click: "\\"}
-    - {click: u, label: "山", long_click: "["}
-    - {click: i, label: "戈", long_click: "]"}
-    - {click: o, label: "人", long_click: "{"}
-    - {click: p, label: "心", long_click: "}"}
-    - {width: 7}
-    - {click: a, label: "日", long_click: select_all}
-    - {click: s, label: "尸", long_click: Home}
-    - {click: d, label: "木", long_click: End}
-    - {click: f, label: "火", long_click: Page_Up}
-    - {click: g, label: "土", long_click: Page_Down}
-    - {click: h, label: "竹", long_click: Left}
-    - {click: j, label: "十", long_click: Down}
-    - {click: k, label: "大", long_click: Up}
-    - {click: l, label: "中", long_click: Right}
-    - {width: 6}
-    - {width: 3}
-    - {click: Shift_L, width: 13.8}
-    - {click: z, label: "重", long_click: "`"}
-    - {click: x, label: "難", long_click: cut}
-    - {click: c, label: "金", long_click: copy}
-    - {click: v, label: "女", long_click: paste}
-    - {click: b, label: "月", long_click: "~"}
-    - {click: n, label: "弓", long_click: '"'}
-    - {click: m, label: "一", long_click: Delete}
-    - {click: BackSpace, width: 13.8}
-    - {width: 2}
-    - {width: 3}
-    - {click: Menu, long_click: Color_switch, width: 14}
-    - {click: Keyboard_symbols, long_click: Keyboard_number, width: 11.5}
-    - {click: ",", long_click: .}
-    - {click: space, width: 25}
-    - {click: "'", long_click: "?"}
-    - {click: Return, long_click: CommitComment, width: 25.5}
-, long_click: '€'}
+      - {click: '$', long_click: '€'}
       - {click: '%', long_click: '‰'}
       - {click: '^', long_click: '√'}
       - {click: '&', long_click: '|'}
@@ -1850,7 +1482,7 @@ preset_keyboards:
       - {click: '}', long_click: '」'}
       - {click: '?', long_click: '？'}
       - {width: 5}
-      - {click: ':', width: 15, long_click: '：'}
+      - {click: cy_symbols_more, label: "更多", width: 15}
       - {click: ';', long_click: '；'}
       - {click: '/', long_click: '÷'}
       - {click: '、', long_click: '＼'}
@@ -1859,13 +1491,67 @@ preset_keyboards:
       - {click: '<', long_click: '《'}
       - {click: '>', long_click: '》'}
       - {click: BackSpace, label: "⌫", width: 15}
-      - {click: cy_back, label: "返回", width: 15}
-      - {click: Keyboard_number, label: "123", width: 10}
-      - {click: ",", label: "，", width: 13}
+      - {click: cy_back, label: "返回", width: 18}
+      - {click: Keyboard_number, label: "123", width: 16}
+      - {click: ",", label: "，", width: 6.5}
       - {click: space, label: "空格", width: 24}
-      - {click: ".", label: "。", width: 13}
-      - {click: Mode_switch, label: "中/英", width: 10}
-      - {click: Return, label: "↵", width: 15}
+      - {click: ".", label: "。", width: 6.5}
+      - {click: Mode_switch, label: "中/英", width: 11}
+      - {click: Return, label: "↵", width: 18}
+  symbols_legacy:
+    name: 吹衣完整符号
+    author: "天真可愛的滿滿"
+    ascii_mode: 1
+    width: 10
+    height: 44
+    keys:
+    - {click: '1'}
+    - {click: '2'}
+    - {click: '3'}
+    - {click: '4'}
+    - {click: '5'}
+    - {click: '6'}
+    - {click: '7'}
+    - {click: '8'}
+    - {click: '9'}
+    - {click: '0'}
+    - {click: '~',long_click: '`'}
+    - {click: '!'}
+    - {click: '@'}
+    - {click: '#'}
+    - {click: '$'}
+    - {click: '￥'}
+    - {click: '%'}
+    - {click: '^'}
+    - {click: '&'}
+    - {click: '*'}
+    - {click: '(', long_click: '{'}
+    - {click: ')', long_click: '}'}
+    - {click: '[', long_click: '【'}
+    - {click: ']', long_click: '】'}
+    - {click: '「', long_click: '『'}
+    - {click: '」', long_click: '』'}
+    - {click: '、', ascii: '\', long_click: '|'}
+    - {click: '/', long_click: '√'}
+    - {click: ':'}
+    - {click: ';'}
+    - {click: '+'}
+    - {click: '-', long_click: '_'}
+    - {click: '='}
+    - {click: '〈', long_click: '《', ascii: '<'}
+    - {click: '〉', long_click: '》', ascii: '>'}
+    - {click: '“', ascii: '"', long_click: '‘'}
+    - {click: '”', ascii: "'", long_click: '’'}
+    - {click: '，', ascii: ',', long_click: one_hand_switch_1}
+    - {click: '？', ascii: '?', long_click: one_hand_switch_3}
+    - {click: BackSpace, long_click: Escape}
+    - {click: Keyboard_symbols, label: "返回", width: 15}
+    - {click: Keyboard_number, long_click: Color_switch}
+    - {click: Keyboard_mini, long_click: Theme_settings}
+    - {click: space, width: 30}
+    - {click: '。', ascii: '.'}
+    - {click: liquid_keyboard_switch, long_click: Delete}
+    - {click: Return, long_click: select_all, width: 15}
   bopomofo:
     name: 註音鍵盤
     author: "皛筱晓小笨鱼"
