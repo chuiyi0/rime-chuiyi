@@ -146,44 +146,44 @@ preset_color_schemes:
   default:
     name: "吹衣 · 深海蓝"
     author: "吹衣OVO · 色彩实验室"
-    back_color: 0x152b3c
-    border_color: 0x497286
-    candidate_separator_color: 0x497286
-    candidate_text_color: 0xe8f6fc
-    comment_text_color: 0x91b7c9
-    hilited_back_color: 0x1d364a
-    hilited_candidate_back_color: 0x4bc5d8
-    hilited_candidate_text_color: 0x0d2933
-    hilited_comment_text_color: 0x0d2933
-    hilited_key_back_color: 0x1d364a
-    hilited_key_text_color: 0xe8f6fc
-    hilited_key_symbol_color: 0x91b7c9
-    hilited_off_key_back_color: 0x1d364a
-    hilited_off_key_text_color: 0xe8f6fc
-    hilited_on_key_back_color: 0x1d364a
-    hilited_on_key_text_color: 0xe8f6fc
-    hilited_text_color: 0x0d2933
-    key_back_color: 0x25445b
-    key_border_color: 0x497286
-    key_symbol_color: 0x91b7c9
-    key_text_color: 0xe8f6fc
-    keyboard_back_color: 0x152b3c
-    label_color: 0xe8f6fc
-    off_key_back_color: 0x1d364a
-    off_key_text_color: 0xe8f6fc
-    on_key_back_color: 0x1d364a
-    on_key_text_color: 0xe8f6fc
-    preview_back_color: 0x4bc5d8
-    preview_text_color: 0x0d2933
-    popup_back_color: 0x25445b
-    popup_text_color: 0xe8f6fc
-    hilited_popup_back_color: 0x4bc5d8
-    hilited_popup_text_color: 0x0d2933
-    shadow_color: 0x497286
-    text_color: 0xe8f6fc
-    text_back_color: 0x152b3c
-    root_background: 0x152b3c
-    candidate_background: 0x152b3c
+    back_color: 0x12293a
+    border_color: 0x2b4c60
+    candidate_separator_color: 0x2b4c60
+    candidate_text_color: 0xecf7fd
+    comment_text_color: 0x9db9cb
+    hilited_back_color: 0x2c5167
+    hilited_candidate_back_color: 0x73c6d4
+    hilited_candidate_text_color: 0x18263b
+    hilited_comment_text_color: 0x18263b
+    hilited_key_back_color: 0x2c5167
+    hilited_key_text_color: 0xecf7fd
+    hilited_key_symbol_color: 0x9db9cb
+    hilited_off_key_back_color: 0x2c5167
+    hilited_off_key_text_color: 0xecf7fd
+    hilited_on_key_back_color: 0x2c5167
+    hilited_on_key_text_color: 0xecf7fd
+    hilited_text_color: 0x18263b
+    key_back_color: 0x1d3a4d
+    key_border_color: 0x2b4c60
+    key_symbol_color: 0x9db9cb
+    key_text_color: 0xecf7fd
+    keyboard_back_color: 0x0c2233
+    label_color: 0xecf7fd
+    off_key_back_color: 0x2c5167
+    off_key_text_color: 0xecf7fd
+    on_key_back_color: 0x2c5167
+    on_key_text_color: 0xecf7fd
+    preview_back_color: 0x73c6d4
+    preview_text_color: 0x18263b
+    popup_back_color: 0x1d3a4d
+    popup_text_color: 0xecf7fd
+    hilited_popup_back_color: 0x73c6d4
+    hilited_popup_text_color: 0x18263b
+    shadow_color: 0x2b4c60
+    text_color: 0xecf7fd
+    text_back_color: 0x12293a
+    root_background: 0x12293a
+    candidate_background: 0x12293a
 
   aqua:
     name: 碧水／Aqua
@@ -694,32 +694,31 @@ preset_color_schemes:
     off_key_text_color: 0x7f7f7f
     text_color: 0x7f7f7f
 
-# 空输入时显示工具按钮；输入中自动显示候选（Trime 3.3.12）
+# Empty composition: menu / editor / clipboard / emoji / settings
 tool_bar:
-  button_spacing: 5
+  button_spacing: 4
   primary_button:
-    foreground:
-      style: "ic@arrow-left"
-      font_size: 23
-      normal: candidate_text_color
-    action: Hide
-    long_press_action: Settings
+    size: [48, 42]
+    background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+    foreground: {style: "ic@cog", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
+    action: Settings
+    long_press_action: menu_keyboard
   buttons:
-    - foreground:
-        style: "ic@cog"
-        normal: candidate_text_color
-      action: Settings
-    - foreground:
-        style: "ic@emoticon"
-        normal: candidate_text_color
+    - size: [48, 42]
+      background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+      foreground: {style: "ic@keyboard_close", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
+      action: Hide
+    - size: [48, 42]
+      background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+      foreground: {style: "ic@emoticon", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
       action: liquid_keyboard_emoji
-    - foreground:
-        style: "ic@clipboard"
-        normal: candidate_text_color
+    - size: [48, 42]
+      background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+      foreground: {style: "ic@clipboard", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
       action: clipboard_window
-    - foreground:
-        style: "ic@cursor_text"
-        normal: candidate_text_color
+    - size: [48, 42]
+      background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+      foreground: {style: "ic@cursor_text", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
       action: Keyboard_editor
 
 liquid_keyboard:
@@ -857,7 +856,7 @@ liquid_keyboard:
     type: SYMBOL
     name: 符号表
     keys: [ 符号: '/fh', 电脑: '/dn', 象棋: '/xq', 麻将: '/mj', 骰子: '/sz', 扑克: '/pk', 天气: '/tq', 音乐: '/yy', 八卦: '/bg', 易经: '/lssg', 天体: '/tt',  星座: '/xz',  星号: '/xh',  方块: '/fk',  几何: '/jh',  箭头: '/jt',  数学: '/sx',  上标: '/sb',  下标: '/xb',  单位: '/dw',  货币: '/hb',  拼音: '/py',  注音: '/zy',  假名: '/jm',  片假: '/pjm',  韩文: '/hw',  希腊: '/xl',  希大: '/xld', 罗马:   '/lm',  罗大:   '/lmd', 俄语:   '/ey',  俄大:   '/eyd', 表情:  '/bq',  一: '/1',  二: '/2',  三: '/3',  四: '/4',  五: '/5',  六: '/6',  七: '/7',  八: '/8',  九: '/9',  零: '/0',  十: '/10',  分数: '/fs',  标点: '/bd',  偏旁: '/pp',  竖标:  '/bdz'  ]
-
+  
 
 android_keys:
   # 仅供编辑键盘时参考，实际不产生任何效果
@@ -963,8 +962,8 @@ preset_keys:
   Keyboard_mini: {label: 迷你, send: Eisu_toggle, select: mini}
   Keyboard_letter: {label: 字母, send: Eisu_toggle, select: default}
   Keyboard_default: {label: 返回, send: Eisu_toggle, select: .default}
-  Keyboard_editor: {label: 编辑, functional: false, send: Eisu_toggle, select: editor}
-  menu_keyboard: {label: 菜单, send: FUNCTION, command: menu_keyboard}
+  Keyboard_editor: {label: Editor, functional: false, send: Eisu_toggle, select: editor}
+  menu_keyboard: {label: Menu, send: FUNCTION, command: menu_keyboard}
   Keyboard_switch: {label: 鍵盤, send: Eisu_toggle, select: .next}
   liquid_keyboard_switch: { label: 更多, send: FUNCTION, command: liquid_keyboard, option: "更多" }
   liquid_keyboard_exit: {label: 返回, send: FUNCTION, command: liquid_keyboard, option: "-1"}  #退出liquidkeyboard
@@ -1018,7 +1017,8 @@ preset_keys:
   cy_split: {label: "分词", send: apostrophe, functional: true}
   cy_symbols: {label: "符", send: Eisu_toggle, select: symbols}
   cy_numbers: {label: "123", send: Eisu_toggle, select: number}
-  cy_back: {label: "返回", functional: false, send: Eisu_toggle, select: .last}
+  cy_back: {label: "返回", functional: false, send: Eisu_toggle, select: qwerty}
+  cy_symbols_more: {label: "更多", functional: false, send: Eisu_toggle, select: symbols_legacy}
   cy_q_sym: {label: "1", commit: "1", functional: false}
   cy_q_lo: {label: "q", commit: "q", functional: false}
   cy_q_up: {label: "Q", commit: "Q", functional: false}
@@ -1331,15 +1331,15 @@ preset_keyboards:
       - {click: n, label_symbol: ";", popup: [cy_n_sym, cy_n_lo, cy_n_up], swipe_up: cy_n_sym}
       - {click: m, label_symbol: "/", popup: [cy_m_sym, cy_m_lo, cy_m_up], swipe_up: cy_m_sym}
       - {click: BackSpace, label: "⌫", width: 15, swipe_left: Escape}
-      - {click: cy_symbols, width: 15, label: "符"}
-      - {click: cy_numbers, width: 10, label: "123"}
-      - {click: ",", width: 13, label: "，"}
+      - {click: cy_symbols, width: 18, label: "符"}
+      - {click: cy_numbers, width: 16, label: "123"}
+      - {click: ",", width: 6.5, label: "，"}
       - {click: space, width: 24, label: "空格"}
-      - {click: ".", width: 13, label: "。"}
-      - {click: Mode_switch, width: 10, label: "中/英"}
-      - {click: Return, width: 15, label: "↵"}
+      - {click: ".", width: 6.5, label: "。"}
+      - {click: Mode_switch, width: 11, label: "中/英"}
+      - {click: Return, width: 18, label: "↵"}
   editor:
-    name: "吹衣编辑键盘"
+    name: "Chuiyi editor"
     ascii_mode: 0
     columns: 5
     width: 20
@@ -1422,7 +1422,7 @@ preset_keyboards:
     - {click: BackSpace, swipe_right: Delete, swipe_left: Escape, width: 15}
     - {click: Return, long_click: CommitComment, width: 15}
   number:
-    name: "吹衣数字键盘·返回键对齐"
+    name: "吹衣数字键盘"
     author: "吹衣OVO"
     ascii_mode: 1
     columns: 10
@@ -1445,15 +1445,15 @@ preset_keyboards:
       - {click: KP_8}
       - {click: KP_9}
       - {click: KP_0}
-      - {click: Keyboard_symbols, label: "符", width: 15}
-      - {click: cy_back, label: "返回", width: 10}
-      - {click: ",", label: "，", width: 13}
+      - {click: Keyboard_symbols, label: "符", width: 18}
+      - {click: cy_back, label: "返回", width: 16}
+      - {click: ",", label: "，", width: 6.5}
       - {click: space, label: "空格", width: 24}
-      - {click: ".", label: "。", width: 13}
-      - {click: Mode_switch, label: "中/英", width: 10}
-      - {click: Return, label: "↵", width: 15}
+      - {click: ".", label: "。", width: 6.5}
+      - {click: Mode_switch, label: "中/英", width: 11}
+      - {click: Return, label: "↵", width: 18}
   symbols:
-    name: "吹衣符号键盘·返回键对齐"
+    name: "吹衣符号键盘"
     author: "吹衣OVO"
     ascii_mode: 1
     columns: 10
@@ -1482,7 +1482,7 @@ preset_keyboards:
       - {click: '}', long_click: '」'}
       - {click: '?', long_click: '？'}
       - {width: 5}
-      - {click: ':', width: 15, long_click: '：'}
+      - {click: cy_symbols_more, label: "更多", width: 15}
       - {click: ';', long_click: '；'}
       - {click: '/', long_click: '÷'}
       - {click: '、', long_click: '＼'}
@@ -1491,13 +1491,67 @@ preset_keyboards:
       - {click: '<', long_click: '《'}
       - {click: '>', long_click: '》'}
       - {click: BackSpace, label: "⌫", width: 15}
-      - {click: cy_back, label: "返回", width: 15}
-      - {click: Keyboard_number, label: "123", width: 10}
-      - {click: ",", label: "，", width: 13}
+      - {click: cy_back, label: "返回", width: 18}
+      - {click: Keyboard_number, label: "123", width: 16}
+      - {click: ",", label: "，", width: 6.5}
       - {click: space, label: "空格", width: 24}
-      - {click: ".", label: "。", width: 13}
-      - {click: Mode_switch, label: "中/英", width: 10}
-      - {click: Return, label: "↵", width: 15}
+      - {click: ".", label: "。", width: 6.5}
+      - {click: Mode_switch, label: "中/英", width: 11}
+      - {click: Return, label: "↵", width: 18}
+  symbols_legacy:
+    name: 吹衣完整符号
+    author: "天真可愛的滿滿"
+    ascii_mode: 1
+    width: 10
+    height: 44
+    keys:
+    - {click: '1'}
+    - {click: '2'}
+    - {click: '3'}
+    - {click: '4'}
+    - {click: '5'}
+    - {click: '6'}
+    - {click: '7'}
+    - {click: '8'}
+    - {click: '9'}
+    - {click: '0'}
+    - {click: '~',long_click: '`'}
+    - {click: '!'}
+    - {click: '@'}
+    - {click: '#'}
+    - {click: '$'}
+    - {click: '￥'}
+    - {click: '%'}
+    - {click: '^'}
+    - {click: '&'}
+    - {click: '*'}
+    - {click: '(', long_click: '{'}
+    - {click: ')', long_click: '}'}
+    - {click: '[', long_click: '【'}
+    - {click: ']', long_click: '】'}
+    - {click: '「', long_click: '『'}
+    - {click: '」', long_click: '』'}
+    - {click: '、', ascii: '\', long_click: '|'}
+    - {click: '/', long_click: '√'}
+    - {click: ':'}
+    - {click: ';'}
+    - {click: '+'}
+    - {click: '-', long_click: '_'}
+    - {click: '='}
+    - {click: '〈', long_click: '《', ascii: '<'}
+    - {click: '〉', long_click: '》', ascii: '>'}
+    - {click: '“', ascii: '"', long_click: '‘'}
+    - {click: '”', ascii: "'", long_click: '’'}
+    - {click: '，', ascii: ',', long_click: one_hand_switch_1}
+    - {click: '？', ascii: '?', long_click: one_hand_switch_3}
+    - {click: BackSpace, long_click: Escape}
+    - {click: Keyboard_symbols, label: "返回", width: 15}
+    - {click: Keyboard_number, long_click: Color_switch}
+    - {click: Keyboard_mini, long_click: Theme_settings}
+    - {click: space, width: 30}
+    - {click: '。', ascii: '.'}
+    - {click: liquid_keyboard_switch, long_click: Delete}
+    - {click: Return, long_click: select_all, width: 15}
   bopomofo:
     name: 註音鍵盤
     author: "皛筱晓小笨鱼"
