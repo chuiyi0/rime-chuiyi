@@ -5,7 +5,7 @@
 # Trime default style settings
 # encoding: utf-8
 
-config_version: "3.2"
+config_version: "3.3"
 name: "吹衣 · 03 奶杏"
 author: "吹衣OVO（基于同文 GPL-3.0 预设主题修改）"
 
@@ -162,7 +162,7 @@ preset_color_schemes:
     hilited_off_key_text_color: 0x4a3931
     hilited_on_key_back_color: 0xf4dfd2
     hilited_on_key_text_color: 0x4a3931
-    hilited_text_color: 0xffffff
+    hilited_text_color: 0x4a3931
     key_back_color: 0xfffcf7
     key_border_color: 0xe6d6c8
     key_symbol_color: 0x998475
