@@ -5,7 +5,7 @@
 # Trime default style settings
 # encoding: utf-8
 
-config_version: "3.2"
+config_version: "3.3"
 name: "吹衣 · 05 石墨灰"
 author: "吹衣OVO（基于同文 GPL-3.0 预设主题修改）"
 
@@ -162,7 +162,7 @@ preset_color_schemes:
     hilited_off_key_text_color: 0xedf1f8
     hilited_on_key_back_color: 0x48586d
     hilited_on_key_text_color: 0xedf1f8
-    hilited_text_color: 0x18263b
+    hilited_text_color: 0xedf1f8
     key_back_color: 0x35404d
     key_border_color: 0x3a4656
     key_symbol_color: 0xa2b1c2
