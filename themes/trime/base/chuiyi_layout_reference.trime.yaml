@@ -5,7 +5,7 @@
 # Trime default style settings
 # encoding: utf-8
 
-config_version: "3.2"
+config_version: "3.3"
 name: "吹衣 6.0cm 高度·精简版"
 author: "吹衣OVO（基于同文 GPL-3.0 预设主题修改）"
 
@@ -162,7 +162,7 @@ preset_color_schemes:
     hilited_off_key_text_color: 0xedf4ff
     hilited_on_key_back_color: 0x354d69
     hilited_on_key_text_color: 0xedf4ff
-    hilited_text_color: 0x18263b
+    hilited_text_color: 0xedf4ff
     key_back_color: 0x26384d
     key_symbol_color: 0xa4b5cc
     key_text_color: 0xedf4ff
