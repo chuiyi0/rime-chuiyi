@@ -691,6 +691,33 @@ preset_color_schemes:
     off_key_text_color: 0x7f7f7f
     text_color: 0x7f7f7f
 
+# 空输入时显示工具按钮；输入中自动显示候选（Trime 3.3.12）
+tool_bar:
+  button_spacing: 5
+  primary_button:
+    foreground:
+      style: "ic@dots_horizontal"
+      normal: candidate_text_color
+    action: menu_keyboard
+    long_press_action: Settings
+  buttons:
+    - foreground:
+        style: "ic@cog"
+        normal: candidate_text_color
+      action: Settings
+    - foreground:
+        style: "ic@emoticon"
+        normal: candidate_text_color
+      action: liquid_keyboard_emoji
+    - foreground:
+        style: "ic@clipboard"
+        normal: candidate_text_color
+      action: clipboard_window
+    - foreground:
+        style: "ic@cursor_text"
+        normal: candidate_text_color
+      action: Keyboard_editor
+
 liquid_keyboard:
   # 目前只能直接写参数，不支持变量或者fallback机制。
   # 缺少参数时，自动从style中加载参数。除非需要指定liquid_keyboard使用与主键盘不同的背景色、背景图，否则不应设置被注释掉的参数。
@@ -932,6 +959,8 @@ preset_keys:
   Keyboard_mini: {label: 迷你, send: Eisu_toggle, select: mini}
   Keyboard_letter: {label: 字母, send: Eisu_toggle, select: default}
   Keyboard_default: {label: 返回, send: Eisu_toggle, select: .default}
+  Keyboard_editor: {label: 编辑, functional: false, send: Eisu_toggle, select: editor}
+  menu_keyboard: {label: 菜单, send: FUNCTION, command: menu_keyboard}
   Keyboard_switch: {label: 鍵盤, send: Eisu_toggle, select: .next}
   liquid_keyboard_switch: { label: 更多, send: FUNCTION, command: liquid_keyboard, option: "更多" }
   liquid_keyboard_exit: {label: 返回, send: FUNCTION, command: liquid_keyboard, option: "-1"}  #退出liquidkeyboard
@@ -1304,6 +1333,34 @@ preset_keyboards:
       - {click: ".", width: 10, label: "。"}
       - {click: Mode_switch, width: 10, label: "中/英"}
       - {click: Return, width: 15, label: "↵"}
+  editor:
+    name: "吹衣编辑键盘"
+    ascii_mode: 0
+    columns: 5
+    width: 20
+    height: 36
+    lock: false
+    keys:
+      - {click: select_all, label: "全选"}
+      - {click: cut, label: "剪切"}
+      - {click: copy, label: "复制"}
+      - {click: paste, label: "粘贴"}
+      - {click: Keyboard_default, label: "返回"}
+      - {click: Home, label: "行首"}
+      - {click: Left, label: "←"}
+      - {click: Up, label: "↑"}
+      - {click: Right, label: "→"}
+      - {click: End, label: "行尾"}
+      - {click: Delete, label: "删除"}
+      - {click: Left, label: "←"}
+      - {click: Down, label: "↓"}
+      - {click: Right, label: "→"}
+      - {click: BackSpace, label: "退格"}
+      - {click: clipboard_window, label: "剪贴板"}
+      - {click: liquid_keyboard_emoji, label: "表情"}
+      - {click: space1, label: "空格"}
+      - {click: Return, label: "回车"}
+      - {click: Keyboard_default, label: "返回"}
   us_intl:
     name: 美式國際
     author: "Terry Tsang <archerindigo@gmail.com>"
