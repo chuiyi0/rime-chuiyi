@@ -5,7 +5,7 @@
 # Trime default style settings
 # encoding: utf-8
 
-config_version: "3.2"
+config_version: "3.3"
 name: "吹衣 · 11 琥珀纸"
 author: "吹衣OVO（基于同文 GPL-3.0 预设主题修改）"
 
@@ -162,7 +162,7 @@ preset_color_schemes:
     hilited_off_key_text_color: 0x564533
     hilited_on_key_back_color: 0xf4e0c5
     hilited_on_key_text_color: 0x564533
-    hilited_text_color: 0xffffff
+    hilited_text_color: 0x564533
     key_back_color: 0xfffbf4
     key_border_color: 0xe3d4be
     key_symbol_color: 0x9c876c
