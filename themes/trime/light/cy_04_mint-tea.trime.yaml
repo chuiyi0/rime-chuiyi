@@ -5,7 +5,7 @@
 # Trime default style settings
 # encoding: utf-8
 
-config_version: "3.0"
+config_version: "3.1"
 name: "吹衣 · 04 薄荷茶"
 author: "吹衣OVO（基于同文 GPL-3.0 预设主题修改）"
 
@@ -1588,13 +1588,13 @@ preset_keyboards:
     - {click: '，', ascii: ',', long_click: one_hand_switch_1}
     - {click: '？', ascii: '?', long_click: one_hand_switch_3}
     - {click: BackSpace, long_click: Escape}
-      - {click: Keyboard_symbols, width: 16, label: "返回"}
-      - {click: cy_numbers, width: 14, label: "123"}
-      - {click: ",", width: 9.75, label: "，"}
-      - {click: space, width: 24, label: "吹衣拼音"}
-      - {click: ".", width: 9.75, label: "。"}
-      - {click: Mode_switch, width: 11, label: "中/英"}
-      - {click: Return, width: 15.5, label: "↵"}
+    - {click: Keyboard_symbols, width: 16, label: "返回"}
+    - {click: cy_numbers, width: 14, label: "123"}
+    - {click: ",", width: 9.75, label: "，"}
+    - {click: space, width: 24, label: "吹衣拼音"}
+    - {click: ".", width: 9.75, label: "。"}
+    - {click: Mode_switch, width: 11, label: "中/英"}
+    - {click: Return, width: 15.5, label: "↵"}
   bopomofo:
     name: 註音鍵盤
     author: "皛筱晓小笨鱼"
