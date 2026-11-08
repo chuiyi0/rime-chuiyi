@@ -696,9 +696,10 @@ tool_bar:
   button_spacing: 5
   primary_button:
     foreground:
-      style: "ic@dots_horizontal"
+      style: "退出"
+      font_size: 18
       normal: candidate_text_color
-    action: menu_keyboard
+    action: Hide
     long_press_action: Settings
   buttons:
     - foreground:
@@ -1328,9 +1329,9 @@ preset_keyboards:
       - {click: BackSpace, label: "⌫", width: 15, swipe_left: Escape}
       - {click: cy_symbols, width: 15, label: "符"}
       - {click: cy_numbers, width: 10, label: "123"}
-      - {click: ",", width: 10, label: "，"}
-      - {click: space, width: 30}
-      - {click: ".", width: 10, label: "。"}
+      - {click: ",", width: 13, label: "，"}
+      - {click: space, width: 24, label: "空格"}
+      - {click: ".", width: 13, label: "。"}
       - {click: Mode_switch, width: 10, label: "中/英"}
       - {click: Return, width: 15, label: "↵"}
   editor:
@@ -1440,11 +1441,12 @@ preset_keyboards:
       - {click: KP_8}
       - {click: KP_9}
       - {click: '@', long_click: '#'}
-      - {click: Keyboard_symbols, label: "符"}
-      - {click: Keyboard_default, label: "返回"}
-      - {click: KP_0}
-      - {click: space}
-      - {click: Return}
+      - {click: Keyboard_symbols, label: "符", width: 15}
+      - {click: Keyboard_default, label: "返回", width: 10}
+      - {click: KP_0, width: 20}
+      - {click: space, width: 20, label: "空格"}
+      - {click: ".", label: ".", width: 15}
+      - {click: Return, width: 20}
   symbols:
     name: 符號
     author: "天真可愛的滿滿"
@@ -1494,9 +1496,9 @@ preset_keyboards:
     - {click: BackSpace, long_click: Escape}
     - {click: Keyboard_default, long_click: Menu, width: 15}
     - {click: Keyboard_number, long_click: Color_switch}
-    - {click: Keyboard_mini, long_click: Theme_settings}
-    - {click: space, width: 30}
-    - {click: '。', ascii: '.'}
+    - {click: Keyboard_mini, long_click: Theme_settings, width: 13}
+    - {click: space, width: 24, label: "空格"}
+    - {click: '。', ascii: '.', width: 13}
     - {click: liquid_keyboard_switch, long_click: Delete}
     - {click: Return, long_click: select_all, width: 15}
   bopomofo:
