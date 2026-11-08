@@ -699,8 +699,8 @@ tool_bar:
   button_spacing: 5
   primary_button:
     foreground:
-      style: "退出"
-      font_size: 18
+      style: "ic@arrow-left"
+      font_size: 23
       normal: candidate_text_color
     action: Hide
     long_press_action: Settings
@@ -1018,6 +1018,7 @@ preset_keys:
   cy_split: {label: "分词", send: apostrophe, functional: true}
   cy_symbols: {label: "符", send: Eisu_toggle, select: symbols}
   cy_numbers: {label: "123", send: Eisu_toggle, select: number}
+  cy_back: {label: "返回", functional: false, send: Eisu_toggle, select: .last}
   cy_q_sym: {label: "1", commit: "1", functional: false}
   cy_q_lo: {label: "q", commit: "q", functional: false}
   cy_q_up: {label: "Q", commit: "Q", functional: false}
@@ -1421,10 +1422,10 @@ preset_keyboards:
     - {click: BackSpace, swipe_right: Delete, swipe_left: Escape, width: 15}
     - {click: Return, long_click: CommitComment, width: 15}
   number:
-    name: "吹衣小米风·数字键盘"
+    name: "吹衣数字键盘·返回键对齐"
     author: "吹衣OVO"
     ascii_mode: 1
-    columns: 5
+    columns: 10
     width: 20
     height: 36
     lock: true
@@ -1438,72 +1439,65 @@ preset_keyboards:
       - {click: KP_4}
       - {click: KP_5}
       - {click: KP_6}
-      - {click: '.', long_click: ','}
+      - {click: '@', long_click: '#'}
       - {click: '/', long_click: '='}
       - {click: KP_7}
       - {click: KP_8}
       - {click: KP_9}
-      - {click: '@', long_click: '#'}
+      - {click: KP_0}
       - {click: Keyboard_symbols, label: "符", width: 15}
-      - {click: Keyboard_default, label: "返回", width: 10}
-      - {click: KP_0, width: 20}
-      - {click: space, width: 20, label: "空格"}
-      - {click: ".", label: ".", width: 15}
-      - {click: Return, width: 20}
+      - {click: cy_back, label: "返回", width: 10}
+      - {click: ",", label: "，", width: 13}
+      - {click: space, label: "空格", width: 24}
+      - {click: ".", label: "。", width: 13}
+      - {click: Mode_switch, label: "中/英", width: 10}
+      - {click: Return, label: "↵", width: 15}
   symbols:
-    name: 符號
-    author: "天真可愛的滿滿"
+    name: "吹衣符号键盘·返回键对齐"
+    author: "吹衣OVO"
     ascii_mode: 1
+    columns: 10
     width: 10
-    height: 44
+    height: 36
+    lock: true
     keys:
-    - {click: '1'}
-    - {click: '2'}
-    - {click: '3'}
-    - {click: '4'}
-    - {click: '5'}
-    - {click: '6'}
-    - {click: '7'}
-    - {click: '8'}
-    - {click: '9'}
-    - {click: '0'}
-    - {click: '~',long_click: '`'}
-    - {click: '!'}
-    - {click: '@'}
-    - {click: '#'}
-    - {click: '$'}
-    - {click: '￥'}
-    - {click: '%'}
-    - {click: '^'}
-    - {click: '&'}
-    - {click: '*'}
-    - {click: '(', long_click: '{'}
-    - {click: ')', long_click: '}'}
-    - {click: '[', long_click: '【'}
-    - {click: ']', long_click: '】'}
-    - {click: '「', long_click: '『'}
-    - {click: '」', long_click: '』'}
-    - {click: '、', ascii: '\', long_click: '|'}
-    - {click: '/', long_click: '√'}
-    - {click: ':'}
-    - {click: ';'}
-    - {click: '+'}
-    - {click: '-', long_click: '_'}
-    - {click: '='}
-    - {click: '〈', long_click: '《', ascii: '<'}
-    - {click: '〉', long_click: '》', ascii: '>'}
-    - {click: '“', ascii: '"', long_click: '‘'}
-    - {click: '”', ascii: "'", long_click: '’'}
-    - {click: '，', ascii: ',', long_click: one_hand_switch_1}
-    - {click: '？', ascii: '?', long_click: one_hand_switch_3}
-    - {click: BackSpace, long_click: Escape}
-    - {click: Keyboard_default, long_click: Menu, width: 15}
-    - {click: Keyboard_number, long_click: Color_switch}
-    - {click: Keyboard_mini, long_click: Theme_settings, width: 13}
-    - {click: space, width: 24, label: "空格"}
-    - {click: '。', ascii: '.', width: 13}
-    - {click: liquid_keyboard_switch, long_click: Delete}
-    - {click: Return, long_click: select_all, width: 15}
+      - {click: '!', long_click: '！'}
+      - {click: '@', long_click: '￥'}
+      - {click: '#', long_click: '＃'}
+      - {click: '$', long_click: '€'}
+      - {click: '%', long_click: '‰'}
+      - {click: '^', long_click: '√'}
+      - {click: '&', long_click: '|'}
+      - {click: '*', long_click: '×'}
+      - {click: '(', long_click: '（'}
+      - {click: ')', long_click: '）'}
+      - {width: 5}
+      - {click: '~', long_click: '﹋'}
+      - {click: '+', long_click: '±'}
+      - {click: '-', long_click: '_'}
+      - {click: '=', long_click: '≠'}
+      - {click: '[', long_click: '【'}
+      - {click: ']', long_click: '】'}
+      - {click: '{', long_click: '「'}
+      - {click: '}', long_click: '」'}
+      - {click: '?', long_click: '？'}
+      - {width: 5}
+      - {click: ':', width: 15, long_click: '：'}
+      - {click: ';', long_click: '；'}
+      - {click: '/', long_click: '÷'}
+      - {click: '、', long_click: '＼'}
+      - {click: '“', long_click: '‘'}
+      - {click: '”', long_click: '’'}
+      - {click: '<', long_click: '《'}
+      - {click: '>', long_click: '》'}
+      - {click: BackSpace, label: "⌫", width: 15}
+      - {click: cy_back, label: "返回", width: 15}
+      - {click: Keyboard_number, label: "123", width: 10}
+      - {click: ",", label: "，", width: 13}
+      - {click: space, label: "空格", width: 24}
+      - {click: ".", label: "。", width: 13}
+      - {click: Mode_switch, label: "中/英", width: 10}
+      - {click: Return, label: "↵", width: 15}
   bopomofo:
     name: 註音鍵盤
     author: "皛筱晓小笨鱼"
