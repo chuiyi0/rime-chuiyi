@@ -1023,6 +1023,7 @@ preset_keys:
   cy_symbols: {label: "符", send: Eisu_toggle, select: symbols}
   cy_numbers: {label: "123", send: Eisu_toggle, select: number}
   cy_back: {label: "返回", functional: false, send: Eisu_toggle, select: qwerty}
+  cy_space: {label: "吹衣拼音", repeatable: false, functional: false, send: space}
   cy_symbols_more: {label: "更多", functional: false, send: Eisu_toggle, select: symbols_legacy}
   Keyboard_themes: {label: "🎨", functional: false, send: Eisu_toggle, select: themes}
   cy_fav_0: {label: "🌸 樱花糖", send: FUNCTION, command: set_theme, option: "吹衣 · 07 樱花糖"}
@@ -1349,7 +1350,7 @@ preset_keyboards:
       - {click: cy_symbols, width: 16, label: "符"}
       - {click: cy_numbers, width: 14, label: "123"}
       - {click: ",", width: 9.75, label: "，"}
-      - {click: space, width: 24, label: "吹衣拼音"}
+      - {click: cy_space, width: 24, label: "吹衣拼音"}
       - {click: ".", width: 9.75, label: "。"}
       - {click: Mode_switch, width: 11, label: "中/英"}
       - {click: Return, width: 15.5, label: "↵"}
@@ -1379,7 +1380,7 @@ preset_keyboards:
       - {click: cy_back, width: 16, label: "返回"}
       - {click: cy_numbers, width: 14, label: "123"}
       - {click: ",", width: 9.75, label: "，"}
-      - {click: space, width: 24, label: "吹衣拼音"}
+      - {click: cy_space, width: 24, label: "吹衣拼音"}
       - {click: ".", width: 9.75, label: "。"}
       - {click: Mode_switch, width: 11, label: "中/英"}
       - {click: Return, width: 15.5, label: "↵"}
@@ -1406,7 +1407,7 @@ preset_keyboards:
       - {click: cy_back, width: 16, label: "返回"}
       - {click: cy_numbers, width: 14, label: "123"}
       - {click: ",", width: 9.75, label: "，"}
-      - {click: space, width: 24, label: "吹衣拼音"}
+      - {click: cy_space, width: 24, label: "吹衣拼音"}
       - {click: ".", width: 9.75, label: "。"}
       - {click: Mode_switch, width: 11, label: "中/英"}
       - {click: Return, width: 15.5, label: "↵"}
@@ -1492,7 +1493,7 @@ preset_keyboards:
       - {click: cy_symbols, width: 16, label: "符"}
       - {click: cy_back, width: 14, label: "返回"}
       - {click: ",", width: 9.75, label: "，"}
-      - {click: space, width: 24, label: "吹衣拼音"}
+      - {click: cy_space, width: 24, label: "吹衣拼音"}
       - {click: ".", width: 9.75, label: "。"}
       - {click: Mode_switch, width: 11, label: "中/英"}
       - {click: Return, width: 15.5, label: "↵"}
@@ -1537,7 +1538,7 @@ preset_keyboards:
       - {click: cy_back, width: 16, label: "返回"}
       - {click: cy_numbers, width: 14, label: "123"}
       - {click: ",", width: 9.75, label: "，"}
-      - {click: space, width: 24, label: "吹衣拼音"}
+      - {click: cy_space, width: 24, label: "吹衣拼音"}
       - {click: ".", width: 9.75, label: "。"}
       - {click: Mode_switch, width: 11, label: "中/英"}
       - {click: Return, width: 15.5, label: "↵"}
@@ -1591,7 +1592,7 @@ preset_keyboards:
     - {click: Keyboard_symbols, width: 16, label: "返回"}
     - {click: cy_numbers, width: 14, label: "123"}
     - {click: ",", width: 9.75, label: "，"}
-    - {click: space, width: 24, label: "吹衣拼音"}
+    - {click: cy_space, width: 24, label: "吹衣拼音"}
     - {click: ".", width: 9.75, label: "。"}
     - {click: Mode_switch, width: 11, label: "中/英"}
     - {click: Return, width: 15.5, label: "↵"}
