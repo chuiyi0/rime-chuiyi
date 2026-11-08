@@ -99,4 +99,4 @@ print("YAML_OK",len(uploads))
 print("PLAN_READY",len(favorite),"favorites in",len(uploads),"skins")
 for name,local in uploads:
  subprocess.run(["adb","push",str(local),shared+name],check=True,stdout=subprocess.DEVNULL)
-print("UPDATED",len(uploads),"skins. On phone choose Trime Deploy once.")
+print("UPDATED",len(uploads),"skins. On phone go to Keyboard Style > Theme; switch to a different theme and back. Deploy alone may not refresh the active theme.")
