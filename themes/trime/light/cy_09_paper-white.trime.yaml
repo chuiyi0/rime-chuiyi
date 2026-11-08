@@ -5,7 +5,7 @@
 # Trime default style settings
 # encoding: utf-8
 
-config_version: "3.1"
+config_version: "3.2"
 name: "吹衣 · 09 清纸白"
 author: "吹衣OVO（基于同文 GPL-3.0 预设主题修改）"
 
@@ -709,9 +709,9 @@ tool_bar:
       background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
       foreground: {style: "ic@keyboard_close", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
       action: Hide
-    - size: [49, 42]
-      background: {type: rectangle, corner_radius: 12, normal: 0xffead2ff, highlight: 0xffb57be0, vertical_inset: 3, horizontal_inset: 3}
-      foreground: {style: "🎨", font_size: 22, padding: 7, normal: 0xff7441b1, highlight: 0xffffffff}
+    - size: [48, 42]
+      background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
+      foreground: {style: "ic@palette_outline", font_size: 22, padding: 10, normal: candidate_text_color, highlight: hilited_candidate_text_color}
       action: Keyboard_themes
     - size: [48, 42]
       background: {type: rectangle, corner_radius: 12, normal: key_back_color, highlight: hilited_key_back_color, vertical_inset: 3, horizontal_inset: 3}
