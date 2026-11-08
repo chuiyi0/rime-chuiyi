@@ -75,9 +75,27 @@ for name in names:
  begin=s.index("  themes:\n")
  end=s.index("  us_intl:\n",begin)
  s=s[:begin]+head+s[end:]
+ # Bump the real Rime config version so the updated favorites are compiled.
+ rows=s.splitlines(keepends=True)
+ for i,row in enumerate(rows):
+  if row.startswith("config_version: "):
+   parts=row.split(":",1)[1].strip().strip('"').split(".")
+   rows[i]=f'config_version: "{int(parts[0])}.{int(parts[1])+1}"\n'
+   break
+ else:
+  raise RuntimeError(f"Missing config_version in {name}")
+ s="".join(rows)
  dest=patch/name
  dest.write_text(s,encoding="utf-8",newline="\n")
  uploads.append((name,dest))
+# Syntax-check all skins BEFORE any adb push.
+validator=Path(r"C:\Users\chuiyi\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\js-yaml\index.js")
+if not validator.is_file():
+ raise RuntimeError("YAML validator is unavailable; refused to modify phone.")
+js="const fs=require('fs'),yaml=require("+json.dumps(str(validator))+");yaml.load(fs.readFileSync(process.argv[1],'utf8'));"
+for _,item in uploads:
+ subprocess.run(["node","-e",js,str(item)],check=True,stdout=subprocess.DEVNULL)
+print("YAML_OK",len(uploads))
 print("PLAN_READY",len(favorite),"favorites in",len(uploads),"skins")
 for name,local in uploads:
  subprocess.run(["adb","push",str(local),shared+name],check=True,stdout=subprocess.DEVNULL)
