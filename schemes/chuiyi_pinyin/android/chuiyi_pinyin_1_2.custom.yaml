@@ -1,0 +1,10 @@
+# Android-only optional patch for 吹衣带调拼音 1.2 (Trime).
+# Place beside chuiyi_pinyin_1_2.schema.yaml in the phone's Rime shared directory.
+# DO NOT install on Windows unless you also want the abbreviation behavior there.
+# Why: an unfinished second syllable (e.g., wxm) may otherwise have no candidates.
+# Limit abbreviation to final two-key syllable codes: mf -> m, etc.
+# Rime may choose a different split for some 3-key strings. Remove this
+# custom.yaml (after backup) and redeploy to restore original behavior.
+patch:
+  "speller/algebra/+":
+    - 'abbrev/^([a-z])[a-z]$/$1/'
