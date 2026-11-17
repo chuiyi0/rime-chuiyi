@@ -1,99 +1,60 @@
-# 吹衣输入法 · 12 套 Trime 皮肤
+# 吹衣皮肤 · 同文输入法（Trime 3.3.12）
 
-这是 **同文输入法 Trime 3.3.12** 的皮肤集合，配套吹衣带调拼音等方案。
-十二套主题基于原有吹衣小米风键盘布局生成。键位、上滑、长按、分词及数字键盘均保留；新增的是色彩主题与候选区的宽松排版。
+12 套配色皮肤，配合吹衣带调拼音使用（也能搭配其他 Rime 方案）。**所有皮肤的键盘布局完全一样，只换颜色**：键位、上滑、长按、分词键、数字键盘都相同。
 
-## 目录结构
+[返回首页](../../README.md) · [快捷主题面板](QUICK_THEMES.md) · [更新记录](CHANGELOG.md)
 
-```text
-themes/trime/
-├── light/                   # 浅色 · 5 套
-│   ├── cy_01_cloud-white.trime.yaml    云瓷白
-│   ├── cy_02_glacier-blue.trime.yaml   冰川蓝
-│   ├── cy_03_cream-apricot.trime.yaml  奶杏
-│   ├── cy_04_mint-tea.trime.yaml       薄荷茶
-│   └── cy_09_paper-white.trime.yaml    清纸白
-├── dark/                    # 深色 · 3 套
-│   ├── cy_05_graphite.trime.yaml       石墨灰
-│   ├── cy_06_deep-sea.trime.yaml       深海蓝
-│   └── cy_08_obsidian.trime.yaml       黑曜夜
-├── color/                   # 彩色 · 3 套
-│   ├── cy_07_sakura.trime.yaml         樱花糖
-│   ├── cy_10_dusk-purple.trime.yaml    暮光紫
-│   └── cy_11_amber-paper.trime.yaml    琥珀纸
-├── texture/                 # 通透风格 · 1 套
-│   └── cy_12_mist-glass.trime.yaml     雾玻璃
-├── showcase/
-│   └── index.html           # 纯 HTML/CSS/JS，手机离线预览
-├── manifest.json            # 12 套元数据
-└── README.md                # 本文
-```
+## 12 套皮肤
 
-> **说明**：「雾玻璃」是色彩、轮廓和轻柔层次的拟玻璃效果，并非 Android 真正实时背景模糊。
+| 编号 | 名称 | 风格 | 文件 |
+|---|---|---|---|
+| 01 | 云瓷白 | 小米原生感 · 柔和蓝 | `light/cy_01_cloud-white.trime.yaml` |
+| 02 | 冰川蓝 | 清透科技 · 天空色 | `light/cy_02_glacier-blue.trime.yaml` |
+| 03 | 奶杏 | 温暖柔软 · 低饱和 | `light/cy_03_cream-apricot.trime.yaml` |
+| 04 | 薄荷茶 | 自然舒缓 · 奶油绿 | `light/cy_04_mint-tea.trime.yaml` |
+| 05 | 石墨灰 | 克制专业 · 暗金点缀 | `dark/cy_05_graphite.trime.yaml` |
+| 06 | 深海蓝 | 夜间使用 · 青蓝光 | `dark/cy_06_deep-sea.trime.yaml` |
+| 07 | 樱花糖 | 轻柔可爱 · 暖粉 | `color/cy_07_sakura.trime.yaml` |
+| 08 | 黑曜夜 | 极简黑 · 青柠亮色 | `dark/cy_08_obsidian.trime.yaml` |
+| 09 | 清纸白 | 纯净留白 · 无阴影 | `light/cy_09_paper-white.trime.yaml` |
+| 10 | 暮光紫 | 轻雾层次 · 冷色系 | `color/cy_10_dusk-purple.trime.yaml` |
+| 11 | 琥珀纸 | 复古书写 · 暖纸感 | `color/cy_11_amber-paper.trime.yaml` |
+| 12 | 雾玻璃 | 轻盈半透明感 · 软阴影 | `texture/cy_12_mist-glass.trime.yaml` |
 
-## 手机安装与选用
+「雾玻璃」只是用颜色和轮廓模拟玻璃感，并不是真正的实时背景模糊。
 
-1. 将所需 `*.trime.yaml` 放进同文的 **shared / 共享主题目录**。该目录为扁平结构，不按 GitHub 的分类子文件夹存放。
-2. 打开同文输入法，使用 **键盘样式** 菜单选择「吹衣 · 编号 主题名」。
-3. 根据同文版本和配置，必要时在主界面点击 **部署**，以应用新皮肤。
-4. 用相同的输入内容测试键位、上滑、长按、候选栏、数字键、符号键；出现问题可切回旧皮肤。
+**先看效果：** 下载 [`showcase/index.html`](showcase/index.html)，用手机或电脑的浏览器打开，可以离线对比 12 套配色。网页只是示意，和手机上的实际显示会有细微差别。
 
-本次在 Redmi K70 上已直接安装的目录：
+## 安装
 
-```text
-/sdcard/Android/data/com.osfans.trime/files/shared/
-```
+1. **先备份**手机上同文现有的皮肤文件。
+2. 把想用的 `.trime.yaml` 复制到同文的**共享目录**（一般是 `Android/data/com.osfans.trime/files/shared/`）。这个目录不分子文件夹，直接放进去。
+3. 打开同文 →「键盘样式」，选择「吹衣 · 编号 名称」。
+4. 如果没生效，点「部署」；还不行就先切到别的皮肤再切回来。
+5. 试一下打字、上滑、长按、数字键、符号键。有问题随时切回原来的皮肤。
 
-手机离线预览文件：
+## 键盘特点
 
-```text
-/sdcard/Download/Chuiyi_12_Themes.html
-```
+- **空输入工具栏**：没打字时，候选栏位置显示菜单、编辑、剪贴板、表情、设置；开始打字后自动换成候选。
+- **编辑键盘**：全选、剪切、复制、粘贴、移动光标、删除，并有返回键。
+- **快捷主题面板**：点顶部 🎨 可以一键切换收藏的 8 套皮肤，见 [快捷主题面板](QUICK_THEMES.md)。
+- 底部一行：符号 16%、123 14%、逗号 9.75%、空格 24%（显示「吹衣拼音」）、句号 9.75%、中/英 11%、回车 15.5%。
+- 候选字号 19，候选栏高 42；按键横向间距 6、行距 11；数字键盘四行五列。
+- 每行显示几个候选，由同文的应用设置决定，不由皮肤决定。
 
-通过文件管理器打开该 HTML（使用浏览器）可先比较 12 套设计；也可用 GitHub 文件列表下载预览页。
+## 已知限制
 
-## 排版统一规则
+- Trime 3.3.12 不支持让顶部左上角按钮随键盘页面变化。所以在编辑页、表情页里，返回键放在页面内部，左上角仍是菜单按钮。要彻底解决，需要修改同文的安卓源码并重新打包，皮肤文件做不到。
+- 只打第二个字的首字母（如 `wxm`）时没有候选，这不是皮肤问题，可以装常规版的 [安卓补丁](../../schemes/chuiyi_pinyin/android/README.md)。
+- 工具栏按钮和各套皮肤的显示还没有逐套在手机上完整验收。
+- 目前 01、02、03、09 四套的空格键用自定义的 `cy_space`（和基础模板一致），其余 8 套用普通 `space`，所以 `validate_palette_only.py` 会报不一致。两种空格键显示都是「吹衣拼音」，待确认用哪种后统一。
 
-- 候选词字体：19。
-- 候选词横向留白 `candidate_padding: 16`。
-- 候选高度 `candidate_view_height: 42`。
-- 按键宽松间距 `horizontal_gap: 6`、`vertical_gap: 11`。
-- 数字布局：四行五列，键高 36，保留返回、删除与空格。
-- **每行最多几个候选**由同文应用设置决定；`candidate_padding` 只影响候选视觉间距。
-- 用户词库、编码文件和已启用方案均不在本皮肤项目中修改。
+## 给开发者
 
-## 更新与校验
-
-- 本仓库皮肤与手机上正在使用的皮肤分开命名，不覆盖原始主题。
-- 主题更新后，要核对同文部署后的 build 文件，而不能仅凭 shared 源文件判断是否生效。
-- 如遇间距、颜色未变化，可切换皮肤并重新部署，检查 build 中实际参数。
-- 本次仅验证了主题 YAML 从原皮肤生成、保留键盘定义、ADB 传输与手机文件存在；**尚未逐套完成屏幕显示及手势操作验收**。
+- 所有皮肤从 `base/chuiyi_layout_reference.trime.yaml` 生成，**只允许改配色和名称**。改完运行 `python themes/trime/tools/validate_palette_only.py` 检查。
+- `manifest.json` 记录 12 套皮肤的配色数据，`showcase/index.html` 的预览从这里取色。
+- `tools/update_favorites.py` 用来修改快捷主题面板的收藏，用法见 [QUICK_THEMES.md](QUICK_THEMES.md)。
 
 ## 版权
 
-源皮肤基于同文输入法及其 GPL-3.0 预设主题改编。保留原文件署名和许可要求；相关引用资源与字体仍受其原始许可约束。
-
-## 配色专用版本：保持键盘不变
-
-12 套主题**只允许更换配色及主题名称**。按键大小、按键数量、分词键、上滑与长按、数字键盘、候选间距、键盘总体高度均来自统一的 `base/chuiyi_layout_reference.trime.yaml`。
-
-可在仓库根目录运行：
-
-```bash
-python themes/trime/tools/validate_palette_only.py
-```
-
-校验会逐套比对除主题名称与默认配色之外的全部 YAML 文本；如果任何主题意外改变了布局或按键定义，就会失败。
-
-注意：网页版 `showcase/index.html` 的早期示意图用了不同的 CSS 尺寸，现在已按模板的键高 36、横向间距 6、行距 11、候选字体 19、候选高度 42 和底部留白 39 修正。不过 HTML 仍是视觉模拟，不是 Trime 的原生渲染器。实际机型的字体度量、屏幕缩放和应用设置可能产生细微差别。
-
-## 2026-11-08 空输入工具栏与编辑键盘
-
-12 套主题及 base 参考模板已统一加入 Trime 3.3.12 `tool_bar` 配置：
-
-- 未输入编码时显示：菜单、编辑、剪贴板、表情、设置（具体顺序按同文从右向左的按钮布局）；输入编码时按 Trime 自身逻辑切换为候选栏。
-- 编辑入口使用独立的 `editor` 键盘，支持全选、剪切、复制、粘贴、光标移动、删除和返回原键盘。
-- 仍然保留原 `qwerty`、数字键盘、键高、间距、上滑、长按、候选间距及底部留白；颜色仅取当前主题的配色。
-- 部署前先备份手机原皮肤。复制所需 `.trime.yaml` 到同文 shared 目录，选用该皮肤后按需重新部署。
-- 安卓 `wxm` 等三码不出候选的问题不属于皮肤修复：另有 [安卓专用可选补丁](../../schemes/chuiyi_pinyin/android/README.md)，只安装在手机，不影响 Windows。
-- 已做 12/12 套主题与 base 非配色内容一致性检查。**尚未在手机上完成工具栏按钮和三码候选的实机验收**。
+皮肤基于同文输入法及其 GPL-3.0 预设主题改编，保留原文件的署名和许可要求；用到的资源与字体仍受原许可约束。

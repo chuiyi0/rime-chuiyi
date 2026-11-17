@@ -1,7 +1,9 @@
-# 来源与许可
+# 来源与许可：常规版
 
-编码设计：吹衣OVO，2026-10-17 确认的新矩阵。GPT 协助实现与检查。
+编码设计：吹衣OVO。程序实现与检查由 AI（GPT、Claude）协助完成。
 
-词库继承本仓库 `schemes/chuiyi_1/chuiyi_dicts/{chars,base}.dict.yaml`，保留原有词频、注音和声明，仅增加重复字轻声的词组兼容读法。源文件 SHA-256 见 validation.json。没有下载或声称接入额外的雾凇全量词库。
+- 1.2 的编码矩阵于 2026-10-17 确认；1.3 于 2026-11-17 调整为 e/ei/ie 四声用 `t`、un 用 `y`。
+- 词库继承本仓库 `schemes/chuiyi_1/chuiyi_dicts/{chars,base}.dict.yaml`，保留原有词条、词频和注音，只增加双字词末字轻声的兼容读法，并去掉单字「雷」的 lei4 读音。源文件 SHA-256 记录在 `validation.json`。
+- 没有额外下载或接入雾凇拼音的全量词库。
 
-沿用仓库根目录 LICENSE、NOTICE.md 与 LICENSES 中的来源及许可证。分发安装包时须保留这些声明。原方案的来源链、pinyin-data 与 phrase-pinyin-data MIT 许可及雾凇 GPL-3.0 声明仍适用。
+沿用仓库根目录的 `LICENSE`、`NOTICE.md` 和 `LICENSES/` 中的来源及许可证，分发安装包时须保留这些声明。雾凇拼音（GPL-3.0）、pinyin-data 和 phrase-pinyin-data（MIT）的声明仍然适用。

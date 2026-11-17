@@ -1,45 +1,42 @@
-# 吹衣带调拼音轻量版 1.1.0
+# 吹衣带调拼音 · 轻量版 1.1.0
 
-这是独立的 Rime 双拼方案，按作者提供的 [MATRIX.md](MATRIX.md) 编码，零声母按 [ZERO_INITIALS.md](ZERO_INITIALS.md) 覆盖；不会覆盖仓库里的吹衣带调拼音 1.2.x。
+**新手推荐版本。** 声调区分比常规版少，零声母和小鹤双拼一样，上手更快。
 
-## 设计规则
+方案标识：`chuiyi_pinyin_lite_1_0`（为了保留已有用户的学习记录，标识沿用 1_0，显示名称是 1.1.0）
 
-- 每个音节输入两个按键：第一键来自左侧声母编码列，第二键来自顶部韵母编码行。
-- 顶部编码为空时，继承左侧最近一个非空的韵母编码。
-- 顶部若为两个字母（例如 `ip4`、`wu4`、`et4`），第一个字母用于非第四声，第二个字母仅用于第四声；数字 `4` 是说明标记，不用输入。
-- `t` 对应 e/ei/ie 的第四声，`y` 对应 un；例如 `bt=bei4`、`dy=dun`。零声母仍按专门规则输入。
-- `yan` 使用 an 韵母键 j，各声调统一输入 `yj`，不使用 `ym`。
-- 顶部为一个字母时，各声调使用同一个韵母键。
-- 原矩阵中的重复拼音和特殊拼写均予以保留；轻量版中 `iu=q`、`ou=z`，不再共用 `z`。
+[下载 ZIP](https://github.com/chuiyi0/rime-chuiyi/releases/download/lite-v1.1.0/chuiyi-pinyin-lite-1.1.0.zip) · [安装](INSTALL.md) · [练习表](TUTORIAL.md) · [编码矩阵](MATRIX.md) · [零声母规则](ZERO_INITIALS.md) · [更新记录](RELEASE.md) · [返回首页](../../README.md)
 
-## 示例
+## 规则
 
-| 拼音 | 输入编码 |
-|---|---|
-| `yi1` | `yi` |
-| `yi4` | `yp` |
-| `wu1` | `ww` |
-| `wu4` | `wu` |
-| `e1` | `ee` |
-| `e4` | `ee` |
-| `bei1` | `be` |
-| `bei4` | `bt` |
-| `dun` | `dy` |
-| `liu` | `lq` |
-| `lou` | `lz` |
-| 零声母 `ou` | `ou` |
+- 每个字按两个键：第一键是声母，第二键是韵母。`zh → v`，`ch → i`，`sh → u`。
+- **只有三类韵母区分声调，而且只分「四声 / 非四声」：**
 
-编码有意存在同码情况；输入后由 Rime 按词库显示候选。输入时可按 [ / ] 翻候选页，选好候选后按回车上屏。完整映射见 mapping.tsv。
+  | 韵母 | 非四声 | 四声 |
+  |---|---|---|
+  | i | `i` | `p` |
+  | u | `w` | `u` |
+  | e / ei / ie | `e` | `t` |
 
-## 安装与测试
+- 其他韵母不分声调，例如 un → `y`，iu → `q`，ou → `z`，an → `j`。完整对应见 [编码矩阵](MATRIX.md)。
+- yan 的各个声调统一按 `yj`。
+- 零声母照小鹤双拼：安 `an`，欧 `ou`，额 `ee`，昂 `ah`。见 [零声母规则](ZERO_INITIALS.md)。
 
-- [安装说明](INSTALL.md)
-- [抽样教程](TUTORIAL.md)
-- [来源声明](NOTICE.md)
-- 自动生成报告：`validation.json`
+## 例子
 
+| 拼音 | 按键 | 拼音 | 按键 |
+|---|---|---|---|
+| yī（衣） | `yi` | yì（意） | `yp` |
+| wú（无） | `ww` | wù（物） | `wu` |
+| bēi（杯） | `be` | bèi（被） | `bt` |
+| dùn（顿） | `dy` | liú（刘） | `lq` |
+| lóu（楼） | `lz` | ōu（欧） | `ou` |
 
+同一个编码可能对应好几个字，候选按词频排列。按 `[` / `]` 翻页，按空格选第一个，按数字键选其他候选。逐音节对照表见 `mapping.tsv`。
 
-[下载完整轻量版安装包](https://github.com/chuiyi0/rime-chuiyi/releases/download/lite-v1.1.0/chuiyi-pinyin-lite-1.1.0.zip)
+## 测试情况
 
-本次已通过 Windows 原生引擎33项抽查，覆盖 yan 编码、y/t 换位、旧码排除、零声母与 ju/jv 多码。电脑抽查记录见 windows-smoke.json。安卓尚未实机验证。
+已通过 Windows Rime 引擎 33 项抽查（yan 编码、t/y 对调、零声母、ju/jv 多码等），记录见 `windows-smoke.json`。安卓尚未完整实测。
+
+## 来源
+
+见 [NOTICE.md](NOTICE.md)。
