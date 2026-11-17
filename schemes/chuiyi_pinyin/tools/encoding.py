@@ -1,10 +1,11 @@
-"""Author-confirmed 1.2 matrix. i=1/5, o=2/3, p=4; only 2-char neutral endings are relaxed."""
+"""Author-confirmed 1.3 matrix. i=1/5, o=2/3, p=4; e/ei/ie tone 4 -> t, un -> y (same as lite, Xiaohe-style un=y).
+Only 2-char neutral endings are relaxed."""
 COLUMNS = [('i', 'iop4', 'bi pi mi lv di ti ni li ji qi xi yi zhi chi shi ri er zi ci si jian qian xian yan'),
  ('u', 'wu4', 'bu pu mu fu du tu nu lu gu ku hu wu ju qu xu yu zhu chu shu ru zu cu su'),
  ('ü', 'wu4', 'nv'),
- ('e', 'ey4', 'me de te ne le ge ke he ye zhe che she re ze ce se e'),
- ('ei', 'ey4', 'bei pei mei fei dei tei nei lei gei kei hei wei zhei shei zei cei ei'),
- ('ie', 'ey4', 'bie pie mie die tie nie lie jie qie xie'),
+ ('e', 'et4', 'me de te ne le ge ke he ye zhe che she re ze ce se e'),
+ ('ei', 'et4', 'bei pei mei fei dei tei nei lei gei kei hei wei zhei shei zei cei ei'),
+ ('ie', 'et4', 'bie pie mie die tie nie lie jie qie xie'),
  ('an', 'j', 'ban pan man fan dan tan nan lan gan kan han wan zhan chan shan ran zan can san an'),
  ('ian', 'm', 'bian pian mian dian tian nian lian'),
  ('o', 'x', 'bo po mo fo wo yo o lo'),
@@ -24,7 +25,7 @@ COLUMNS = [('i', 'iop4', 'bi pi mi lv di ti ni li ji qi xi yi zhi chi shi ri er 
  ('ong', 's', 'dong tong nong long gong kong hong jiong qiong xiong yong zhong chong rong zong cong song ong'),
  ('iu', 'z', 'miu diu niu liu jiu qiu xiu'),
  ('ou', 'z', 'pou mou fou dou tou nou lou gou kou hou you zhou chou shou rou zou cou sou ou'),
- ('un', 't', 'dun tun lun gun kun hun zhun chun shun run zun cun sun jun qun xun yun'),
+ ('un', 'y', 'dun tun lun gun kun hun zhun chun shun run zun cun sun jun qun xun yun'),
  ('ui', 'v', 'dui tui gui kui hui zhui chui shui rui zui cui sui'),
  ('uan', 'r', 'duan tuan nuan luan guan kuan huan juan quan xuan yuan zhuan chuan shuan ruan zuan cuan suan'),
  ('iao', 'n', 'biao piao miao diao tiao niao liao jiao qiao xiao fiao'),
