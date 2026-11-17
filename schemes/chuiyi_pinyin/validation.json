@@ -8,16 +8,16 @@
   ],
   "neutral_aliases_added": 16815,
   "eligible_neutral_entries": 4350,
-  "schema_id": "chuiyi_pinyin_1_2",
-  "version": "1.2",
+  "schema_id": "chuiyi_pinyin_1_3",
+  "version": "1.3",
   "syllables": 415,
   "phone_mappings": 2075,
   "dictionary_rows": 571180,
   "repeat_aliases_added": 142,
   "source_sha256": {
-    "schemes\\chuiyi_1\\chuiyi_1.schema.yaml": "a5b6e1e7f7be5ff900b41fcdf066a2dd8e1464c4c95b2989a561053aa9080778",
-    "schemes\\chuiyi_1\\chuiyi_dicts\\base.dict.yaml": "4848cf4e68590eae378dbc1fef6f84e57cf04d3fc8368bce11f81b09356cfdaf",
-    "schemes\\chuiyi_1\\chuiyi_dicts\\chars.dict.yaml": "470032273f05fdd06dc9441689a39e32a87eb4777c7f9dda0958bd53df8c31d5"
+    "schemes/chuiyi_1/chuiyi_1.schema.yaml": "a5b6e1e7f7be5ff900b41fcdf066a2dd8e1464c4c95b2989a561053aa9080778",
+    "schemes/chuiyi_1/chuiyi_dicts/base.dict.yaml": "4848cf4e68590eae378dbc1fef6f84e57cf04d3fc8368bce11f81b09356cfdaf",
+    "schemes/chuiyi_1/chuiyi_dicts/chars.dict.yaml": "470032273f05fdd06dc9441689a39e32a87eb4777c7f9dda0958bd53df8c31d5"
   },
   "omitted_rows": [],
   "cross_syllable_collisions": {
@@ -31,7 +31,7 @@
       "bie3",
       "bie5"
     ],
-    "by": [
+    "bt": [
       "bei4",
       "bie4"
     ],
@@ -45,7 +45,7 @@
       "cei3",
       "cei5"
     ],
-    "cy": [
+    "ct": [
       "ce4",
       "cei4"
     ],
@@ -75,7 +75,7 @@
       "die3",
       "die5"
     ],
-    "dy": [
+    "dt": [
       "de4",
       "dei4",
       "die4"
@@ -102,7 +102,7 @@
       "ei3",
       "ei5"
     ],
-    "oy": [
+    "ot": [
       "e4",
       "ei4"
     ],
@@ -132,7 +132,7 @@
       "gei3",
       "gei5"
     ],
-    "gy": [
+    "gt": [
       "ge4",
       "gei4"
     ],
@@ -146,7 +146,7 @@
       "hei3",
       "hei5"
     ],
-    "hy": [
+    "ht": [
       "he4",
       "hei4"
     ],
@@ -160,7 +160,7 @@
       "kei3",
       "kei5"
     ],
-    "ky": [
+    "kt": [
       "ke4",
       "kei4"
     ],
@@ -190,7 +190,7 @@
       "lie3",
       "lie5"
     ],
-    "ly": [
+    "lt": [
       "le4",
       "lei4",
       "lie4"
@@ -238,7 +238,7 @@
       "mie3",
       "mie5"
     ],
-    "my": [
+    "mt": [
       "me4",
       "mei4",
       "mie4"
@@ -269,7 +269,7 @@
       "nie3",
       "nie5"
     ],
-    "ny": [
+    "nt": [
       "ne4",
       "nei4",
       "nie4"
@@ -322,7 +322,7 @@
       "pie3",
       "pie5"
     ],
-    "py": [
+    "pt": [
       "pei4",
       "pie4"
     ],
@@ -336,7 +336,7 @@
       "shei3",
       "shei5"
     ],
-    "uy": [
+    "ut": [
       "she4",
       "shei4"
     ],
@@ -354,7 +354,7 @@
       "tie3",
       "tie5"
     ],
-    "ty": [
+    "tt": [
       "te4",
       "tei4",
       "tie4"
@@ -381,7 +381,7 @@
       "zei3",
       "zei5"
     ],
-    "zy": [
+    "zt": [
       "ze4",
       "zei4"
     ],
@@ -395,7 +395,7 @@
       "zhei3",
       "zhei5"
     ],
-    "vy": [
+    "vt": [
       "zhe4",
       "zhei4"
     ]
@@ -448,23 +448,23 @@
     "妹妹": [
       {
         "phones": "mei4 mei5",
-        "code": "myme"
+        "code": "mtme"
       },
       {
         "phones": "mei4 mei4",
-        "code": "mymy"
+        "code": "mtmt"
       },
       {
         "phones": "mei4 mei1",
-        "code": "myme"
+        "code": "mtme"
       },
       {
         "phones": "mei4 mei2",
-        "code": "myme"
+        "code": "mtme"
       },
       {
         "phones": "mei4 mei3",
-        "code": "myme"
+        "code": "mtme"
       }
     ],
     "我们": [
@@ -490,7 +490,7 @@
       }
     ]
   },
-  "mapping_assertions": 45,
+  "mapping_assertions": 49,
   "engine_test_report": "engine-verification.json (when present; verify input hashes)",
   "source_unchanged": true
 }

@@ -1964,5 +1964,3 @@ preset_keyboards:
     - {click: space, width: 25}
     - {click: "'", long_click: "?"}
     - {click: Return, long_click: CommitComment, width: 25.5}
-
-[executed on device: chuiyi-PC (7b2ba897-60ce-49c2-b101-da626cb4fa7b)]

@@ -89,12 +89,19 @@ for name in names:
  dest.write_text(s,encoding="utf-8",newline="\n")
  uploads.append((name,dest))
 # Syntax-check all skins BEFORE any adb push.
-validator=Path(r"C:\Users\chuiyi\AppData\Local\npm-cache\_npx\4b4c857f6efdfb61\node_modules\js-yaml\index.js")
-if not validator.is_file():
- raise RuntimeError("YAML validator is unavailable; refused to modify phone.")
-js="const fs=require('fs'),yaml=require("+json.dumps(str(validator))+");yaml.load(fs.readFileSync(process.argv[1],'utf8'));"
-for _,item in uploads:
- subprocess.run(["node","-e",js,str(item)],check=True,stdout=subprocess.DEVNULL)
+# Prefer PyYAML (pip install pyyaml). Fallback: set CHUIYI_JS_YAML to the path of js-yaml's index.js.
+import os
+try:
+ import yaml as _yaml
+ for _,item in uploads:
+  _yaml.safe_load(item.read_text(encoding="utf-8"))
+except ImportError:
+ validator=Path(os.environ.get("CHUIYI_JS_YAML",""))
+ if not validator.is_file():
+  raise RuntimeError("YAML validator is unavailable (pip install pyyaml, or set CHUIYI_JS_YAML); refused to modify phone.")
+ js="const fs=require('fs'),yaml=require("+json.dumps(str(validator))+");yaml.load(fs.readFileSync(process.argv[1],'utf8'));"
+ for _,item in uploads:
+  subprocess.run(["node","-e",js,str(item)],check=True,stdout=subprocess.DEVNULL)
 print("YAML_OK",len(uploads))
 print("PLAN_READY",len(favorite),"favorites in",len(uploads),"skins")
 for name,local in uploads:

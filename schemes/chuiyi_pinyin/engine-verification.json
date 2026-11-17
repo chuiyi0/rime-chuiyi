@@ -1,6 +1,365 @@
 {
-  "version": "1.2",
-  "current_windows_report": "windows-engine-verification.json",
-  "current_android_report": "android-verification.json",
-  "linux_current_version_tested": false
+  "method": "Linux librime 1.10.0; isolated data; actual schema compilation and candidate enumeration",
+  "passed": 50,
+  "total": 50,
+  "checks": [
+    {
+      "word": "我",
+      "phones": "wo3",
+      "code": "wx",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "被",
+      "phones": "bei4",
+      "code": "bt",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "顿",
+      "phones": "dun4",
+      "code": "dy",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "准",
+      "phones": "zhun3",
+      "code": "vy",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "谢谢",
+      "phones": "xie4 xie5",
+      "code": "xtxe",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "论文",
+      "phones": "lun4 wen2",
+      "code": "lywf",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "特别",
+      "phones": "te4 bie2",
+      "code": "ttbe",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "你",
+      "phones": "ni3",
+      "code": "no",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "我们",
+      "phones": "wo3 men5",
+      "code": "wxmf",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "中国",
+      "phones": "zhong1 guo2",
+      "code": "vsgx",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "继续",
+      "phones": "ji4 xu4",
+      "code": "jpxu",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "积蓄",
+      "phones": "ji1 xu4",
+      "code": "jixu",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "爸爸",
+      "phones": "ba4 ba5",
+      "code": "baba",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "爸爸",
+      "phones": "ba4 ba4",
+      "code": "baba",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "妈妈",
+      "phones": "ma1 ma5",
+      "code": "mama",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "妈妈",
+      "phones": "ma1 ma1",
+      "code": "mama",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "妹妹",
+      "phones": "mei4 mei5",
+      "code": "mtme",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "妹妹",
+      "phones": "mei4 mei4",
+      "code": "mtmt",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "欧",
+      "phones": "ou1",
+      "code": "oz",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "偶",
+      "phones": "ou3",
+      "code": "oz",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "而",
+      "phones": "er2",
+      "code": "ro",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "二",
+      "phones": "er4",
+      "code": "rp",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "日",
+      "phones": "ri4",
+      "code": "rp",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "绿",
+      "phones": "lv4",
+      "code": "fp",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "女",
+      "phones": "nv3",
+      "code": "nw",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "虐",
+      "phones": "nve4",
+      "code": "nx",
+      "rank": 3,
+      "passed": true
+    },
+    {
+      "word": "略",
+      "phones": "lve4",
+      "code": "lx",
+      "rank": 3,
+      "passed": true
+    },
+    {
+      "word": "落",
+      "phones": "luo4",
+      "code": "lx",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "觉",
+      "phones": "jue2",
+      "code": "jx",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "哦",
+      "phones": "o2",
+      "code": "ox",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "了",
+      "phones": "le5",
+      "code": "le",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "鲁",
+      "phones": "lu3",
+      "code": "lw",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "路",
+      "phones": "lu4",
+      "code": "lu",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "乐",
+      "phones": "le4",
+      "code": "lt",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "桌子",
+      "phones": "zhuo1 zi4",
+      "code": "vxzp",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "衣服",
+      "phones": "yi1 fu4",
+      "code": "yifu",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "离",
+      "phones": "li2",
+      "code": "lo",
+      "rank": 4,
+      "passed": true
+    },
+    {
+      "word": "理",
+      "phones": "li3",
+      "code": "lo",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "力",
+      "phones": "li4",
+      "code": "lp",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "间",
+      "phones": "jian1",
+      "code": "gi",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "简",
+      "phones": "jian3",
+      "code": "go",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "建",
+      "phones": "jian4",
+      "code": "gp",
+      "rank": 5,
+      "passed": true
+    },
+    {
+      "word": "烟",
+      "phones": "yan1",
+      "code": "wi",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "言",
+      "phones": "yan2",
+      "code": "wo",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "厌",
+      "phones": "yan4",
+      "code": "wp",
+      "rank": 7,
+      "passed": true
+    },
+    {
+      "word": "桌子",
+      "phones": "zhuo1 zi2",
+      "code": "vxzo",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "word": "雷",
+      "phones": "lei2",
+      "code": "le",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "word": "子",
+      "code": "zp",
+      "expected": "absent",
+      "rank": null,
+      "passed": true
+    },
+    {
+      "word": "天",
+      "code": "tj",
+      "expected": "absent",
+      "rank": null,
+      "passed": true
+    },
+    {
+      "word": "雷",
+      "code": "lt",
+      "expected": "absent",
+      "rank": null,
+      "passed": true
+    }
+  ],
+  "input_sha256": {
+    "chuiyi_pinyin_1_3.schema.yaml": "fbe92f50f30c280f328daa362e9343f780cfa15e11ac08ae6e63708cd1681054",
+    "chuiyi_pinyin_1_3.dict.yaml": "3292b77ca9ec40bbdfa4504f9356de6a9d0f07c6866d82880b07bb012f9061aa",
+    "chuiyi_pinyin_1_3_dicts/base.dict.yaml": "d0b0d45d9d6e53968b66289230a11c233719e7e9da659f63c8624cd5223fc975",
+    "chuiyi_pinyin_1_3_dicts/chars.dict.yaml": "ebaeeaa0b2c0ee530068db5bee875e23cd010e312983b6617aa4757f2b95ecce"
+  },
+  "windows_live_test": false,
+  "android_device_test": false
 }
