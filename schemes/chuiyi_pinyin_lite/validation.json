@@ -9,25 +9,25 @@
   "same_code_multiple_readings": 404,
   "sample_mapping_checks": 37,
   "sample_inverse_checks": 18,
-  "dictionary_rows_kept": 554225,
+  "dictionary_rows_kept": 554226,
   "dictionary_rows_omitted_for_unmapped_syllables": 0,
   "omitted_syllables_top20": [],
   "dictionary_outputs": {
     "base.dict.yaml": {
       "rows_kept": 544260,
-      "size_bytes": 18689120,
-      "sha256": "85cd7ecc7f50487b3d6fc5dc1a88e9c46f8a3e67a46a336fb40764fd6c5e1cdd"
+      "size_bytes": 18144854,
+      "sha256": "31674860a07edccde2fe1ef96acc6674120fd4803c030d3fcbdee0e2ecba63b8"
     },
     "chars.dict.yaml": {
-      "rows_kept": 9965,
-      "size_bytes": 150135,
-      "sha256": "a3b8ea15c05570462b5d95bdc276ce92abb8110b38ae57a88b911b040c6b9f87"
+      "rows_kept": 9966,
+      "size_bytes": 140183,
+      "sha256": "35b20b01d602f1f37d7a64649fa229d20ba8ea6a9f7bca9a6e5f0216c34686ca"
     }
   },
   "source_sha256_before": {
-    "schemes\\chuiyi_1\\chuiyi_1.schema.yaml": "227b6fad89d36fe15988a3406065b9183ca00281acd4269770df17b2490e7734",
-    "schemes\\chuiyi_1\\chuiyi_dicts\\base.dict.yaml": "60707f27cd20fd650141bc6f4adf7f70cb130a91ba5d592481534fc7353765ce",
-    "schemes\\chuiyi_1\\chuiyi_dicts\\chars.dict.yaml": "e9ab3c9fdbba19d784070f891e8e7025e230df01d006577d25f8caa324d902c7"
+    "schemes/chuiyi_1/chuiyi_1.schema.yaml": "a5b6e1e7f7be5ff900b41fcdf066a2dd8e1464c4c95b2989a561053aa9080778",
+    "schemes/chuiyi_1/chuiyi_dicts/base.dict.yaml": "4848cf4e68590eae378dbc1fef6f84e57cf04d3fc8368bce11f81b09356cfdaf",
+    "schemes/chuiyi_1/chuiyi_dicts/chars.dict.yaml": "470032273f05fdd06dc9441689a39e32a87eb4777c7f9dda0958bd53df8c31d5"
   },
   "source_unchanged": true,
   "rime_runtime_test": "see windows-smoke.json and android-smoke.json when present"

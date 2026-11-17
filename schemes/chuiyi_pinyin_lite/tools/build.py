@@ -16,6 +16,8 @@ SCHEMA_SOURCE = ROOT.parent / "chuiyi_1" / "chuiyi_1.schema.yaml"
 SCHEMA_ID = "chuiyi_pinyin_lite_1_0"
 DICT_DIR_NAME = SCHEMA_ID + "_dicts"
 VERSION = "1.1.0"
+# 额外词条：(词条, 带调拼音, 参考字)
+EXTRA_ENTRIES = [("吗？", "ma5", "吗")]
 
 
 def sha256(path):
@@ -69,9 +71,14 @@ def main():
         "key_binder:\n  import_preset: default",
         "key_binder:\n  import_preset: default\n  bindings:\n"
         "    - { when: paging, accept: bracketleft, send: Page_Up }\n"
-        "    - { when: has_menu, accept: bracketright, send: Page_Down }",
+        "    - { when: has_menu, accept: bracketright, send: Page_Down }\n"
+        "    - { when: always, accept: Control+period, toggle: ascii_punct }",
         1,
     )
+    # Ctrl+. 切换中文/英文标点：打汉字时可输出英文半角标点（状态会被记住）。
+    switch = "  - name: full_shape\n    reset: 0\n    states: [半角, 全角]\n"
+    assert switch in schema
+    schema = schema.replace(switch, switch + "  - name: ascii_punct\n    states: [中文标点, 英文标点]\n", 1)
     schema_path = ROOT / f"{SCHEMA_ID}.schema.yaml"
     schema_path.write_text(schema, encoding="utf-8")
 
@@ -125,6 +132,12 @@ def main():
             seen.add(key)
             output.append(line)
             kept += 1
+            # 额外词条：在参考字后面加一条，权重少 1，排在参考字后面。
+            for extra_word, extra_phones, ref in EXTRA_ENTRIES:
+                if (word, phones_text) == (ref, extra_phones) and (extra_word, extra_phones) not in seen:
+                    seen.add((extra_word, extra_phones))
+                    output.append(f"{extra_word}\t{extra_phones}\t{max(int(weight) - 1, 1)}")
+                    kept += 1
         destination = target / source.name
         destination.write_text(header + sep + "\n".join(output) + "\n", encoding="utf-8")
         total_rows += kept
